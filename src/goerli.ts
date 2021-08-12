@@ -1,4 +1,5 @@
 import fs from "fs";
+import hre from "hardhat";
 
 import goerliAddressesJson from "src/addresses/goerli.addresses.json";
 import { getTokenList } from "src/getTokenList";
@@ -6,6 +7,10 @@ import { getTokenList } from "src/getTokenList";
 if (!fs.existsSync("dist")) {
   fs.mkdirSync("dist");
 }
+
+const network = hre.network.name == "hardhat" ? "mainnet" : hre.network.name;
+const addressesJsonFilePath = '';
+console.log('network', network);
 
 getTokenList(
   goerliAddressesJson,

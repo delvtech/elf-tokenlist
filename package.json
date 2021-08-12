@@ -12,7 +12,10 @@
     "tsc": "^2.0.3",
     "tsconfig-paths": "^3.10.1"
   },
-  "main": "dist/types/types.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "types": "dist/types.d.ts",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
@@ -40,7 +43,12 @@
   },
   "scripts": {
     "update-elf-contracts-typechain": "npm install git+https://github.com/element-fi/elf-contracts-typechain.git",
-    "build-goerli": "bash scripts/build-goerli.sh",
-    "build-mainnet": "bash scripts/build-mainnet.sh"
+    "fetch-addresses-json-goerli": "curl https://raw.githubusercontent.com/element-fi/elf-deploy/main/addresses/frontend-goerli.addresses.json > src/addresses/goerli.addresses.json",
+    "fetch-addresses-json-mainnet": "curl https://raw.githubusercontent.com/element-fi/elf-deploy/main/addresses/frontend-mainnet.addresses.json > src/addresses/mainnet.addresses.json",
+    "build-tokenlist-goerli": "npm run fetch-addresses-json-goerli && bash scripts/build-tokenlist.sh goerli",
+    "build-tokenlist-mainnet": "npm run fetch-addresses-json-mainnet && bash scripts/build-tokenlist.sh mainnet",
+    "build-index": "bash scripts/build-index.sh",
+    "build": " npm run build-tokenlist-goerli && npm run build-tokenlist-mainnet && npm run build-index && npm run copy-files",
+    "copy-files": "bash scripts/copy-dist-files.sh"
   }
 }

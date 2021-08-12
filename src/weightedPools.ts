@@ -4,7 +4,8 @@ import { WeightedPool__factory } from "elf-contracts-typechain/dist/types/factor
 import { WeightedPool } from "elf-contracts-typechain/dist/types/WeightedPool";
 import hre from "hardhat";
 import zip from "lodash.zip";
-import { TokenListTag, YieldPoolTokenInfo, YieldTokenInfo } from "src/types";
+import { ElementTokenTag } from "src/tags";
+import { YieldPoolTokenInfo, YieldTokenInfo } from "src/types";
 
 export const provider = hre.ethers.provider;
 export async function getYieldPoolTokenInfos(
@@ -113,7 +114,7 @@ export async function getYieldPoolTokenInfos(
           expiration: unlockTimestamp as number,
         },
         name: name as string,
-        tags: [TokenListTag.WPOOL],
+        tags: [ElementTokenTag.WPOOL],
         // TODO: What logo do we want to show for wpool tokens?
         // logoURI: ""
       };

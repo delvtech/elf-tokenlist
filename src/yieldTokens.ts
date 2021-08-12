@@ -5,7 +5,8 @@ import { InterestToken__factory } from "elf-contracts-typechain/dist/types/facto
 import { Tranche__factory } from "elf-contracts-typechain/dist/types/factories/Tranche__factory";
 import { InterestToken } from "elf-contracts-typechain/dist/types/InterestToken";
 import { getTokenSymbolMulti } from "src/erc20";
-import { PrincipalTokenInfo, YieldTokenInfo, TokenListTag } from "src/types";
+import { PrincipalTokenInfo, YieldTokenInfo } from "src/types";
+import { ElementTokenTag } from "src/tags";
 
 let hardhatSymbolOverrides = {};
 if (process.env.NODE_ENV === "development") {
@@ -90,7 +91,7 @@ export async function getYieldTokenInfos(
           underlying: underlying as string,
           unlockTimestamp: unlockTimestamp as number,
         },
-        tags: [TokenListTag.YIELD],
+        tags: [ElementTokenTag.YIELD],
         // TODO: What logo do we want to show for interest tokens?
         // logoURI: ""
       };

@@ -3,7 +3,6 @@ export interface AddressesJsonFile {
   addresses: {
     balancerVaultAddress: string;
     trancheFactoryAddress: string;
-    interestTokenFactoryAddress: string;
     weightedPoolFactoryAddress: string;
     convergentPoolFactoryAddress: string;
     userProxyContractAddress: string;
@@ -12,8 +11,7 @@ export interface AddressesJsonFile {
     usdcAddress: string;
     stecrvAddress: string;
     crvtricryptoAddress: string;
-    crvlusdAddress: string;
-    crvalusdAddress: string;
+    "lusd3crv-fAddress": string;
   };
   safelist: string[];
 }

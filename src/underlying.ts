@@ -1,14 +1,14 @@
 import { TokenInfo } from "@uniswap/token-lists";
+import { ERC20__factory } from "elf-contracts-typechain/dist/types/factories/ERC20__factory";
 import hre from "hardhat";
 import zip from "lodash.zip";
 
-import { ERC20__factory } from "elf-contracts-typechain/dist/types/factories/ERC20__factory";
 import {
+  getTokenDecimalsMulti,
   getTokenNameMulti,
   getTokenSymbolMulti,
-  getTokenDecimalsMulti,
 } from "src/erc20";
-import { TokenListTag } from "src/types";
+import { ElementTokenTag } from "src/tags";
 
 export const provider = hre.ethers.provider;
 export async function getUnderlyingTokenInfos(
@@ -35,7 +35,7 @@ export async function getUnderlyingTokenInfos(
       symbol: symbol as string,
       decimals: decimal as number,
       name: name as string,
-      tags: [TokenListTag.UNDERLYING],
+      tags: [ElementTokenTag.UNDERLYING],
       // TODO: What logo do we want to show for base assets?
       // logoURI: ""
     };

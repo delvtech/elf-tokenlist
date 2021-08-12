@@ -1,13 +1,31 @@
-import { TokenInfo } from "@uniswap/token-lists";
+import { TokenInfo, TokenList } from "@uniswap/token-lists";
 
-export enum TokenListTag {
-  VAULT = "vault",
-  ASSET_PROXY = "assetproxy",
-  CCPOOL = "ccpool",
-  PRINCIPAL = "eP",
-  UNDERLYING = "underlying",
-  WPOOL = "wpool",
-  YIELD = "eY",
+export declare const mainnetTokenList: TokenList;
+export declare const goerliTokenList: TokenList;
+export declare const ElementTokenTag: {
+  VAULT: "vault";
+  ASSET_PROXY: "assetproxy";
+  CCPOOL: "ccpool";
+  PRINCIPAL: "eP";
+  UNDERLYING: "underlying";
+  WPOOL: "wpool";
+  YIELD: "eY";
+};
+export declare type ElementTokenTag =
+  typeof ElementTokenTag[keyof typeof ElementTokenTag];
+
+export type TokenListTag =
+  | "assetproxy"
+  | "ccpool"
+  | "eP"
+  | "eY"
+  | "underlying"
+  | "vault"
+  | "wpool";
+
+export interface TagInfo {
+  name: string;
+  description: string;
 }
 
 export interface PrincipalTokenInfo extends TokenInfo {

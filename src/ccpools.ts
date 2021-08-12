@@ -4,7 +4,10 @@ import { ConvergentPoolFactory } from "elf-contracts-typechain/dist/types";
 import { ConvergentCurvePool__factory } from "elf-contracts-typechain/dist/types/factories/ConvergentCurvePool__factory";
 import hre from "hardhat";
 import zip from "lodash.zip";
-import { PrincipalPoolTokenInfo, TokenListTag } from "src/types";
+
+import { PrincipalPoolTokenInfo } from "src/types";
+
+import { ElementTokenTag } from "src/tags";
 
 export const provider = hre.ethers.provider;
 export async function getPrincipalPoolTokenInfos(
@@ -95,7 +98,7 @@ export async function getPrincipalPoolTokenInfos(
           createdAtTimestamp: poolCreatedAt as number,
         },
         name: name as string,
-        tags: [TokenListTag.CCPOOL],
+        tags: [ElementTokenTag.CCPOOL],
         // TODO: What logo do we want to show for ccpool tokens?
         // logoURI: ""
       };

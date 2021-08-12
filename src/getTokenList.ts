@@ -35,15 +35,30 @@ export async function getTokenList(
       wethAddress,
       usdcAddress,
       daiAddress,
-      crvlusdAddress,
+      "lusd3crv-fAddress": crvlusdAddress,
       convergentPoolFactoryAddress,
       weightedPoolFactoryAddress,
-      crvalusdAddress,
       crvtricryptoAddress,
       stecrvAddress,
     },
     safelist,
   } = addressesJson;
+
+  const underlyingAddresses = [
+    wethAddress,
+    usdcAddress,
+    daiAddress,
+    crvlusdAddress,
+    crvtricryptoAddress,
+    stecrvAddress,
+  ];
+  console.log("underlyingAddresses", underlyingAddresses);
+  if (underlyingAddresses.find((a) => a === undefined)) {
+    console.warn(
+      "Found at least one undefined underlying token address",
+      underlyingAddresses
+    );
+  }
 
   const trancheFactory = TrancheFactory__factory.connect(
     trancheFactoryAddress,
@@ -59,19 +74,20 @@ export async function getTokenList(
     provider
   );
 
-  // Skip addresses that are "0x0", which can happen if you know the underlying
-  // token isn't available on the given chain.
-  const underlyingTokenAddresses = [
-    wethAddress,
-    usdcAddress,
-    daiAddress,
-    crvlusdAddress,
-    crvalusdAddress,
-    crvtricryptoAddress,
-    stecrvAddress,
-  ].filter(
-    (address) => address !== "0x0000000000000000000000000000000000000000"
-  );
+  const underlyingTokenAddresses = underlyingAddresses
+    // Addresses that aren't available on the given chain (ie: we dont have
+    // mainnet weth terms!) should be filled in w/ the zero address to be
+    // compliant with the addresses.schema.json
+    .filter(
+      (address) => address !== "0x0000000000000000000000000000000000000000"
+    )
+    // if an address is actually missing, (shouldn't happen, there's a json schema that should prevent this!)
+    .filter((address) => {
+      if (!address) {
+        return false;
+      }
+      return true;
+    });
 
   const underlyingTokenInfos = await getUnderlyingTokenInfos(
     chainId,

@@ -6,12 +6,13 @@ import { YVaultAssetProxy__factory } from "elf-contracts-typechain/dist/types/fa
 
 import { Tranche__factory } from "elf-contracts-typechain/dist/types";
 import { ERC20 } from "elf-contracts-typechain/dist/types/ERC20";
-import { AssetProxyTokenInfo, PrincipalTokenInfo, TokenListTag } from "./types";
+import { AssetProxyTokenInfo, PrincipalTokenInfo } from "./types";
 import {
   getTokenNameMulti,
   getTokenSymbolMulti,
   getTokenDecimalsMulti,
 } from "./erc20";
+import { ElementTokenTag } from "src/tags";
 
 export const provider = hre.ethers.provider;
 
@@ -69,7 +70,7 @@ export async function getAssetProxyTokenInfos(
       symbol: symbol as string,
       decimals: decimal as number,
       name: name as string,
-      tags: [TokenListTag.ASSET_PROXY],
+      tags: [ElementTokenTag.ASSET_PROXY],
       extensions: { vault: vault as string },
       // TODO: What logo do we want to show for base assets?
       // logoURI: ""
