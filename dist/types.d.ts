@@ -11,7 +11,6 @@ export declare const ElementTokenTag: {
     YIELD: "eY";
 };
 export declare type ElementTokenTag = typeof ElementTokenTag[keyof typeof ElementTokenTag];
-export declare type TokenListTag = "assetproxy" | "ccpool" | "eP" | "eY" | "underlying" | "vault" | "wpool";
 export interface TagInfo {
     name: string;
     description: string;

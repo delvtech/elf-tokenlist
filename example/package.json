@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "example": "ts-node index.ts",
+    "example": "ts-node example.ts",
     "update-elf-tokenlist": "npm install git+https://github.com/element-fi/elf-tokenlist.git"
   },
   "author": "",

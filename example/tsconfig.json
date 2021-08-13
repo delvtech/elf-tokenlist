@@ -8,6 +8,6 @@
 	},
 	"include": [],
 	"files": [
-		"./index.ts",
+		"./example.ts"
 	]
 }

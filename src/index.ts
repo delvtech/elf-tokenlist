@@ -8,6 +8,7 @@
  */
 
 import { TokenList } from '@uniswap/token-lists';
+
 export * from './tags';
 
 export const mainnetTokenList: TokenList = {
@@ -43,7 +44,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-08-12T23:13:41.584Z",
+  "timestamp": "2021-08-13T21:30:50.110Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -167,6 +168,19 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x4F424B26c7c659F198797Bd87282BF602F543521",
+      "symbol": "yvcrv3crypto",
+      "decimals": 18,
+      "name": "element yvcrv3crypto",
+      "tags": [
+        "assetproxy"
+      ],
+      "extensions": {
+        "vault": "0xE537B5cc158EB71037D4125BDD7538421981E6AA"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6",
       "symbol": "yvCurve-LUSD",
       "decimals": 18,
@@ -211,6 +225,16 @@ export const mainnetTokenList: TokenList = {
       "symbol": "yvUSDC",
       "decimals": 6,
       "name": "USDC yVault",
+      "tags": [
+        "vault"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xE537B5cc158EB71037D4125BDD7538421981E6AA",
+      "symbol": "yvCurve-3Crypto",
+      "decimals": 18,
+      "name": "Curve 3Crypto Pool yVault",
       "tags": [
         "vault"
       ]
@@ -319,6 +343,23 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x9CF2AB51aC93711Ec2fa32Ec861349568A16c729",
+      "symbol": "ePyvcrv3crypto-12NOV21",
+      "decimals": 18,
+      "extensions": {
+        "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+        "position": "0x4F424B26c7c659F198797Bd87282BF602F543521",
+        "interestToken": "0x4f4500B3885bC72199373aBfE7aDEfd0366BAfeD",
+        "unlockTimestamp": 1636746083,
+        "createdAtTimestamp": 1628797282
+      },
+      "name": "crv3crypto Principal Token",
+      "tags": [
+        "eP"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
       "symbol": "eYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -402,6 +443,21 @@ export const mainnetTokenList: TokenList = {
         "tranche": "0xf38c3E836Be9cD35072055Ff6a9Ba570e0B70797",
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
         "unlockTimestamp": 1635528110
+      },
+      "tags": [
+        "eY"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x4f4500B3885bC72199373aBfE7aDEfd0366BAfeD",
+      "symbol": "eYyvcrv3crypto-12NOV21",
+      "decimals": 18,
+      "name": "crv3crypto Yield Token",
+      "extensions": {
+        "tranche": "0x9CF2AB51aC93711Ec2fa32Ec861349568A16c729",
+        "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+        "unlockTimestamp": 1636746083
       },
       "tags": [
         "eY"
@@ -517,6 +573,24 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0xF6dc4640D2783654BeF88E0dF3fb0F051f0DfC1A",
+      "symbol": "LPePyvcrv3crypto-12NOV21",
+      "decimals": 18,
+      "extensions": {
+        "bond": "0x9CF2AB51aC93711Ec2fa32Ec861349568A16c729",
+        "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+        "poolId": "0xf6dc4640d2783654bef88e0df3fb0f051f0dfc1a00020000000000000000007e",
+        "unitSeconds": 140112867,
+        "expiration": 1636746083,
+        "createdAtTimestamp": 1628797677
+      },
+      "name": "LP Element Principal Token yvcrv3crypto-12NOV21",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
       "symbol": "LPeYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -616,6 +690,22 @@ export const mainnetTokenList: TokenList = {
       "tags": [
         "wpool"
       ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xd16847480D6bc218048CD31Ad98b63CC34e5c2bF",
+      "symbol": "LPeYyvcrv3crypto-12NOV21",
+      "decimals": 18,
+      "extensions": {
+        "poolId": "0xd16847480d6bc218048cd31ad98b63cc34e5c2bf00020000000000000000007d",
+        "interestToken": "0x4f4500B3885bC72199373aBfE7aDEfd0366BAfeD",
+        "createdAtTimestamp": 1628797608,
+        "expiration": 1636746083
+      },
+      "name": "LP Element Yield Token yvcrv3crypto-12NOV21",
+      "tags": [
+        "wpool"
+      ]
     }
   ]
 };
@@ -652,7 +742,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-08-12T23:12:49.107Z",
+  "timestamp": "2021-08-13T21:30:00.195Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -1163,47 +1253,3 @@ export const goerliTokenList: TokenList = {
   ]
 };
 
-import { TagInfo } from "src/types";
-export const ElementTokenTag: Record<string, string> = {
-  VAULT: "vault" as "vault",
-  ASSET_PROXY: "assetproxy" as "assetproxy",
-  CCPOOL: "ccpool" as "ccpool",
-  PRINCIPAL: "eP" as "eP",
-  UNDERLYING: "underlying" as "underlying",
-  WPOOL: "wpool" as "wpool",
-  YIELD: "eY" as "eY",
-};
-
-export const tags: Record<keyof typeof ElementTokenTag, TagInfo> = {
-  [ElementTokenTag.UNDERLYING]: {
-    name: "Underlying asset",
-    description: "The base asset of a principal or yield token",
-  },
-  [ElementTokenTag.PRINCIPAL]: {
-    name: "Principal token",
-    description:
-      "Token that represents a deposit of principal into a yield position",
-  },
-  [ElementTokenTag.YIELD]: {
-    name: "Yield token",
-    description:
-      "Token that represents the yield on a deposit into a yield position",
-  },
-  [ElementTokenTag.CCPOOL]: {
-    name: "ConvergentCurve pool",
-    description: "Token that represents the balancer pool for Principal tokens",
-  },
-  [ElementTokenTag.WPOOL]: {
-    name: "Weighted pool",
-    description: "Token that represents the balancer pool for Yield tokens",
-  },
-  [ElementTokenTag.ASSET_PROXY]: {
-    name: "Vault asset proxy",
-    description:
-      "Token that wraps a yield position, ie: Yearn vault asset proxy",
-  },
-  [ElementTokenTag.VAULT]: {
-    name: "Vault",
-    description: "The yield position, ie: Yearn yvcrvLUSD",
-  },
-};

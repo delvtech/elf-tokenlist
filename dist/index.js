@@ -16,9 +16,8 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.tags = exports.ElementTokenTag = exports.goerliTokenList = exports.mainnetTokenList = void 0;
+exports.goerliTokenList = exports.mainnetTokenList = void 0;
 __exportStar(require("./tags"), exports);
 exports.mainnetTokenList = {
     "name": "mainnet token list",
@@ -53,7 +52,7 @@ exports.mainnetTokenList = {
             "description": "The yield position, ie: Yearn yvcrvLUSD"
         }
     },
-    "timestamp": "2021-08-12T23:13:41.584Z",
+    "timestamp": "2021-08-13T21:30:50.110Z",
     "version": {
         "major": 0,
         "minor": 0,
@@ -177,6 +176,19 @@ exports.mainnetTokenList = {
         },
         {
             "chainId": 1,
+            "address": "0x4F424B26c7c659F198797Bd87282BF602F543521",
+            "symbol": "yvcrv3crypto",
+            "decimals": 18,
+            "name": "element yvcrv3crypto",
+            "tags": [
+                "assetproxy"
+            ],
+            "extensions": {
+                "vault": "0xE537B5cc158EB71037D4125BDD7538421981E6AA"
+            }
+        },
+        {
+            "chainId": 1,
             "address": "0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6",
             "symbol": "yvCurve-LUSD",
             "decimals": 18,
@@ -221,6 +233,16 @@ exports.mainnetTokenList = {
             "symbol": "yvUSDC",
             "decimals": 6,
             "name": "USDC yVault",
+            "tags": [
+                "vault"
+            ]
+        },
+        {
+            "chainId": 1,
+            "address": "0xE537B5cc158EB71037D4125BDD7538421981E6AA",
+            "symbol": "yvCurve-3Crypto",
+            "decimals": 18,
+            "name": "Curve 3Crypto Pool yVault",
             "tags": [
                 "vault"
             ]
@@ -329,6 +351,23 @@ exports.mainnetTokenList = {
         },
         {
             "chainId": 1,
+            "address": "0x9CF2AB51aC93711Ec2fa32Ec861349568A16c729",
+            "symbol": "ePyvcrv3crypto-12NOV21",
+            "decimals": 18,
+            "extensions": {
+                "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+                "position": "0x4F424B26c7c659F198797Bd87282BF602F543521",
+                "interestToken": "0x4f4500B3885bC72199373aBfE7aDEfd0366BAfeD",
+                "unlockTimestamp": 1636746083,
+                "createdAtTimestamp": 1628797282
+            },
+            "name": "crv3crypto Principal Token",
+            "tags": [
+                "eP"
+            ]
+        },
+        {
+            "chainId": 1,
             "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
             "symbol": "eYyvCurveLUSD-28SEP21",
             "decimals": 18,
@@ -412,6 +451,21 @@ exports.mainnetTokenList = {
                 "tranche": "0xf38c3E836Be9cD35072055Ff6a9Ba570e0B70797",
                 "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
                 "unlockTimestamp": 1635528110
+            },
+            "tags": [
+                "eY"
+            ]
+        },
+        {
+            "chainId": 1,
+            "address": "0x4f4500B3885bC72199373aBfE7aDEfd0366BAfeD",
+            "symbol": "eYyvcrv3crypto-12NOV21",
+            "decimals": 18,
+            "name": "crv3crypto Yield Token",
+            "extensions": {
+                "tranche": "0x9CF2AB51aC93711Ec2fa32Ec861349568A16c729",
+                "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+                "unlockTimestamp": 1636746083
             },
             "tags": [
                 "eY"
@@ -527,6 +581,24 @@ exports.mainnetTokenList = {
         },
         {
             "chainId": 1,
+            "address": "0xF6dc4640D2783654BeF88E0dF3fb0F051f0DfC1A",
+            "symbol": "LPePyvcrv3crypto-12NOV21",
+            "decimals": 18,
+            "extensions": {
+                "bond": "0x9CF2AB51aC93711Ec2fa32Ec861349568A16c729",
+                "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+                "poolId": "0xf6dc4640d2783654bef88e0df3fb0f051f0dfc1a00020000000000000000007e",
+                "unitSeconds": 140112867,
+                "expiration": 1636746083,
+                "createdAtTimestamp": 1628797677
+            },
+            "name": "LP Element Principal Token yvcrv3crypto-12NOV21",
+            "tags": [
+                "ccpool"
+            ]
+        },
+        {
+            "chainId": 1,
             "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
             "symbol": "LPeYyvCurveLUSD-28SEP21",
             "decimals": 18,
@@ -626,6 +698,22 @@ exports.mainnetTokenList = {
             "tags": [
                 "wpool"
             ]
+        },
+        {
+            "chainId": 1,
+            "address": "0xd16847480D6bc218048CD31Ad98b63CC34e5c2bF",
+            "symbol": "LPeYyvcrv3crypto-12NOV21",
+            "decimals": 18,
+            "extensions": {
+                "poolId": "0xd16847480d6bc218048cd31ad98b63cc34e5c2bf00020000000000000000007d",
+                "interestToken": "0x4f4500B3885bC72199373aBfE7aDEfd0366BAfeD",
+                "createdAtTimestamp": 1628797608,
+                "expiration": 1636746083
+            },
+            "name": "LP Element Yield Token yvcrv3crypto-12NOV21",
+            "tags": [
+                "wpool"
+            ]
         }
     ]
 };
@@ -662,7 +750,7 @@ exports.goerliTokenList = {
             "description": "The yield position, ie: Yearn yvcrvLUSD"
         }
     },
-    "timestamp": "2021-08-12T23:12:49.107Z",
+    "timestamp": "2021-08-13T21:30:00.195Z",
     "version": {
         "major": 0,
         "minor": 0,
@@ -1172,42 +1260,3 @@ exports.goerliTokenList = {
         }
     ]
 };
-exports.ElementTokenTag = {
-    VAULT: "vault",
-    ASSET_PROXY: "assetproxy",
-    CCPOOL: "ccpool",
-    PRINCIPAL: "eP",
-    UNDERLYING: "underlying",
-    WPOOL: "wpool",
-    YIELD: "eY",
-};
-exports.tags = (_a = {},
-    _a[exports.ElementTokenTag.UNDERLYING] = {
-        name: "Underlying asset",
-        description: "The base asset of a principal or yield token",
-    },
-    _a[exports.ElementTokenTag.PRINCIPAL] = {
-        name: "Principal token",
-        description: "Token that represents a deposit of principal into a yield position",
-    },
-    _a[exports.ElementTokenTag.YIELD] = {
-        name: "Yield token",
-        description: "Token that represents the yield on a deposit into a yield position",
-    },
-    _a[exports.ElementTokenTag.CCPOOL] = {
-        name: "ConvergentCurve pool",
-        description: "Token that represents the balancer pool for Principal tokens",
-    },
-    _a[exports.ElementTokenTag.WPOOL] = {
-        name: "Weighted pool",
-        description: "Token that represents the balancer pool for Yield tokens",
-    },
-    _a[exports.ElementTokenTag.ASSET_PROXY] = {
-        name: "Vault asset proxy",
-        description: "Token that wraps a yield position, ie: Yearn vault asset proxy",
-    },
-    _a[exports.ElementTokenTag.VAULT] = {
-        name: "Vault",
-        description: "The yield position, ie: Yearn yvcrvLUSD",
-    },
-    _a);

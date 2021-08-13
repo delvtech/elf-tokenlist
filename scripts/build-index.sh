@@ -12,13 +12,11 @@ echo "
  */
 
 import { TokenList } from '@uniswap/token-lists';
+
 export * from './tags';
 
 export const mainnetTokenList: TokenList = $MAINNET_TOKENLIST;
 export const goerliTokenList: TokenList = $GOERLI_TOKENLIST;
 " > src/index.ts
-
-# Append the types.ts info here
-cat src/tags.ts >> src/index.ts
 
 tsc --project tsconfig.json
