@@ -6,13 +6,13 @@ The Tokenlist for Element.finance
 
 Run
 
-```
+```bash
 npm install git+https://github.com/element-fi/elf-tokenlist.git
 ```
 
 ## Example
 
-```
+```ts
 import { ElementTokenTag, mainnetTokenList } from "elf-tokenlist";
 
 // Get the list of principal tokens that have not yet reached maturity
