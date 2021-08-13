@@ -1,4 +1,4 @@
-import { mainnetTokenList } from "elf-tokenlist";
+import { ElementTokenTag, mainnetTokenList } from "elf-tokenlist";
 
 console.log(
   mainnetTokenList.tokens.filter((token) =>

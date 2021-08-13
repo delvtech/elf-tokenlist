@@ -7,7 +7,7 @@ import zip from "lodash.zip";
 
 import { PrincipalPoolTokenInfo } from "src/types";
 
-import { ElementTokenTag } from "src/tags";
+import { TokenTag } from "src/tags";
 
 export const provider = hre.ethers.provider;
 export async function getPrincipalPoolTokenInfos(
@@ -98,7 +98,7 @@ export async function getPrincipalPoolTokenInfos(
           createdAtTimestamp: poolCreatedAt as number,
         },
         name: name as string,
-        tags: [ElementTokenTag.CCPOOL],
+        tags: [TokenTag.CCPOOL],
         // TODO: What logo do we want to show for ccpool tokens?
         // logoURI: ""
       };

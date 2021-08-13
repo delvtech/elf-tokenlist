@@ -1,12 +1,14 @@
-import hre from "hardhat";
-import zip from "lodash.zip";
 import { ERC20__factory } from "elf-contracts-typechain/dist/types/factories/ERC20__factory";
 import { InterestToken__factory } from "elf-contracts-typechain/dist/types/factories/InterestToken__factory";
 import { Tranche__factory } from "elf-contracts-typechain/dist/types/factories/Tranche__factory";
 import { InterestToken } from "elf-contracts-typechain/dist/types/InterestToken";
-import { getTokenSymbolMulti } from "src/erc20";
+import hre from "hardhat";
+import zip from "lodash.zip";
+
 import { PrincipalTokenInfo, YieldTokenInfo } from "src/types";
-import { ElementTokenTag } from "src/tags";
+
+import { getTokenSymbolMulti } from "src/erc20";
+import { TokenTag } from "src/tags";
 
 let hardhatSymbolOverrides = {};
 if (process.env.NODE_ENV === "development") {
@@ -91,7 +93,7 @@ export async function getYieldTokenInfos(
           underlying: underlying as string,
           unlockTimestamp: unlockTimestamp as number,
         },
-        tags: [ElementTokenTag.YIELD],
+        tags: [TokenTag.YIELD],
         // TODO: What logo do we want to show for interest tokens?
         // logoURI: ""
       };

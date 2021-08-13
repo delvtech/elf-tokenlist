@@ -12,7 +12,7 @@ import {
   getTokenSymbolMulti,
   getTokenDecimalsMulti,
 } from "./erc20";
-import { ElementTokenTag } from "src/tags";
+import { TokenTag } from "src/tags";
 
 export const provider = hre.ethers.provider;
 
@@ -70,7 +70,7 @@ export async function getAssetProxyTokenInfos(
       symbol: symbol as string,
       decimals: decimal as number,
       name: name as string,
-      tags: [ElementTokenTag.ASSET_PROXY],
+      tags: [TokenTag.ASSET_PROXY],
       extensions: { vault: vault as string },
       // TODO: What logo do we want to show for base assets?
       // logoURI: ""

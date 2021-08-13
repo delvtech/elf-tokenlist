@@ -52,7 +52,7 @@ exports.mainnetTokenList = {
             "description": "The yield position, ie: Yearn yvcrvLUSD"
         }
     },
-    "timestamp": "2021-08-13T21:30:50.110Z",
+    "timestamp": "2021-08-13T21:40:31.405Z",
     "version": {
         "major": 0,
         "minor": 0,
@@ -750,7 +750,7 @@ exports.goerliTokenList = {
             "description": "The yield position, ie: Yearn yvcrvLUSD"
         }
     },
-    "timestamp": "2021-08-13T21:30:00.195Z",
+    "timestamp": "2021-08-13T21:39:34.292Z",
     "version": {
         "major": 0,
         "minor": 0,

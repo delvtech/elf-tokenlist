@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ElementTokenTag = void 0;
-exports.ElementTokenTag = {
+exports.TokenTag = void 0;
+exports.TokenTag = {
     VAULT: "vault",
     ASSET_PROXY: "assetproxy",
     CCPOOL: "ccpool",

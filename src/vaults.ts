@@ -1,17 +1,18 @@
 import { TokenInfo } from "@uniswap/token-lists";
+import { ERC20 } from "elf-contracts-typechain/dist/types/ERC20";
+import { TestYVault__factory } from "elf-contracts-typechain/dist/types/factories/TestYVault__factory";
 import hre from "hardhat";
 import zip from "lodash.zip";
 
-import { ERC20 } from "elf-contracts-typechain/dist/types/ERC20";
+import { AssetProxyTokenInfo, VaultTokenInfo } from "src/types";
 
-import { TestYVault__factory } from "elf-contracts-typechain/dist/types/factories/TestYVault__factory";
+import { TokenTag } from "src/tags";
+
 import {
+  getTokenDecimalsMulti,
   getTokenNameMulti,
   getTokenSymbolMulti,
-  getTokenDecimalsMulti,
 } from "./erc20";
-import { AssetProxyTokenInfo, VaultTokenInfo } from "src/types";
-import { ElementTokenTag } from "src/tags";
 
 export const provider = hre.ethers.provider;
 
@@ -56,7 +57,7 @@ export async function getVaultTokenInfos(
       symbol: symbol as string,
       decimals: decimal as number,
       name: name as string,
-      tags: [ElementTokenTag.VAULT],
+      tags: [TokenTag.VAULT],
       // TODO: What logo do we want to show for base assets?
       // logoURI: ""
     };

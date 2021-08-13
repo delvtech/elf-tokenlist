@@ -8,7 +8,7 @@ import {
   getTokenNameMulti,
   getTokenSymbolMulti,
 } from "src/erc20";
-import { ElementTokenTag } from "src/tags";
+import { TokenTag } from "src/tags";
 
 export const provider = hre.ethers.provider;
 export async function getUnderlyingTokenInfos(
@@ -35,7 +35,7 @@ export async function getUnderlyingTokenInfos(
       symbol: symbol as string,
       decimals: decimal as number,
       name: name as string,
-      tags: [ElementTokenTag.UNDERLYING],
+      tags: [TokenTag.UNDERLYING],
       // TODO: What logo do we want to show for base assets?
       // logoURI: ""
     };

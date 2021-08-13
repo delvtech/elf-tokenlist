@@ -1,4 +1,4 @@
-export const ElementTokenTag = {
+export const TokenTag = {
   VAULT: "vault" as "vault",
   ASSET_PROXY: "assetproxy" as "assetproxy",
   CCPOOL: "ccpool" as "ccpool",
@@ -7,5 +7,4 @@ export const ElementTokenTag = {
   WPOOL: "wpool" as "wpool",
   YIELD: "eY" as "eY",
 };
-export type ElementTokenTag =
-  typeof ElementTokenTag[keyof typeof ElementTokenTag];
+export type TokenTag = typeof TokenTag[keyof typeof TokenTag];

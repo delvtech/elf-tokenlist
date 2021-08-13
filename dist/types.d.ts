@@ -1,7 +1,7 @@
 import { TokenInfo, TokenList } from "@uniswap/token-lists";
 export declare const mainnetTokenList: TokenList;
 export declare const goerliTokenList: TokenList;
-export declare const ElementTokenTag: {
+export declare const TokenTag: {
     VAULT: "vault";
     ASSET_PROXY: "assetproxy";
     CCPOOL: "ccpool";
@@ -10,7 +10,7 @@ export declare const ElementTokenTag: {
     WPOOL: "wpool";
     YIELD: "eY";
 };
-export declare type ElementTokenTag = typeof ElementTokenTag[keyof typeof ElementTokenTag];
+export declare type TokenTag = typeof TokenTag[keyof typeof TokenTag];
 export interface TagInfo {
     name: string;
     description: string;
