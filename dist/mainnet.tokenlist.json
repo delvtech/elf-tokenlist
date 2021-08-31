@@ -31,7 +31,7 @@
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-08-13T21:40:31.405Z",
+  "timestamp": "2021-08-31T21:56:18.987Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -168,6 +168,19 @@
     },
     {
       "chainId": 1,
+      "address": "0x8D9487b81e0fEdcd2D8Cab91885756742375CDC5",
+      "symbol": "yvWBTC",
+      "decimals": 8,
+      "name": "element yvWBTC",
+      "tags": [
+        "assetproxy"
+      ],
+      "extensions": {
+        "vault": "0xA696a63cc78DfFa1a63E9E50587C197387FF6C7E"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6",
       "symbol": "yvCurve-LUSD",
       "decimals": 18,
@@ -222,6 +235,16 @@
       "symbol": "yvCurve-3Crypto",
       "decimals": 18,
       "name": "Curve 3Crypto Pool yVault",
+      "tags": [
+        "vault"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xA696a63cc78DfFa1a63E9E50587C197387FF6C7E",
+      "symbol": "yvWBTC",
+      "decimals": 8,
+      "name": "WBTC yVault",
       "tags": [
         "vault"
       ]
@@ -347,6 +370,23 @@
     },
     {
       "chainId": 1,
+      "address": "0x6BF924137E769C0A5c443dcE6eC885552d31D579",
+      "symbol": "ePyvWBTC-26NOV21",
+      "decimals": 8,
+      "extensions": {
+        "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "position": "0x8D9487b81e0fEdcd2D8Cab91885756742375CDC5",
+        "interestToken": "0x3b32F63c1e0FB810f0a06814Ead1D4431B237560",
+        "unlockTimestamp": 1637941844,
+        "createdAtTimestamp": 1630425060
+      },
+      "name": "WBTC Principal Token",
+      "tags": [
+        "eP"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
       "symbol": "eYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -445,6 +485,21 @@
         "tranche": "0x9CF2AB51aC93711Ec2fa32Ec861349568A16c729",
         "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
         "unlockTimestamp": 1636746083
+      },
+      "tags": [
+        "eY"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x3b32F63c1e0FB810f0a06814Ead1D4431B237560",
+      "symbol": "eYyvWBTC-26NOV21",
+      "decimals": 8,
+      "name": "WBTC Yield Token",
+      "extensions": {
+        "tranche": "0x6BF924137E769C0A5c443dcE6eC885552d31D579",
+        "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "unlockTimestamp": 1637941844
       },
       "tags": [
         "eY"
@@ -578,6 +633,24 @@
     },
     {
       "chainId": 1,
+      "address": "0x4Db9024fc9F477134e00Da0DA3c77DE98d9836aC",
+      "symbol": "LPePyvWBTC-26NOV21",
+      "decimals": 18,
+      "extensions": {
+        "bond": "0x6BF924137E769C0A5c443dcE6eC885552d31D579",
+        "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "poolId": "0x4db9024fc9f477134e00da0da3c77de98d9836ac000200000000000000000086",
+        "unitSeconds": 1000355378,
+        "expiration": 1637941844,
+        "createdAtTimestamp": 1630433657
+      },
+      "name": "LP Element Principal Token yvWBTC-26NOV21",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
       "symbol": "LPeYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -690,6 +763,22 @@
         "expiration": 1636746083
       },
       "name": "LP Element Yield Token yvcrv3crypto-12NOV21",
+      "tags": [
+        "wpool"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x7320d680Ca9BCE8048a286f00A79A2c9f8DCD7b3",
+      "symbol": "LPeYyvWBTC-26NOV21",
+      "decimals": 18,
+      "extensions": {
+        "poolId": "0x7320d680ca9bce8048a286f00a79a2c9f8dcd7b3000200000000000000000085",
+        "interestToken": "0x3b32F63c1e0FB810f0a06814Ead1D4431B237560",
+        "createdAtTimestamp": 1630433475,
+        "expiration": 1637941844
+      },
+      "name": "LP Element Yield Token yvWBTC-26NOV21",
       "tags": [
         "wpool"
       ]
