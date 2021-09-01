@@ -68,6 +68,7 @@ export async function getTokenList(
       balancerVaultAddress,
       trancheFactoryAddress,
       wethAddress,
+      wbtcAddress,
       usdcAddress,
       daiAddress,
       "lusd3crv-fAddress": crvlusdAddress,
@@ -81,6 +82,7 @@ export async function getTokenList(
 
   const underlyingAddresses = [
     wethAddress,
+    wbtcAddress,
     usdcAddress,
     daiAddress,
     crvlusdAddress,

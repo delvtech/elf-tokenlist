@@ -3,6 +3,7 @@ export interface AddressesJsonFile {
   addresses: {
     balancerVaultAddress: string;
     trancheFactoryAddress: string;
+    wbtcAddress: string;
     weightedPoolFactoryAddress: string;
     convergentPoolFactoryAddress: string;
     userProxyContractAddress: string;
