@@ -44,13 +44,23 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-01T01:13:51.176Z",
+  "timestamp": "2021-09-01T02:14:52.498Z",
   "version": {
     "major": 0,
     "minor": 0,
     "patch": 0
   },
   "tokens": [
+    {
+      "chainId": 1,
+      "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+      "symbol": "WBTC",
+      "decimals": 8,
+      "name": "Wrapped BTC",
+      "tags": [
+        "underlying"
+      ]
+    },
     {
       "chainId": 1,
       "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -787,6 +797,7 @@ export const mainnetTokenList: TokenList = {
       "decimals": 18,
       "extensions": {
         "poolId": "0x7320d680ca9bce8048a286f00a79a2c9f8dcd7b3000200000000000000000085",
+        "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
         "interestToken": "0x3b32F63c1e0FB810f0a06814Ead1D4431B237560",
         "createdAtTimestamp": 1630433475,
         "expiration": 1637941844
@@ -831,7 +842,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-01T01:12:55.496Z",
+  "timestamp": "2021-09-01T02:14:02.501Z",
   "version": {
     "major": 0,
     "minor": 0,
