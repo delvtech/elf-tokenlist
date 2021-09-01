@@ -44,7 +44,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-01T02:14:52.498Z",
+  "timestamp": "2021-09-01T03:04:53.020Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -87,6 +87,16 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LUSD3CRV-f",
       "decimals": 18,
       "name": "Curve.fi Factory USD Metapool: Liquity",
+      "tags": [
+        "underlying"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+      "symbol": "crv3crypto",
+      "decimals": 18,
+      "name": "Curve.fi USD-BTC-ETH",
       "tags": [
         "underlying"
       ]
@@ -781,6 +791,7 @@ export const mainnetTokenList: TokenList = {
       "decimals": 18,
       "extensions": {
         "poolId": "0xd16847480d6bc218048cd31ad98b63cc34e5c2bf00020000000000000000007d",
+        "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
         "interestToken": "0x4f4500B3885bC72199373aBfE7aDEfd0366BAfeD",
         "createdAtTimestamp": 1628797608,
         "expiration": 1636746083
@@ -842,7 +853,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-01T02:14:02.501Z",
+  "timestamp": "2021-09-01T03:04:03.511Z",
   "version": {
     "major": 0,
     "minor": 0,

@@ -75,6 +75,7 @@ export async function getTokenList(
       convergentPoolFactoryAddress,
       weightedPoolFactoryAddress,
       crvtricryptoAddress,
+      crv3cryptoAddress,
       stecrvAddress,
     },
     safelist,
@@ -86,6 +87,7 @@ export async function getTokenList(
     usdcAddress,
     daiAddress,
     crvlusdAddress,
+    crv3cryptoAddress,
     crvtricryptoAddress,
     stecrvAddress,
   ];

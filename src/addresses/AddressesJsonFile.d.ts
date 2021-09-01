@@ -11,6 +11,7 @@ export interface AddressesJsonFile {
     daiAddress: string;
     usdcAddress: string;
     stecrvAddress: string;
+    crv3cryptoAddress: string;
     crvtricryptoAddress: string;
     "lusd3crv-fAddress": string;
   };
