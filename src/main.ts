@@ -8,7 +8,7 @@ const addressesJson = require(`src/addresses/${network}.addresses.json`);
 
 getTokenList(
   addressesJson,
-  `${network} token list`,
+  "Element",
   `dist/${network}.tokenlist.json`
 )
   .then(() => process.exit(0))
