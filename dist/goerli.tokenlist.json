@@ -1,5 +1,5 @@
 {
-  "name": "goerli token list",
+  "name": "Element",
   "logoURI": "https://element.fi/logo.svg",
   "tags": {
     "underlying": {
@@ -31,7 +31,7 @@
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-01T03:04:03.511Z",
+  "timestamp": "2021-09-08T19:03:47.166Z",
   "version": {
     "major": 0,
     "minor": 0,

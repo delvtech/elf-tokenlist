@@ -12,7 +12,7 @@ import { TokenList } from '@uniswap/token-lists';
 export * from './tags';
 
 export const mainnetTokenList: TokenList = {
-  "name": "mainnet token list",
+  "name": "Element",
   "logoURI": "https://element.fi/logo.svg",
   "tags": {
     "underlying": {
@@ -44,7 +44,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-01T03:04:53.020Z",
+  "timestamp": "2021-09-08T19:04:33.949Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -821,7 +821,7 @@ export const mainnetTokenList: TokenList = {
   ]
 };
 export const goerliTokenList: TokenList = {
-  "name": "goerli token list",
+  "name": "Element",
   "logoURI": "https://element.fi/logo.svg",
   "tags": {
     "underlying": {
@@ -853,7 +853,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-01T03:04:03.511Z",
+  "timestamp": "2021-09-08T19:03:47.166Z",
   "version": {
     "major": 0,
     "minor": 0,
