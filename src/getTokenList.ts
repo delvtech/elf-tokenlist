@@ -20,6 +20,7 @@ import { getVaultTokenInfos } from "src/vaults";
 import { getYieldPoolTokenInfos } from "src/weightedPools";
 import { TokenTag } from "src/tags";
 import { TagInfo } from "src/types";
+import { ELEMENT_LOGO_URI } from "src/logo";
 
 const provider = hre.ethers.provider;
 
@@ -170,7 +171,7 @@ export async function getTokenList(
 
   const tokenList: TokenList = {
     name,
-    logoURI: "https://element.fi/logo.svg",
+    logoURI: ELEMENT_LOGO_URI,
     tags: elementTags,
     timestamp: new Date().toISOString(),
     version: {

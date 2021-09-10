@@ -10,6 +10,7 @@ import { PrincipalTokenInfo } from "src/types";
 
 import { getTokenSymbolMulti } from "src/erc20";
 import { TokenTag } from "src/tags";
+import { ELEMENT_LOGO_URI } from "src/logo";
 
 let hardhatSymbolOverrides = {};
 if (process.env.NODE_ENV === "development") {
@@ -127,8 +128,7 @@ export async function getPrincipalTokenInfos(
         },
         name: name as string,
         tags: [TokenTag.PRINCIPAL],
-        // TODO: What logo do we want to show for interest tokens?
-        // logoURI: ""
+        logoURI: ELEMENT_LOGO_URI,
       };
     }
   );
