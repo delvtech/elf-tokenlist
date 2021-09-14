@@ -10,6 +10,13 @@ Run
 npm install git+https://github.com/element-fi/elf-tokenlist.git
 ```
 
+## Build
+
+```bash
+# build the new tokenlists, elf-deploy repo must have the updated list
+npm run build
+```
+
 ## Example
 
 ```ts
