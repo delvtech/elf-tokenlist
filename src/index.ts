@@ -52,7 +52,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-10T19:16:33.525Z",
+  "timestamp": "2021-09-14T18:30:05.958Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -436,6 +436,24 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x8a2228705ec979961F0e16df311dEbcf097A2766",
+      "symbol": "ePyvUSDC-28JAN22",
+      "decimals": 6,
+      "extensions": {
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "position": "0xdEa04Ffc66ECD7bf35782C70255852B34102C3b0",
+        "interestToken": "0xF1294E805B992320A3515682c6aB0Fe6251067E5",
+        "unlockTimestamp": 1643382476,
+        "createdAtTimestamp": 1631632129
+      },
+      "name": "USDC Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
       "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
       "symbol": "eYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -556,6 +574,22 @@ export const mainnetTokenList: TokenList = {
         "tranche": "0x6BF924137E769C0A5c443dcE6eC885552d31D579",
         "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
         "unlockTimestamp": 1637941844
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0xF1294E805B992320A3515682c6aB0Fe6251067E5",
+      "symbol": "eYyvUSDC-28JAN22",
+      "decimals": 6,
+      "name": "USDC Yield Token",
+      "extensions": {
+        "tranche": "0x8a2228705ec979961F0e16df311dEbcf097A2766",
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "unlockTimestamp": 1643382476
       },
       "tags": [
         "eY"
@@ -708,6 +742,24 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x10a2F8bd81Ee2898D7eD18fb8f114034a549FA59",
+      "symbol": "LPePyvUSDC-28JAN22",
+      "decimals": 18,
+      "extensions": {
+        "bond": "0x8a2228705ec979961F0e16df311dEbcf097A2766",
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "poolId": "0x10a2f8bd81ee2898d7ed18fb8f114034a549fa59000200000000000000000090",
+        "unitSeconds": 779456714,
+        "expiration": 1643382476,
+        "createdAtTimestamp": 1631632569
+      },
+      "name": "LP Element Principal Token yvUSDC-28JAN22",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
       "symbol": "LPeYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -841,6 +893,23 @@ export const mainnetTokenList: TokenList = {
       "tags": [
         "wpool"
       ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x9e030b67a8384cbba09D5927533Aa98010C87d91",
+      "symbol": "LPeYyvUSDC-28JAN22",
+      "decimals": 18,
+      "extensions": {
+        "poolId": "0x9e030b67a8384cbba09d5927533aa98010c87d9100020000000000000000008f",
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "interestToken": "0xF1294E805B992320A3515682c6aB0Fe6251067E5",
+        "createdAtTimestamp": 1631632476,
+        "expiration": 1643382476
+      },
+      "name": "LP Element Yield Token yvUSDC-28JAN22",
+      "tags": [
+        "wpool"
+      ]
     }
   ]
 };
@@ -877,7 +946,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-10T19:15:49.334Z",
+  "timestamp": "2021-09-14T18:29:17.759Z",
   "version": {
     "major": 0,
     "minor": 0,
