@@ -52,7 +52,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-16T17:03:33.860Z",
+  "timestamp": "2021-09-20T18:17:42.529Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -186,7 +186,7 @@ export const mainnetTokenList: TokenList = {
       "address": "0xdEa04Ffc66ECD7bf35782C70255852B34102C3b0",
       "symbol": "yvUSDC",
       "decimals": 6,
-      "name": "element yvDAI",
+      "name": "element yvUSDC",
       "tags": [
         "assetproxy"
       ],
@@ -1015,7 +1015,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-16T17:02:27.393Z",
+  "timestamp": "2021-09-20T18:16:55.352Z",
   "version": {
     "major": 0,
     "minor": 0,
