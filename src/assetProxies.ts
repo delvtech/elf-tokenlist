@@ -17,6 +17,7 @@ import { TokenTag } from "src/tags";
 export const provider = hre.ethers.provider;
 
 const GOERLI_CHAIN_ID = 5;
+const MAINNET_CHAIN_ID = 1;
 const symbolOverrides: Record<number, Record<string, string>> = {
   [GOERLI_CHAIN_ID]: {
     // these asset proxies have symbols that reflect v1 yearn vaults, but we
@@ -24,6 +25,13 @@ const symbolOverrides: Record<number, Record<string, string>> = {
     "0x6F643Ba6894D8C50c476A3539e1D1690B2194018": "eyvCurve-stETH",
     "0x814C447a9F58A2b823504Fe2775bA48c843925B6": "eyvUSDC",
     "0x8dc82c95B8901Db35390Aa4096B643d7724F278D": "eyvDAI",
+  },
+};
+const nameOverrides: Record<number, Record<string, string>> = {
+  [MAINNET_CHAIN_ID]: {
+    // There was a mistake made when deploying the USDC asset proxy where the
+    // name was set to "element yvDAI". This shims in the correct name.
+    "0xdEa04Ffc66ECD7bf35782C70255852B34102C3b0": "element yvUSDC",
   },
 };
 export async function getAssetProxyTokenInfos(
@@ -46,10 +54,18 @@ export async function getAssetProxyTokenInfos(
   const vaults = await Promise.all(
     positions.map((position) => position.vault())
   );
-  const names = await getTokenNameMulti(positions as unknown as ERC20[]);
 
+  // We need to shim the names since some have mistakes deployed
+  const names = await getTokenNameMulti(positions as unknown as ERC20[]);
+  const assetProxyNames = shimAssetProxyNames(
+    chainId,
+    uniqPositionAddresses,
+    names
+  );
+
+  // We need to shim the symbols since some have mistakes deployed
   const symbols = await getTokenSymbolMulti(positions as unknown as ERC20[]);
-  const assetProxySymbols = getAssetProxySymbolMulti(
+  const assetProxySymbols = shimAssetProxySymbols(
     chainId,
     uniqPositionAddresses,
     symbols
@@ -60,7 +76,7 @@ export async function getAssetProxyTokenInfos(
   const assetProxyTokensList = zip(
     uniqPositionAddresses,
     assetProxySymbols,
-    names,
+    assetProxyNames,
     decimals,
     vaults
   ).map(([address, symbol, name, decimal, vault]): AssetProxyTokenInfo => {
@@ -80,7 +96,23 @@ export async function getAssetProxyTokenInfos(
   return assetProxyTokensList;
 }
 
-function getAssetProxySymbolMulti(
+function shimAssetProxyNames(
+  chainId: number,
+  assetProxyAddresses: string[],
+  assetProxyNames: string[]
+) {
+  const overrides = nameOverrides[chainId] || {};
+  const names = zip(assetProxyAddresses, assetProxyNames).map((zipped) => {
+    const [vaultAddress, name] = zipped as [string, string];
+    if (overrides[vaultAddress]) {
+      return overrides[vaultAddress];
+    }
+    return name;
+  });
+  return names;
+}
+
+function shimAssetProxySymbols(
   chainId: number,
   assetProxyAddresses: string[],
   assetProxySymbols: string[]
