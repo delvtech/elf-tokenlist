@@ -31,7 +31,7 @@
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-28T21:43:01.154Z",
+  "timestamp": "2021-09-28T22:42:31.502Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -74,6 +74,16 @@
       "symbol": "LUSD3CRV-f",
       "decimals": 18,
       "name": "Curve.fi Factory USD Metapool: Liquity",
+      "tags": [
+        "underlying"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      "symbol": "alUSD3CRV-f",
+      "decimals": 18,
+      "name": "Curve.fi Factory USD Metapool: Alchemix USD",
       "tags": [
         "underlying"
       ]
@@ -1110,6 +1120,7 @@
       "decimals": 18,
       "extensions": {
         "poolId": "0x802d0f2f4b5f1fb5bfc9b2040a703c1464e1d4cb00020000000000000000009d",
+        "underlying": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
         "interestToken": "0x782BE9330969AA7b9DB56382752a1364580f199F",
         "createdAtTimestamp": 1632836663,
         "expiration": 1643382460
