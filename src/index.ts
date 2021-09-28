@@ -52,7 +52,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-22T01:20:32.349Z",
+  "timestamp": "2021-09-28T21:43:01.154Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -222,6 +222,19 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x3b5Dbd685C7ad66f8D3A82E2134320eD74DA4Af2",
+      "symbol": "yvCurve-alUSD",
+      "decimals": 18,
+      "name": "element yvCurve-alUSD",
+      "tags": [
+        "assetproxy"
+      ],
+      "extensions": {
+        "vault": "0xA74d4B67b3368E83797a35382AFB776bAAE4F5C8"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6",
       "symbol": "yvCurve-LUSD",
       "decimals": 18,
@@ -286,6 +299,16 @@ export const mainnetTokenList: TokenList = {
       "symbol": "yvWBTC",
       "decimals": 8,
       "name": "WBTC yVault",
+      "tags": [
+        "vault"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xA74d4B67b3368E83797a35382AFB776bAAE4F5C8",
+      "symbol": "yvCurve-alUSD",
+      "decimals": 18,
+      "name": "Curve alUSD Pool yVault",
       "tags": [
         "vault"
       ]
@@ -490,6 +513,24 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x55096A35Bf827919B3Bb0A5e6b5E2af8095F3D4d",
+      "symbol": "ePyvCurve-alUSD-28JAN22",
+      "decimals": 18,
+      "extensions": {
+        "underlying": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+        "position": "0x3b5Dbd685C7ad66f8D3A82E2134320eD74DA4Af2",
+        "interestToken": "0x782BE9330969AA7b9DB56382752a1364580f199F",
+        "unlockTimestamp": 1643382460,
+        "createdAtTimestamp": 1632836406
+      },
+      "name": "alUSD3CRV-f Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
       "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
       "symbol": "eYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -658,6 +699,22 @@ export const mainnetTokenList: TokenList = {
         "tranche": "0x449D7C2e096E9f867339078535b15440d42F78E8",
         "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
         "unlockTimestamp": 1643382446
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0x782BE9330969AA7b9DB56382752a1364580f199F",
+      "symbol": "eYyvCurve-alUSD-28JAN22",
+      "decimals": 18,
+      "name": "alUSD3CRV-f Yield Token",
+      "extensions": {
+        "tranche": "0x55096A35Bf827919B3Bb0A5e6b5E2af8095F3D4d",
+        "underlying": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+        "unlockTimestamp": 1643382460
       },
       "tags": [
         "eY"
@@ -864,6 +921,24 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0xC9AD279994980F8DF348b526901006972509677F",
+      "symbol": "LPePyvCurve-alUSD-28JAN22",
+      "decimals": 18,
+      "extensions": {
+        "bond": "0x55096A35Bf827919B3Bb0A5e6b5E2af8095F3D4d",
+        "underlying": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+        "poolId": "0xc9ad279994980f8df348b526901006972509677f00020000000000000000009e",
+        "unitSeconds": 350282167,
+        "expiration": 1643382460,
+        "createdAtTimestamp": 1632836762
+      },
+      "name": "LP Element Principal Token yvCurve-alUSD-28JAN22",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
       "symbol": "LPeYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -1048,6 +1123,22 @@ export const mainnetTokenList: TokenList = {
       "tags": [
         "wpool"
       ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x802d0f2f4b5f1fb5BfC9b2040a703c1464e1D4CB",
+      "symbol": "LPeYyvCurve-alUSD-28JAN22",
+      "decimals": 18,
+      "extensions": {
+        "poolId": "0x802d0f2f4b5f1fb5bfc9b2040a703c1464e1d4cb00020000000000000000009d",
+        "interestToken": "0x782BE9330969AA7b9DB56382752a1364580f199F",
+        "createdAtTimestamp": 1632836663,
+        "expiration": 1643382460
+      },
+      "name": "LP Element Yield Token yvCurve-alUSD-28JAN22",
+      "tags": [
+        "wpool"
+      ]
     }
   ]
 };
@@ -1084,7 +1175,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-09-22T01:19:03.333Z",
+  "timestamp": "2021-09-28T21:42:13.509Z",
   "version": {
     "major": 0,
     "minor": 0,
