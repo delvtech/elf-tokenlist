@@ -60,7 +60,7 @@ exports.mainnetTokenList = {
             "description": "The yield position, ie: Yearn yvcrvLUSD"
         }
     },
-    "timestamp": "2021-10-12T22:27:15.675Z",
+    "timestamp": "2021-10-12T23:40:03.144Z",
     "version": {
         "major": 0,
         "minor": 0,
@@ -113,6 +113,16 @@ exports.mainnetTokenList = {
             "symbol": "alUSD3CRV-f",
             "decimals": 18,
             "name": "Curve.fi Factory USD Metapool: Alchemix USD",
+            "tags": [
+                "underlying"
+            ]
+        },
+        {
+            "chainId": 1,
+            "address": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+            "symbol": "MIM-3LP3CRV-f",
+            "decimals": 18,
+            "name": "Curve.fi Factory USD Metapool: Magic Internet Money 3Pool",
             "tags": [
                 "underlying"
             ]
@@ -1241,6 +1251,7 @@ exports.mainnetTokenList = {
             "decimals": 18,
             "extensions": {
                 "poolId": "0x1d310a6238e11c8be91d83193c88a99eb66279be0002000000000000000000a2",
+                "underlying": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
                 "interestToken": "0x8c981f68015D8EB13883BFd25aaF4b7c05ec7dF5",
                 "createdAtTimestamp": 1634062987,
                 "expiration": 1644601070
@@ -1285,7 +1296,7 @@ exports.goerliTokenList = {
             "description": "The yield position, ie: Yearn yvcrvLUSD"
         }
     },
-    "timestamp": "2021-10-12T22:26:24.886Z",
+    "timestamp": "2021-10-12T23:39:08.097Z",
     "version": {
         "major": 0,
         "minor": 0,
