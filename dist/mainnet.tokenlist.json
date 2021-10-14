@@ -31,7 +31,7 @@
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-10-14T20:49:11.776Z",
+  "timestamp": "2021-10-14T21:24:44.525Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -1062,16 +1062,16 @@
     },
     {
       "chainId": 1,
-      "address": "0x94C476E4675FAaC1Bf60211c5E39486bCF720cBD",
+      "address": "0x09b1b33BaD0e87454ff05696b1151BFbD208a43F",
       "symbol": "LPePyvCurve-MIM-11FEB22",
       "decimals": 18,
       "extensions": {
         "bond": "0x418De6227499181B045CAdf554030722E460881a",
         "underlying": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
-        "poolId": "0x94c476e4675faac1bf60211c5e39486bcf720cbd0002000000000000000000a3",
-        "unitSeconds": 175141084,
+        "poolId": "0x09b1b33bad0e87454ff05696b1151bfbd208a43f0002000000000000000000a6",
+        "unitSeconds": 350282167,
         "expiration": 1644601070,
-        "createdAtTimestamp": 1634064951
+        "createdAtTimestamp": 1634168402
       },
       "name": "LP Element Principal Token yvCurve-MIM-11FEB22",
       "tags": [
