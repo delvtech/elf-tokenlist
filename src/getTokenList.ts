@@ -80,6 +80,7 @@ export async function getTokenList(
       crvtricryptoAddress,
       crv3cryptoAddress,
       stecrvAddress,
+      eurscrvAddress,
     },
     safelist,
   } = addressesJson;
@@ -95,6 +96,7 @@ export async function getTokenList(
     crv3cryptoAddress,
     crvtricryptoAddress,
     stecrvAddress,
+    eurscrvAddress,
   ];
   console.log("underlyingAddresses", underlyingAddresses);
   if (underlyingAddresses.find((a) => a === undefined)) {
