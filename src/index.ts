@@ -52,7 +52,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-10-19T17:09:00.480Z",
+  "timestamp": "2021-10-19T20:15:00.230Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -1409,14 +1409,14 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
-      "address": "0x62D3CeAB68Db0bf20F4C7f1438dbc8ACEc73f237",
+      "address": "0x062F38735AAC32320DB5e2DBBEb07968351D7C72",
       "symbol": "LPeYyvcrvSTETH-15APR22",
       "decimals": 18,
       "extensions": {
-        "poolId": "0x62d3ceab68db0bf20f4c7f1438dbc8acec73f2370002000000000000000000aa",
+        "poolId": "0x062f38735aac32320db5e2dbbeb07968351d7c720002000000000000000000ac",
         "underlying": "0x06325440D014e39736583c165C2963BA99fAf14E",
         "interestToken": "0xEb1a6C6eA0CD20847150c27b5985fA198b2F90bD",
-        "createdAtTimestamp": 1634646607,
+        "createdAtTimestamp": 1634672904,
         "expiration": 1650025565
       },
       "name": "LP Element Yield Token yvcrvSTETH-15APR22",
@@ -1459,7 +1459,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-10-19T17:08:07.697Z",
+  "timestamp": "2021-10-19T20:14:07.953Z",
   "version": {
     "major": 0,
     "minor": 0,
