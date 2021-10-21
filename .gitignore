@@ -4,3 +4,4 @@ compiled
 *.addresses.json
 # Always ship the addresses.json alongside the tokenlists that were compiled
 !dist/*.addresses.json
+elf.env

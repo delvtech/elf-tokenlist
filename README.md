@@ -41,3 +41,25 @@ Since this repo is not an npm package, it can be helpful to include this simple 
     "update-elf-tokenlist": "npm install git+https://github.com/element-fi/elf-tokenlist.git"
   },
 ```
+## Configure
+
+To build this repo you need to configure some env variables.  For linux and mac run the following:
+
+1) Copy `elf.default.env`
+
+```bash
+cp elf.default.env elf.env
+```
+
+2) Update elf.env with your alchemy api key
+
+```bash
+export ALCHEMY_MAINNET_API_KEY=
+export ALCHEMY_GOERLI_API_KEY=
+```
+
+3) Source the env file
+
+```bash
+source elf.env
+```
