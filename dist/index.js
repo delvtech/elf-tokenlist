@@ -60,7 +60,7 @@ exports.mainnetTokenList = {
             "description": "The yield position, ie: Yearn yvcrvLUSD"
         }
     },
-    "timestamp": "2021-11-02T16:39:48.189Z",
+    "timestamp": "2021-11-04T18:02:04.881Z",
     "version": {
         "major": 0,
         "minor": 0,
@@ -687,6 +687,24 @@ exports.mainnetTokenList = {
         },
         {
             "chainId": 1,
+            "address": "0x285328906D0D33cb757c1E471F5e2176683247c2",
+            "symbol": "ePyvcrv3crypto-29APR22",
+            "decimals": 18,
+            "extensions": {
+                "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+                "position": "0x4F424B26c7c659F198797Bd87282BF602F543521",
+                "interestToken": "0x939fd8bfcfED01eC51f86dF105821E3C5dC53C1c",
+                "unlockTimestamp": 1651240496,
+                "createdAtTimestamp": 1636034117
+            },
+            "name": "crv3crypto Principal Token",
+            "tags": [
+                "eP"
+            ],
+            "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+        },
+        {
+            "chainId": 1,
             "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
             "symbol": "eYyvCurveLUSD-28SEP21",
             "decimals": 18,
@@ -935,6 +953,22 @@ exports.mainnetTokenList = {
                 "tranche": "0x76a34D72b9CF97d972fB0e390eB053A37F211c74",
                 "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
                 "unlockTimestamp": 1639727861
+            },
+            "tags": [
+                "eY"
+            ],
+            "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+        },
+        {
+            "chainId": 1,
+            "address": "0x939fd8bfcfED01eC51f86dF105821E3C5dC53C1c",
+            "symbol": "eYyvcrv3crypto-29APR22",
+            "decimals": 18,
+            "name": "crv3crypto Yield Token",
+            "extensions": {
+                "tranche": "0x285328906D0D33cb757c1E471F5e2176683247c2",
+                "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+                "unlockTimestamp": 1651240496
             },
             "tags": [
                 "eY"
@@ -1231,6 +1265,24 @@ exports.mainnetTokenList = {
         },
         {
             "chainId": 1,
+            "address": "0x6Dd0F7c8F4793ed2531c0df4fEA8633a21fDcFf4",
+            "symbol": "LPePyvcrv3crypto-29APR22",
+            "decimals": 18,
+            "extensions": {
+                "bond": "0x285328906D0D33cb757c1E471F5e2176683247c2",
+                "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+                "poolId": "0x6dd0f7c8f4793ed2531c0df4fea8633a21fdcff40002000000000000000000b7",
+                "unitSeconds": 412133793,
+                "expiration": 1651240496,
+                "createdAtTimestamp": 1636037728
+            },
+            "name": "LP Element Principal Token yvcrv3crypto-29APR22",
+            "tags": [
+                "ccpool"
+            ]
+        },
+        {
+            "chainId": 1,
             "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
             "symbol": "LPeYyvCurveLUSD-28SEP21",
             "decimals": 18,
@@ -1500,6 +1552,23 @@ exports.mainnetTokenList = {
             "tags": [
                 "wpool"
             ]
+        },
+        {
+            "chainId": 1,
+            "address": "0x4aBB6FD289fA70056CFcB58ceBab8689921eB922",
+            "symbol": "LPeYyvcrv3crypto-29APR22",
+            "decimals": 18,
+            "extensions": {
+                "poolId": "0x4abb6fd289fa70056cfcb58cebab8689921eb9220002000000000000000000b6",
+                "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+                "interestToken": "0x939fd8bfcfED01eC51f86dF105821E3C5dC53C1c",
+                "createdAtTimestamp": 1636034362,
+                "expiration": 1651240496
+            },
+            "name": "LP Element Yield Token yvcrv3crypto-29APR22",
+            "tags": [
+                "wpool"
+            ]
         }
     ]
 };
@@ -1536,7 +1605,7 @@ exports.goerliTokenList = {
             "description": "The yield position, ie: Yearn yvcrvLUSD"
         }
     },
-    "timestamp": "2021-11-02T16:38:52.810Z",
+    "timestamp": "2021-11-04T18:01:14.000Z",
     "version": {
         "major": 0,
         "minor": 0,
