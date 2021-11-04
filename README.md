@@ -4,20 +4,42 @@ The Tokenlist for Element.finance
 
 ## Install
 
-Run
+1. Run
 
 ```bash
 npm install git+https://github.com/element-fi/elf-tokenlist.git
 ```
 
-## Build
+2. Since this repo is not an npm package yet, add this script to package.json to
+   stay up-to-date with the latest version.
+
+```
+  "scripts": {
+    "update-elf-tokenlist": "npm install git+https://github.com/element-fi/elf-tokenlist.git"
+  },
+```
+
+### Deploying a new term
+
+When a new term is deployed in the elf-deploy repo, run this command to
+regenerate the tokenlist:
 
 ```bash
 # build the new tokenlists, elf-deploy repo must have the updated list
 npm run build
 ```
 
-## Example
+Once complete, commit all file changes and submit a PR to `main`.
+
+Any project that wants the latest tokenlist will now need to update their
+dependency on this repo. See below for handy script that makes upgrading easy
+for consumers.
+
+## Usage Examples
+
+### List the open principal tokens
+
+This is how to get a list of currently open principal tokens.
 
 ```ts
 import { ElementTokenTag, mainnetTokenList } from "elf-tokenlist";
@@ -32,33 +54,24 @@ const principalTokens = mainnetTokenList.tokens
   ).
 ```
 
-## Here, take this!
+## Developer Config
 
-Since this repo is not an npm package, it can be helpful to include this simple script to upgrade your project to the latest commit:
+To build this repo you need to configure some env variables. For linux and mac run the following:
 
-```
-  "scripts": {
-    "update-elf-tokenlist": "npm install git+https://github.com/element-fi/elf-tokenlist.git"
-  },
-```
-## Configure
-
-To build this repo you need to configure some env variables.  For linux and mac run the following:
-
-1) Copy `elf.default.env`
+1. Copy `elf.default.env`
 
 ```bash
 cp elf.default.env elf.env
 ```
 
-2) Update elf.env with your alchemy api key
+2. Update elf.env with your alchemy api key
 
 ```bash
 export ALCHEMY_MAINNET_API_KEY=
 export ALCHEMY_GOERLI_API_KEY=
 ```
 
-3) Source the env file
+3. Source the env file
 
 ```bash
 source elf.env
