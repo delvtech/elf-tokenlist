@@ -31,7 +31,7 @@
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-11-11T19:57:48.325Z",
+  "timestamp": "2021-11-16T21:53:48.973Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -270,6 +270,19 @@
     },
     {
       "chainId": 1,
+      "address": "0x62d9855c399fDE8226840eA12D9F1Dd693a49B6A",
+      "symbol": "yvUSDC",
+      "decimals": 6,
+      "name": "element yvUSDC",
+      "tags": [
+        "assetproxy"
+      ],
+      "extensions": {
+        "vault": "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6",
       "symbol": "yvCurve-LUSD",
       "decimals": 18,
@@ -364,6 +377,16 @@
       "symbol": "yvCurve-EURS",
       "decimals": 18,
       "name": "Curve EURS Pool yVault",
+      "tags": [
+        "vault"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE",
+      "symbol": "yvUSDC",
+      "decimals": 6,
+      "name": "USDC yVault",
       "tags": [
         "vault"
       ]
@@ -694,6 +717,24 @@
     },
     {
       "chainId": 1,
+      "address": "0x52C9886d5D87B0f06EbACBEff750B5Ffad5d17d9",
+      "symbol": "ePyvUSDC-29APR22",
+      "decimals": 6,
+      "extensions": {
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "position": "0x62d9855c399fDE8226840eA12D9F1Dd693a49B6A",
+        "interestToken": "0x29Cca1dbA3f2DB3C2708608d2676ff8044c14073",
+        "unlockTimestamp": 1651253068,
+        "createdAtTimestamp": 1637083548
+      },
+      "name": "USDC Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
       "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
       "symbol": "eYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -974,6 +1015,22 @@
         "tranche": "0xC63958D9D01eFA6B8266b1df3862c6323CbDb52B",
         "underlying": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
         "unlockTimestamp": 1651247155
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0x29Cca1dbA3f2DB3C2708608d2676ff8044c14073",
+      "symbol": "eYyvUSDC-29APR22",
+      "decimals": 6,
+      "name": "USDC Yield Token",
+      "extensions": {
+        "tranche": "0x52C9886d5D87B0f06EbACBEff750B5Ffad5d17d9",
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "unlockTimestamp": 1651253068
       },
       "tags": [
         "eY"
@@ -1306,6 +1363,24 @@
     },
     {
       "chainId": 1,
+      "address": "0x7Edde0CB05ED19e03A9a47CD5E53fC57FDe1c80c",
+      "symbol": "LPePyvUSDC-29APR22",
+      "decimals": 18,
+      "extensions": {
+        "bond": "0x52C9886d5D87B0f06EbACBEff750B5Ffad5d17d9",
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "poolId": "0x7edde0cb05ed19e03a9a47cd5e53fc57fde1c80c0002000000000000000000c8",
+        "unitSeconds": 778194436,
+        "expiration": 1651253068,
+        "createdAtTimestamp": 1637084616
+      },
+      "name": "LP Element Principal Token yvUSDC-29APR22",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
       "symbol": "LPeYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -1606,6 +1681,23 @@
         "expiration": 1651247155
       },
       "name": "LP Element Yield Token yvCurve-MIM-29APR22",
+      "tags": [
+        "wpool"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x7173b184525feAD2fFbde5FBe6FCB65Ea8246eE7",
+      "symbol": "LPeYyvUSDC-29APR22",
+      "decimals": 18,
+      "extensions": {
+        "poolId": "0x7173b184525fead2ffbde5fbe6fcb65ea8246ee70002000000000000000000c7",
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "interestToken": "0x29Cca1dbA3f2DB3C2708608d2676ff8044c14073",
+        "createdAtTimestamp": 1637084375,
+        "expiration": 1651253068
+      },
+      "name": "LP Element Yield Token yvUSDC-29APR22",
       "tags": [
         "wpool"
       ]
