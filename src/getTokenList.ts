@@ -135,37 +135,45 @@ export async function getTokenList(
       return true;
     });
 
+  console.log("underlyingTokenInfos");
   const underlyingTokenInfos = await getUnderlyingTokenInfos(
     chainId,
     underlyingTokenAddresses
   );
 
+  console.log("principalTokenInfos");
   const principalTokenInfos = await getPrincipalTokenInfos(
     chainId,
     trancheFactory,
     safelist
   );
 
+  console.log("assetProxyTokenInfos");
   const assetProxyTokenInfos = await getAssetProxyTokenInfos(
     chainId,
     principalTokenInfos
   );
 
+  console.log("vaultTokenInfos");
   const vaultTokenInfos = await getVaultTokenInfos(
     chainId,
     assetProxyTokenInfos
   );
 
+  console.log("yieldTokenInfos");
   const yieldTokenInfos = await getYieldTokenInfos(
     chainId,
     principalTokenInfos
   );
 
+  console.log("principalPoolTokenInfos");
   const principalPoolTokenInfos = await getPrincipalPoolTokenInfos(
     chainId,
     convergentPoolFactory,
     safelist
   );
+
+  console.log("yieldPoolTokenInfos");
   const yieldPoolTokenInfos = await getYieldPoolTokenInfos(
     chainId,
     underlyingTokenInfos,

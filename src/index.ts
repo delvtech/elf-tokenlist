@@ -52,7 +52,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-11-23T22:42:53.424Z",
+  "timestamp": "2021-12-10T00:20:12.852Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -774,6 +774,24 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x49e9e169f0B661Ea0A883f490564F4CC275123Ed",
+      "symbol": "ePyvWBTC-29APR22",
+      "decimals": 8,
+      "extensions": {
+        "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "position": "0x8D9487b81e0fEdcd2D8Cab91885756742375CDC5",
+        "interestToken": "0x6B25b806a48B0d7CfA8399E3537479DdDe7c931f",
+        "unlockTimestamp": 1651265241,
+        "createdAtTimestamp": 1639082867
+      },
+      "name": "WBTC Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
       "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
       "symbol": "eYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -1086,6 +1104,22 @@ export const mainnetTokenList: TokenList = {
         "tranche": "0xEaa1cBA8CC3CF01a92E9E853E90277B5B8A23e07",
         "underlying": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
         "unlockTimestamp": 1651267340
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0x6B25b806a48B0d7CfA8399E3537479DdDe7c931f",
+      "symbol": "eYyvWBTC-29APR22",
+      "decimals": 8,
+      "name": "WBTC Yield Token",
+      "extensions": {
+        "tranche": "0x49e9e169f0B661Ea0A883f490564F4CC275123Ed",
+        "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "unlockTimestamp": 1651265241
       },
       "tags": [
         "eY"
@@ -1454,6 +1488,24 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x4bd6D86dEBdB9F5413e631Ad386c4427DC9D01B2",
+      "symbol": "LPePyvWBTC-29APR22",
+      "decimals": 18,
+      "extensions": {
+        "bond": "0x49e9e169f0B661Ea0A883f490564F4CC275123Ed",
+        "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "poolId": "0x4bd6d86debdb9f5413e631ad386c4427dc9d01b20002000000000000000000ec",
+        "unitSeconds": 2333952170,
+        "expiration": 1651265241,
+        "createdAtTimestamp": 1639083174
+      },
+      "name": "LP Element Principal Token yvWBTC-29APR22",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
       "symbol": "LPeYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -1788,6 +1840,23 @@ export const mainnetTokenList: TokenList = {
         "expiration": 1651267340
       },
       "name": "LP Element Yield Token yvCurve-alUSD-29APR22",
+      "tags": [
+        "wpool"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xCF354603A9AEbD2Ff9f33E1B04246d8Ea204ae95",
+      "symbol": "LPeYyvWBTC-29APR22",
+      "decimals": 18,
+      "extensions": {
+        "poolId": "0xcf354603a9aebd2ff9f33e1b04246d8ea204ae950002000000000000000000eb",
+        "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "interestToken": "0x6B25b806a48B0d7CfA8399E3537479DdDe7c931f",
+        "createdAtTimestamp": 1639083132,
+        "expiration": 1651265241
+      },
+      "name": "LP Element Yield Token yvWBTC-29APR22",
       "tags": [
         "wpool"
       ]
