@@ -8,6 +8,7 @@ import zip from "lodash.zip";
 import { YieldPoolTokenInfo, YieldTokenInfo } from "src/types";
 
 import { TokenTag } from "src/tags";
+import { retry } from "src/util/retry";
 
 export const provider = hre.ethers.provider;
 export async function getYieldPoolTokenInfos(
@@ -19,7 +20,7 @@ export async function getYieldPoolTokenInfos(
   safelist: string[]
 ): Promise<YieldPoolTokenInfo[]> {
   const filter = weightedPoolFactory.filters.PoolCreated(null);
-  const events = await weightedPoolFactory.queryFilter(filter);
+  const events = await retry(() => weightedPoolFactory.queryFilter(filter));
   const poolCreatedEvents = events.map((event) => {
     const [poolAddress] = event.args || [];
     const { blockNumber } = event;
@@ -38,7 +39,7 @@ export async function getYieldPoolTokenInfos(
 
   const poolCreatedAts = await Promise.all(
     safePoolEvents.map(async ({ blockNumber }) => {
-      const block = await provider.getBlock(blockNumber as number);
+      const block = await retry(() => provider.getBlock(blockNumber as number));
       return +block.timestamp;
     })
   );
@@ -46,12 +47,23 @@ export async function getYieldPoolTokenInfos(
   const underlyingAddresses = underlyingTokenInfos.map(
     ({ address }) => address
   );
-  const poolIds = await Promise.all(safePools.map((pool) => pool.getPoolId()));
-  const poolNames = await Promise.all(safePools.map((pool) => pool.name()));
+
+  // TODO: Find out why removing the `async` and `await` in the map fn causes
+  // the type of `poolIds` to be `Promise<string>[]` rather than `string[]`
+  const poolIds = await Promise.all(safePools.map(async (pool) => 
+    await retry(pool.getPoolId)
+  ));
+
+  const poolNames = await Promise.all(safePools.map((pool) => 
+    retry(pool.name)
+  ));
+
   const poolUnderlyingAddresses = await Promise.all(
     zip(safePools, poolIds).map(async (zipped) => {
       const [pool, poolId] = zipped as [WeightedPool, string];
-      const [tokenAddresses] = await balancerVault.getPoolTokens(poolId);
+      const [tokenAddresses] = await retry(
+        () => balancerVault.getPoolTokens(poolId)
+      );
       return tokenAddresses.find((address) =>
         underlyingAddresses.includes(address)
       ) as string;
@@ -62,7 +74,9 @@ export async function getYieldPoolTokenInfos(
   const interestTokenAddresses = await Promise.all(
     zip(safePools, poolIds).map(async (zipped) => {
       const [pool, poolId] = zipped as [WeightedPool, string];
-      const [tokenAddresses] = await balancerVault.getPoolTokens(poolId);
+      const [tokenAddresses] = await retry(
+        () => balancerVault.getPoolTokens(poolId)
+      );
       const interestToken = tokenAddresses.find((address) =>
         yieldTokenAddresses.includes(address)
       ) as string;
@@ -76,9 +90,11 @@ export async function getYieldPoolTokenInfos(
     )?.extensions.unlockTimestamp;
   });
 
-  const poolSymbols = await Promise.all(safePools.map((pool) => pool.symbol()));
+  const poolSymbols = await Promise.all(
+    safePools.map((pool) => retry(pool.symbol))
+  );
   const poolDecimals = await Promise.all(
-    safePools.map((pool) => pool.decimals())
+    safePools.map((pool) => retry(pool.decimals))
   );
 
   const weightedPoolTokensList: YieldPoolTokenInfo[] = zip<any>(
