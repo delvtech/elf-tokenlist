@@ -22,4 +22,5 @@ jobs:
         with:
           name: dist
           path: dist/
-      - run: npm publish
+      - name: Publish to NPM
+        run: npm publish --access public
