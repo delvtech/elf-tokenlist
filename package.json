@@ -1,6 +1,6 @@
 {
   "name": "@elementfi/tokenlist",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "dependencies": {
     "@uniswap/token-lists": "^1.0.0-beta.25",
