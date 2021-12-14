@@ -10,7 +10,7 @@ import { PrincipalTokenInfo, YieldTokenInfo } from "src/types";
 import { getTokenSymbolMulti } from "src/erc20";
 import { TokenTag } from "src/tags";
 import { ELEMENT_LOGO_URI } from "src/logo";
-import { retry } from "src/util/retry";
+import { retryAsync } from "src/util/retry";
 
 let hardhatSymbolOverrides = {};
 if (process.env.NODE_ENV === "development") {
@@ -42,7 +42,7 @@ export async function getYieldTokenInfos(
   );
 
   const interestTokenAddresses = await Promise.all(
-    tranches.map((tranche) => retry(tranche.interestToken))
+    tranches.map((tranche) => retryAsync(tranche.interestToken))
   );
   const interestTokens = interestTokenAddresses.map((address) =>
     InterestToken__factory.connect(address, provider)
@@ -59,11 +59,11 @@ export async function getYieldTokenInfos(
   // It's generally useful to include the base asset yts even though it isn't
   // directly available on the InterestToken
   const underlyingAddresses = await Promise.all(
-    tranches.map((tranche) => retry(tranche.underlying))
+    tranches.map((tranche) => retryAsync(tranche.underlying))
   );
 
   const decimals = await Promise.all(
-    interestTokens.map((interestToken) => retry(interestToken.decimals))
+    interestTokens.map((interestToken) => retryAsync(interestToken.decimals))
   );
 
   const yieldTokensList: YieldTokenInfo[] = zip<any>(
@@ -134,19 +134,19 @@ function formatYieldTokenNames(underlyingSymbols: string[]) {
 
 async function getUnderlyingSymbols(interestTokens: InterestToken[]) {
   const trancheAddresses = await Promise.all(
-    interestTokens.map((interestToken) => retry(interestToken.tranche))
+    interestTokens.map((interestToken) => retryAsync(interestToken.tranche))
   );
   const tranches = trancheAddresses.map((address) =>
     Tranche__factory.connect(address, provider)
   );
   const underlyingAddresses = await Promise.all(
-    tranches.map((tranche) => retry(tranche.underlying))
+    tranches.map((tranche) => retryAsync(tranche.underlying))
   );
   const underlyingContracts = underlyingAddresses.map((address) =>
     ERC20__factory.connect(address, provider)
   );
   const underlyingSymbols = await Promise.all(
-    underlyingContracts.map((underlying) => retry(underlying.symbol))
+    underlyingContracts.map((underlying) => retryAsync(underlying.symbol))
   );
   return underlyingSymbols;
 }

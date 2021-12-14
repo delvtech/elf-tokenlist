@@ -8,7 +8,7 @@ import zip from "lodash.zip";
 import { PrincipalPoolTokenInfo } from "src/types";
 
 import { TokenTag } from "src/tags";
-import { retry } from "src/util/retry";
+import { retry, retryAsync } from "src/util/retry";
 
 export const provider = hre.ethers.provider;
 export async function getPrincipalPoolTokenInfos(
@@ -46,25 +46,25 @@ export async function getPrincipalPoolTokenInfos(
   );
 
   const poolIds = await Promise.all(
-    safePools.map((pool) => retry(pool.getPoolId))
+    safePools.map((pool) => retryAsync(pool.getPoolId))
   );
   const poolUnderlyingAddresses = await Promise.all(
-    safePools.map((pool) => retry(pool.underlying))
+    safePools.map((pool) => retryAsync(pool.underlying))
   );
   const poolNames = await Promise.all(
-    safePools.map((pool) => retry(pool.name))
+    safePools.map((pool) => retryAsync(pool.name))
   );
   const poolSymbols = await Promise.all(
-    safePools.map((pool) => retry(pool.symbol))
+    safePools.map((pool) => retryAsync(pool.symbol))
   );
   const poolDecimals = await Promise.all(
-    safePools.map((pool) => retry(pool.decimals))
+    safePools.map((pool) => retryAsync(pool.decimals))
   );
   const poolUnitSeconds = await Promise.all(
-    safePools.map((pool) => retry(pool.unitSeconds))
+    safePools.map((pool) => retryAsync(pool.unitSeconds))
   );
   const poolExpirations = await Promise.all(
-    safePools.map((pool) => retry(pool.expiration))
+    safePools.map((pool) => retryAsync(pool.expiration))
   );
 
   const ccPoolTokensList: PrincipalPoolTokenInfo[] = zip<any>(

@@ -8,7 +8,7 @@ import zip from "lodash.zip";
 import { YieldPoolTokenInfo, YieldTokenInfo } from "src/types";
 
 import { TokenTag } from "src/tags";
-import { retry } from "src/util/retry";
+import { retry, retryAsync } from "src/util/retry";
 
 export const provider = hre.ethers.provider;
 export async function getYieldPoolTokenInfos(
@@ -48,15 +48,13 @@ export async function getYieldPoolTokenInfos(
     ({ address }) => address
   );
 
-  // TODO: Find out why removing the `async` and `await` in the map fn causes
-  // the type of `poolIds` to be `Promise<string>[]` rather than `string[]`
-  const poolIds = await Promise.all(safePools.map(async (pool) => 
-    await retry(pool.getPoolId)
-  ));
+  const poolIds = await Promise.all(
+    safePools.map((pool) => retryAsync(pool.getPoolId))
+  );
 
-  const poolNames = await Promise.all(safePools.map((pool) => 
-    retry(pool.name)
-  ));
+  const poolNames = await Promise.all(
+    safePools.map((pool) => retryAsync(pool.name))
+  );
 
   const poolUnderlyingAddresses = await Promise.all(
     zip(safePools, poolIds).map(async (zipped) => {
@@ -91,10 +89,10 @@ export async function getYieldPoolTokenInfos(
   });
 
   const poolSymbols = await Promise.all(
-    safePools.map((pool) => retry(pool.symbol))
+    safePools.map((pool) => retryAsync(pool.symbol))
   );
   const poolDecimals = await Promise.all(
-    safePools.map((pool) => retry(pool.decimals))
+    safePools.map((pool) => retryAsync(pool.decimals))
   );
 
   const weightedPoolTokensList: YieldPoolTokenInfo[] = zip<any>(
