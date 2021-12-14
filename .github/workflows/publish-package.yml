@@ -1,12 +1,13 @@
 name: Publish Package to npmjs
+
 on:
   release:
     types: [created]
+
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       ALCHEMY_MAINNET_API_KEY: ${{ secrets.ALCHEMY_MAINNET_API_KEY }}
       ALCHEMY_GOERLI_API_KEY: ${{ secrets.ALCHEMY_GOERLI_API_KEY }}
     steps:
@@ -22,5 +23,16 @@ jobs:
         with:
           name: dist
           path: dist/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
       - name: Publish to NPM
         run: npm publish --access public
