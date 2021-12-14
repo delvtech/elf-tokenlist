@@ -4,22 +4,8 @@ The Tokenlist for Element.finance
 
 ## Install
 
-To install this repo as a dependency on another repo, you'll need to follow these steps in that
-repo.
-
-1. Run
-
 ```bash
-npm install git+https://github.com/element-fi/elf-tokenlist.git
-```
-
-2. Since this repo is not an npm package yet, add this script to package.json to
-   stay up-to-date with the latest version.
-
-```
-  "scripts": {
-    "update-elf-tokenlist": "npm install git+https://github.com/element-fi/elf-tokenlist.git"
-  },
+npm install @elementfi/tokenlist
 ```
 
 ## Setup

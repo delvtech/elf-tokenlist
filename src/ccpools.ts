@@ -8,6 +8,7 @@ import zip from "lodash.zip";
 import { PrincipalPoolTokenInfo } from "src/types";
 
 import { TokenTag } from "src/tags";
+import { retry, retryAsync } from "src/util/retry";
 
 export const provider = hre.ethers.provider;
 export async function getPrincipalPoolTokenInfos(
@@ -16,7 +17,7 @@ export async function getPrincipalPoolTokenInfos(
   safelist: string[]
 ): Promise<PrincipalPoolTokenInfo[]> {
   const filter = ccPoolFactory.filters.CCPoolCreated(null, null);
-  const events = await ccPoolFactory.queryFilter(filter);
+  const events = await retry(() => ccPoolFactory.queryFilter(filter));
   const poolCreatedEvents = events.map((event) => {
     const [poolAddress, bondTokenAddress] = event.args || [];
     const { blockNumber } = event;
@@ -39,25 +40,31 @@ export async function getPrincipalPoolTokenInfos(
 
   const poolCreatedAts = await Promise.all(
     safePoolEvents.map(async ({ blockNumber }) => {
-      const block = await provider.getBlock(blockNumber as number);
+      const block = await retry(() => provider.getBlock(blockNumber as number));
       return +block.timestamp;
     })
   );
 
-  const poolIds = await Promise.all(safePools.map((pool) => pool.getPoolId()));
-  const poolUnderlyingAddresses = await Promise.all(
-    safePools.map((pool) => pool.underlying())
+  const poolIds = await Promise.all(
+    safePools.map((pool) => retryAsync(pool.getPoolId))
   );
-  const poolNames = await Promise.all(safePools.map((pool) => pool.name()));
-  const poolSymbols = await Promise.all(safePools.map((pool) => pool.symbol()));
+  const poolUnderlyingAddresses = await Promise.all(
+    safePools.map((pool) => retryAsync(pool.underlying))
+  );
+  const poolNames = await Promise.all(
+    safePools.map((pool) => retryAsync(pool.name))
+  );
+  const poolSymbols = await Promise.all(
+    safePools.map((pool) => retryAsync(pool.symbol))
+  );
   const poolDecimals = await Promise.all(
-    safePools.map((pool) => pool.decimals())
+    safePools.map((pool) => retryAsync(pool.decimals))
   );
   const poolUnitSeconds = await Promise.all(
-    safePools.map((pool) => pool.unitSeconds())
+    safePools.map((pool) => retryAsync(pool.unitSeconds))
   );
   const poolExpirations = await Promise.all(
-    safePools.map((pool) => pool.expiration())
+    safePools.map((pool) => retryAsync(pool.expiration))
   );
 
   const ccPoolTokensList: PrincipalPoolTokenInfo[] = zip<any>(

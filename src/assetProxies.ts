@@ -13,6 +13,7 @@ import {
   getTokenDecimalsMulti,
 } from "./erc20";
 import { TokenTag } from "src/tags";
+import { retryAsync } from "src/util/retry";
 
 export const provider = hre.ethers.provider;
 
@@ -43,7 +44,7 @@ export async function getAssetProxyTokenInfos(
   );
 
   const allPositions = await Promise.all(
-    tranches.map((tranche) => tranche.position())
+    tranches.map((tranche) => retryAsync(tranche.position))
   );
   // uniq b/c different tranches can have the same positionj
   const uniqPositionAddresses = uniq(allPositions);
@@ -52,7 +53,7 @@ export async function getAssetProxyTokenInfos(
   );
 
   const vaults = await Promise.all(
-    positions.map((position) => position.vault())
+    positions.map((position) => retryAsync(position.vault))
   );
 
   // We need to shim the names since some have mistakes deployed
