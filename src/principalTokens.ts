@@ -11,6 +11,7 @@ import { PrincipalTokenInfo } from "src/types";
 import { getTokenSymbolMulti } from "src/erc20";
 import { TokenTag } from "src/tags";
 import { ELEMENT_LOGO_URI } from "src/logo";
+import { retry } from "src/util/retry";
 
 let hardhatSymbolOverrides = {};
 if (process.env.NODE_ENV === "development") {
@@ -51,7 +52,9 @@ export async function getPrincipalTokenInfos(
   safelist: string[]
 ): Promise<PrincipalTokenInfo[]> {
   const filter = trancheFactory.filters.TrancheCreated(null, null, null);
-  const trancheCreatedEvents = await trancheFactory.queryFilter(filter);
+  const trancheCreatedEvents = await retry(() => 
+    trancheFactory.queryFilter(filter)
+  );
   const trancheAddresses = trancheCreatedEvents.map(
     (event) =>
       // The first arg is the trancheAddress
@@ -76,20 +79,20 @@ export async function getPrincipalTokenInfos(
   );
 
   const decimals = await Promise.all(
-    safeTranches.map((tranche) => tranche.decimals())
+    safeTranches.map((tranche) => retry(tranche.decimals))
   );
   const underlyingAddresses = await getPrincipalTokenUnderlyings(
     chainId,
     safeTranches
   );
   const unlockTimestamps = await Promise.all(
-    safeTranches.map((tranche) => tranche.unlockTimestamp())
+    safeTranches.map((tranche) => retry(tranche.unlockTimestamp))
   );
   const interestTokens = await Promise.all(
-    safeTranches.map((tranche) => tranche.interestToken())
+    safeTranches.map((tranche) => retry(tranche.interestToken))
   );
   const positions = await Promise.all(
-    safeTranches.map((tranche) => tranche.position())
+    safeTranches.map((tranche) => retry(tranche.position))
   );
 
   const principalTokensList: PrincipalTokenInfo[] = zip<any>(
@@ -142,7 +145,7 @@ async function getPrincipalTokenUnderlyings(
 ) {
   const trancheAddresses = tranches.map((tranche) => tranche.address);
   const underlyingAddresses = await Promise.all(
-    tranches.map((tranche) => tranche.underlying())
+    tranches.map((tranche) => retry(tranche.underlying))
   );
   const overrides = trancheUnderlyingOverrides[chainId] || {};
   const underlyings = zip(trancheAddresses, underlyingAddresses).map(
@@ -172,7 +175,7 @@ async function getPrincipalTokenSymbols(chainId: number, tranches: Tranche[]) {
 
 async function getPrincipalTokenName(tranches: Tranche[]) {
   const underlyingAddresses = await Promise.all(
-    tranches.map((tranche) => tranche.underlying())
+    tranches.map((tranche) => retry(tranche.underlying))
   );
   const underlyingContracts = underlyingAddresses.map((address) =>
     ERC20__factory.connect(address, provider)
@@ -201,7 +204,7 @@ async function getTrancheCreatedEvents(
   const blocks = await Promise.all(
     filteredTranches.map((event) => {
       const blockNumber = event.blockNumber;
-      return provider.getBlock(blockNumber);
+      return retry(() => provider.getBlock(blockNumber));
     })
   );
 
