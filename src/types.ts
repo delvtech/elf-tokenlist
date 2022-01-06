@@ -37,8 +37,14 @@ export interface PrincipalTokenInfo extends TokenInfo {
   };
 }
 
-interface CurveLpToken extends TokenInfo {
-  tags: [TokenTag.CURVE, ...string[]];
+export type SimpleTokenInfo = Pick<
+  TokenInfo,
+  "chainId" | "address" | "symbol" | "name" | "decimals"
+>;
+
+export interface CurveLpToken<A extends Exclude<TokenTag, TokenTag.CURVE>>
+  extends TokenInfo {
+  tags: [TokenTag.CURVE, A, ...string[]];
   extensions: {
     /** The address the curve LP token corresponds to, may sometimes be the
      * address of the token itself  */
@@ -64,7 +70,7 @@ interface SimpleBaseToken extends TokenInfo {
   tags: [TokenTag.BASE, ...string[]];
 }
 
-interface CurveBaseToken extends CurveLpToken {
+interface CurveBaseToken extends CurveLpToken<TokenTag.BASE> {
   tags: [TokenTag.CURVE, TokenTag.BASE, ...string[]];
 }
 
@@ -74,7 +80,7 @@ interface SimpleRootToken extends TokenInfo {
   tags: [TokenTag.ROOT, ...string[]];
 }
 
-interface CurveRootToken extends CurveLpToken {
+interface CurveRootToken extends CurveLpToken<TokenTag.ROOT> {
   tags: [TokenTag.CURVE, TokenTag.ROOT, ...string[]];
 }
 

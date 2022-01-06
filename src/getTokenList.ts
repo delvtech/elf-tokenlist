@@ -113,12 +113,6 @@ export async function getTokenList(
       underlyingAddresses
     );
   }
-
-  const etherscanProvider = new ethers.providers.EtherscanProvider(
-    chainId,
-    process.env.ETHERSCAN_API_KEY
-  );
-
   const trancheFactory = TrancheFactory__factory.connect(
     trancheFactoryAddress,
     provider
@@ -151,11 +145,10 @@ export async function getTokenList(
   console.log("baseTokenInfos");
   const baseTokenInfos = await getBaseTokenInfos(
     chainId,
-    underlyingTokenAddresses,
-    etherscanProvider
+    underlyingTokenAddresses
   );
 
-  console.log(baseTokenInfos);
+  //console.log(baseTokenInfos);
 
   console.log("principalTokenInfos");
   const principalTokenInfos = await getPrincipalTokenInfos(
