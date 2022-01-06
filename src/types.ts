@@ -1,18 +1,9 @@
-import { TokenInfo, TokenList } from "@uniswap/token-lists";
+import { TokenInfo, TokenList } from "@uniswap/token-lists/src";
+import { string } from "hardhat/internal/core/params/argumentTypes";
+import { TokenTag } from "./tags";
 
 export declare const mainnetTokenList: TokenList;
 export declare const goerliTokenList: TokenList;
-export declare const TokenTag: {
-  VAULT: "vault";
-  ASSET_PROXY: "assetproxy";
-  CCPOOL: "ccpool";
-  PRINCIPAL: "eP";
-  UNDERLYING: "underlying";
-  WPOOL: "wpool";
-  YIELD: "eY";
-};
-export declare type TokenTag = typeof TokenTag[keyof typeof TokenTag];
-
 export interface TagInfo {
   name: string;
   description: string;
@@ -45,6 +36,49 @@ export interface PrincipalTokenInfo extends TokenInfo {
     position: string;
   };
 }
+
+interface CurveLpToken extends TokenInfo {
+  tags: [TokenTag.CURVE, ...string[]];
+  extensions: {
+    /** The address the curve LP token corresponds to, may sometimes be the
+     * address of the token itself  */
+    pool: string;
+
+    /**
+     * The underlying base asset for the principal token. If non-lp token,
+     * array should be empty.
+     */
+    poolAssets: [string, string] | [string, string, string];
+
+    /** Function signature corresponding to the add liquidity function
+     * on the base token pool contract*/
+    addLiquidityFuncSig: string;
+
+    /** Function signature corresponding to the remove liquidity function
+     * on the base token pool contract*/
+    removeLiquidityFuncSig: string;
+  };
+}
+
+interface SimpleBaseToken extends TokenInfo {
+  tags: [TokenTag.BASE, ...string[]];
+}
+
+interface CurveBaseToken extends CurveLpToken {
+  tags: [TokenTag.CURVE, TokenTag.BASE, ...string[]];
+}
+
+export type BaseTokenInfo = SimpleBaseToken | CurveBaseToken;
+
+interface SimpleRootToken extends TokenInfo {
+  tags: [TokenTag.ROOT, ...string[]];
+}
+
+interface CurveRootToken extends CurveLpToken {
+  tags: [TokenTag.CURVE, TokenTag.ROOT, ...string[]];
+}
+
+export type RootTokenInfo = SimpleRootToken | CurveRootToken;
 
 export interface AssetProxyTokenInfo extends TokenInfo {
   extensions: {

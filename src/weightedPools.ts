@@ -1,4 +1,4 @@
-import { TokenInfo } from "@uniswap/token-lists";
+import { TokenInfo } from "@uniswap/token-lists/src";
 import { Vault, WeightedPoolFactory } from "elf-contracts-typechain/dist/types";
 import { WeightedPool__factory } from "elf-contracts-typechain/dist/types/factories/WeightedPool__factory";
 import { WeightedPool } from "elf-contracts-typechain/dist/types/WeightedPool";
@@ -59,8 +59,8 @@ export async function getYieldPoolTokenInfos(
   const poolUnderlyingAddresses = await Promise.all(
     zip(safePools, poolIds).map(async (zipped) => {
       const [pool, poolId] = zipped as [WeightedPool, string];
-      const [tokenAddresses] = await retry(
-        () => balancerVault.getPoolTokens(poolId)
+      const [tokenAddresses] = await retry(() =>
+        balancerVault.getPoolTokens(poolId)
       );
       return tokenAddresses.find((address) =>
         underlyingAddresses.includes(address)
@@ -72,8 +72,8 @@ export async function getYieldPoolTokenInfos(
   const interestTokenAddresses = await Promise.all(
     zip(safePools, poolIds).map(async (zipped) => {
       const [pool, poolId] = zipped as [WeightedPool, string];
-      const [tokenAddresses] = await retry(
-        () => balancerVault.getPoolTokens(poolId)
+      const [tokenAddresses] = await retry(() =>
+        balancerVault.getPoolTokens(poolId)
       );
       const interestToken = tokenAddresses.find((address) =>
         yieldTokenAddresses.includes(address)

@@ -52,7 +52,7 @@ export async function getPrincipalTokenInfos(
   safelist: string[]
 ): Promise<PrincipalTokenInfo[]> {
   const filter = trancheFactory.filters.TrancheCreated(null, null, null);
-  const trancheCreatedEvents = await retry(() => 
+  const trancheCreatedEvents = await retry(() =>
     trancheFactory.queryFilter(filter)
   );
   const trancheAddresses = trancheCreatedEvents.map(

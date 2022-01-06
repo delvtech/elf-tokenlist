@@ -1,4 +1,4 @@
-import { TokenInfo } from "@uniswap/token-lists";
+import { TokenInfo } from "@uniswap/token-lists/src";
 import { ERC20 } from "elf-contracts-typechain/dist/types/ERC20";
 import { TestYVault__factory } from "elf-contracts-typechain/dist/types/factories/TestYVault__factory";
 import hre from "hardhat";
