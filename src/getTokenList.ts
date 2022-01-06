@@ -155,7 +155,7 @@ export async function getTokenList(
     etherscanProvider
   );
 
-  //console.log(baseTokenInfos);
+  console.log(baseTokenInfos);
 
   console.log("principalTokenInfos");
   const principalTokenInfos = await getPrincipalTokenInfos(

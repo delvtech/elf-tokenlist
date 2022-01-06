@@ -1,6 +1,6 @@
 import { TokenInfo } from "@uniswap/token-lists/src";
 import { ERC20__factory } from "elf-contracts-typechain/dist/types/factories/ERC20__factory";
-import { ethers } from "ethers";
+import { Contract, ethers } from "ethers";
 import hre from "hardhat";
 import zip from "lodash.zip";
 import axios from "axios";
@@ -29,11 +29,9 @@ export async function getBaseTokenInfos(
   const decimals = await getTokenDecimalsMulti(baseAssets);
   const {
     data: {
-      data: { poolData },
+      data: { poolData: curveV2PoolData },
     },
   } = await axios.get("https://api.curve.fi/api/getFactoryV2Pools");
-
-  //console.log(poolData);
 
   const baseAssetsList = await Promise.all(
     zip(baseTokenAddresses, symbols, names, decimals).map(
@@ -50,25 +48,29 @@ export async function getBaseTokenInfos(
           decimals: decimal as number,
           name: name as string,
         };
-        const tokenPoolData = poolData.find(
-          ({
-            address: _address,
-            implementationAddress,
-          }: {
-            address: string;
-            implementationAddress: string;
-          }) => _address === address || implementationAddress === address
-        );
-        console.log(name, tokenPoolData);
+
         if (!isCurveToken) return { ...shared, tags: [TokenTag.BASE] };
 
-        // const curveTokenAbi = await etherscanProvider.fetch("contract", {
-        //   action: "getabi",
-        //   address,
-        //   post: false,
-        // });
+        const isMetaPool = curveV2PoolData.some(
+          ({ address: _address }: { address: string }) => _address === address
+        );
 
-        // const curveLpToken = new hre.ethers.Contract(address!, curveTokenAbi);
+        let pool = address;
+        if (!isMetaPool) {
+          const curveLpToken = new Contract(
+            address!,
+            ["function minter() view returns (address)"],
+            provider
+          );
+          pool = await curveLpToken.minter();
+        }
+
+        console.log(name, pool);
+        const curvePoolAbi = await etherscanProvider.fetch("contract", {
+          action: "getabi",
+          address: pool,
+          post: false,
+        });
 
         // const hasAddLiquiditySig = Object.keys(curveLpToken.functions).some(
         //   (k) => k.startsWith("add_liquidity")
@@ -86,14 +88,26 @@ export async function getBaseTokenInfos(
         //   });
         // }
 
-        // const curvePool = new hre.ethers.Contract(pool!, curvePoolAbi);
-        // const addLiquidityFuncSig = Object.keys(curvePool.functions).find((k) =>
-        //   k.startsWith("add_liquidity")
-        // ) as string;
-        // const removeLiquidityFuncSig = Object.keys(curvePool.functions).find(
-        //   (k) => k.startsWith("remove_liquidity")
-        // ) as string;
+        const curvePool = new Contract(pool!, curvePoolAbi, provider);
+        const addLiquidityFuncSig = Object.keys(curvePool.functions).find((k) =>
+          k.startsWith("add_liquidity")
+        ) as string;
+        const removeLiquidityFuncSig = Object.keys(curvePool.functions).find(
+          (k) => k.startsWith("remove_liquidity_one_coin")
+        ) as string;
 
+        const numCoins = parseInt(
+          addLiquidityFuncSig.substring(
+            addLiquidityFuncSig.indexOf("[") + 1,
+            addLiquidityFuncSig.indexOf("]")
+          )
+        );
+
+        const coins = (await Promise.all(
+          [...Array(numCoins)].map((_, idx) => curvePool.coins(idx))
+        )) as [string, string] | [string, string, string];
+
+        console.log(name, coins);
         // console.log(name, addLiquidityFuncSig);
         //const coins = await curveContract.coins();
         //console.log(coins);
@@ -101,10 +115,10 @@ export async function getBaseTokenInfos(
           ...shared,
           tags: [TokenTag.CURVE, TokenTag.BASE],
           extensions: {
-            pool: "",
-            poolAssets: ["", ""],
-            addLiquidityFuncSig: "",
-            removeLiquidityFuncSig: "",
+            pool: pool!,
+            poolAssets: coins,
+            addLiquidityFuncSig: addLiquidityFuncSig,
+            removeLiquidityFuncSig: removeLiquidityFuncSig,
           },
         };
       }
