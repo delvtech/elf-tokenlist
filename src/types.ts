@@ -70,13 +70,13 @@ interface SimpleBaseToken extends TokenInfo {
   tags: [TokenTag.BASE, ...string[]];
 }
 
-interface CurveBaseToken extends CurveLpToken<TokenTag.BASE> {
+export interface CurveBaseToken extends CurveLpToken<TokenTag.BASE> {
   tags: [TokenTag.CURVE, TokenTag.BASE, ...string[]];
 }
 
 export type BaseTokenInfo = SimpleBaseToken | CurveBaseToken;
 
-interface SimpleRootToken extends TokenInfo {
+export interface SimpleRootToken extends TokenInfo {
   tags: [TokenTag.ROOT, ...string[]];
 }
 

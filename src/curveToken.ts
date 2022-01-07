@@ -13,14 +13,14 @@ export async function getCurveTokenInfo<
     address,
     name,
     symbol,
-    decimal,
+    decimals,
     tag,
   }: {
     chainId: 1;
     address: string;
     name: string;
     symbol: string;
-    decimal: number;
+    decimals: number;
     tag: A;
   },
   curveV2PoolData: { address: string }[]
@@ -80,7 +80,7 @@ export async function getCurveTokenInfo<
     chainId,
     address,
     name,
-    decimals: decimal,
+    decimals,
     symbol,
     tags: [TokenTag.CURVE, tag],
     extensions: {
