@@ -13,6 +13,41 @@ import { TokenTag } from "./tags";
 import { getCurveTokenInfo } from "./curveToken";
 
 export const provider = hre.ethers.provider;
+
+const ETH_CONSTANT = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
+
+async function constructRootTokenInfo(
+  address: string
+): Promise<SimpleRootToken> {
+  if (address === ETH_CONSTANT) {
+    return {
+      chainId: 1,
+      address,
+      name: "ETH",
+      decimals: 18,
+      symbol: "ETH",
+      tags: [TokenTag.ROOT],
+    };
+  }
+
+  const token = ERC20__factory.connect(address, provider);
+
+  const [name, symbol, decimals] = await Promise.all([
+    token.name(),
+    token.symbol(),
+    token.decimals(),
+  ]);
+
+  return {
+    chainId: 1,
+    address,
+    name,
+    decimals,
+    symbol,
+    tags: [TokenTag.ROOT],
+  };
+}
+
 export async function getRootTokenInfos(
   chainId: 1,
   baseTokenInfos: CurveBaseToken[]
@@ -23,85 +58,52 @@ export async function getRootTokenInfos(
     },
   } = await axios.get("https://api.curve.fi/api/getFactoryV2Pools");
 
-  return await Promise.all([
-    ...ggbaseTokenInfos.reduce(async (acc, baseTokenInfo) => {
-      const previousRootTokenInfos = await acc;
+  let rootTokenInfos: RootTokenInfo[] = [];
+  for (const baseTokenInfo of baseTokenInfos) {
+    for (const rootOfBaseAddress of baseTokenInfo.extensions.poolAssets) {
+      // if we have already generated the root token, skip
+      if (rootTokenInfos.some(({ address }) => address === rootOfBaseAddress)) {
+        continue;
+      }
 
-      const rootAddresses = baseTokenInfo.extensions.poolAssets;
+      const rootOfBaseTokenInfo = await constructRootTokenInfo(
+        rootOfBaseAddress
+      );
 
-      const currentRootTokenInfos = rootAddresses
-        .filter((address) =>
-          previousRootTokenInfos.some(
-            ({ address: _address }) => _address === address
-          )
-        )
-        .reduce(async (_acc, address) => {
-          const tkn = ERC20__factory.connect(address, provider);
-          const [name, symbol, decimals] = await Promise.all([
-            tkn.name(),
-            tkn.symbol(),
-            tkn.decimals(),
-          ]);
+      // if not a curve token, skip to next item
+      if (!rootOfBaseTokenInfo.name.startsWith("Curve.fi")) {
+        rootTokenInfos = [...rootTokenInfos, rootOfBaseTokenInfo];
+        continue;
+      }
 
-          const simpleRootTokenInfo: SimpleRootToken = {
-            chainId,
-            address,
-            name,
-            decimals,
-            symbol,
-            tags: [TokenTag.ROOT],
-          };
+      const curveRootToken = await getCurveTokenInfo<TokenTag.ROOT>(
+        {
+          chainId,
+          address: rootOfBaseAddress,
+          name: rootOfBaseTokenInfo.name,
+          decimals: rootOfBaseTokenInfo.decimals,
+          symbol: rootOfBaseTokenInfo.symbol,
+          tag: TokenTag.ROOT,
+        },
+        curveV2PoolData
+      );
 
-          if (name.startsWith("Curve.fi"))
-            return [...(await _acc), simpleRootTokenInfo];
+      rootTokenInfos = [...rootTokenInfos, curveRootToken];
 
-          let curveLpToken = previousRootTokenInfos.find(
-            ({ address: _address }) => _address === _address
-          );
-          if (!curveLpToken) {
-            curveLpToken = await getCurveTokenInfo<TokenTag.ROOT>(
-              {
-                chainId,
-                address,
-                name,
-                decimals,
-                symbol,
-                tag: TokenTag.ROOT,
-              },
-              curveV2PoolData
-            );
-          }
+      for (const rootOfRootAddress of curveRootToken.extensions.poolAssets) {
+        if (
+          rootTokenInfos.some(({ address }) => address === rootOfRootAddress)
+        ) {
+          continue;
+        }
 
-          curveLpToken = curveLpToken as CurveLpToken<TokenTag.ROOT>;
+        rootTokenInfos = [
+          ...rootTokenInfos,
+          await constructRootTokenInfo(rootOfRootAddress),
+        ];
+      }
+    }
+  }
 
-          const curveLpTokenRoots = curveLpToken.extensions.poolAssets;
-
-          const lpRootTokenInfos = (curveLpTokenRoots as string[]).reduce(
-            async (__acc, address) => {
-              const tkn = ERC20__factory.connect(address, provider);
-              const [name, symbol, decimals] = await Promise.all([
-                tkn.name(),
-                tkn.symbol(),
-                tkn.decimals(),
-              ]);
-              const simpleRootTokenInfo: SimpleRootToken = {
-                chainId,
-                address,
-                name,
-                decimals,
-                symbol,
-                tags: [TokenTag.ROOT],
-              };
-
-              return [...(await __acc), simpleRootTokenInfo];
-            },
-            Promise.resolve(<SimpleRootToken[]>[])
-          );
-
-          return [...(await _acc), curveLpToken, ...(await lpRootTokenInfos)];
-        }, Promise.resolve(<RootTokenInfo[]>[]));
-
-      return [...previousRootTokenInfos, ...(await currentRootTokenInfos)];
-    }, <Promise<RootTokenInfo>[]>[]),
-  ]);
+  return rootTokenInfos!;
 }

@@ -4,6 +4,7 @@ import { TokenTag } from "src/tags";
 import { CurveLpToken } from "./types";
 
 export const provider = hre.ethers.provider;
+import curve from "@curvefi/api";
 
 export async function getCurveTokenInfo<
   A extends TokenTag.BASE | TokenTag.ROOT
@@ -25,6 +26,17 @@ export async function getCurveTokenInfo<
   },
   curveV2PoolData: { address: string }[]
 ): Promise<CurveLpToken<A>> {
+  const apiKey =
+    chainId === 1
+      ? process.env.ALCHEMY_MAINNET_API_KEY
+      : process.env.ALCHEMY_GOERLI_API_KEY;
+
+  await curve.init("Alchemy", { apiKey }, { chainId });
+
+  const x = new curve.Pool("3pool");
+
+  console.log(x.coins);
+
   const etherscanProvider = new ethers.providers.EtherscanProvider(
     chainId,
     process.env.ETHERSCAN_API_KEY
@@ -44,6 +56,7 @@ export async function getCurveTokenInfo<
     pool = await curveLpToken.minter();
   }
 
+  console.log(pool);
   const curvePoolAbi = await etherscanProvider.fetch("contract", {
     action: "getabi",
     address: pool,
