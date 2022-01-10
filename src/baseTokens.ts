@@ -12,6 +12,28 @@ import { BaseTokenInfo, SimpleTokenInfo } from "./types";
 
 export const provider = hre.ethers.provider;
 
+/*
+ * This function returns a list of BaseTokenInfos which for our purposes are
+ * tokens which are the inputs to the element protocol. The system in essence
+ * abstracts these yield bearing systems to create the fixed and variable rate
+ * primitives. In order for the user to use the Element.fi system, they must
+ * provide these tokens. These base tokens come in different "flavours" and so
+ * we provide extra functionality on the basis of how they are constructed.
+ *
+ * 1. SimpleTokenInfo
+ *
+ * These are plain tokens which are standard ERC20 tokens like DAI and USDC
+ *
+ * 2. CurveTokenInfo
+ *
+ * These are LP tokens from the Curve Finance protocol. They have extra
+ * information such as the poolAssets which are used to build the root tokens
+ * we use in the system
+ *
+ * 3. CompoundTokenInfo
+ *
+ * TBD
+ */
 export async function getBaseTokenInfos(
   chainId: number,
   baseTokenAddresses: string[]
