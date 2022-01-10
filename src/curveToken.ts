@@ -170,6 +170,14 @@ export async function getCurveTokenInfo<
     (k) => k.startsWith("remove_liquidity_one_coin")
   ) as string;
 
+  /*
+   * We need this so that we can build our "poolAssets" definition which can be
+   * found in our curveLpToken type. We don't know ahead of time whether a given
+   * curve pool address has 2 or 3 tokens being traded on it and so we must
+   * validate this. Once knowing the number of coins in a given pool we can
+   * fetch those addresses and build the poolAssets array with the correct token
+   * addresses at the correct index
+   */
   const numCoins = parseInt(
     addLiquidityFuncSig.substring(
       addLiquidityFuncSig.indexOf("[") + 1,
