@@ -1,4 +1,3 @@
-import axios from "axios";
 import { ERC20__factory } from "elf-contracts-typechain/dist/types/factories/ERC20__factory";
 import hre from "hardhat";
 import zip from "lodash.zip";

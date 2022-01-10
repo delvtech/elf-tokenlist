@@ -1,8 +1,8 @@
-import axios from "axios";
 import hre from "hardhat";
 import { TokenTag } from "src/tags";
 import { CurveLpToken } from "./types";
 import { ethers } from "ethers";
+import fetch from "node-fetch";
 
 export const provider = hre.ethers.provider;
 const etherscanProvider = new ethers.providers.EtherscanProvider(
@@ -13,13 +13,16 @@ const etherscanProvider = new ethers.providers.EtherscanProvider(
 async function getGauges(): Promise<
   { [k in string]: { swap_token: string; swap: string } } | undefined
 > {
-  const {
-    data: {
-      success,
-      data: { gauges },
-    },
-  } = await axios.get("https://api.curve.fi/api/getGauges");
+  const data = await fetch("https://api.curve.fi/api/getGauges");
 
+  if (!data.ok) {
+    return;
+  }
+
+  const {
+    success,
+    data: { gauges },
+  } = await data.json();
   if (!success) {
     return;
   }
@@ -28,13 +31,15 @@ async function getGauges(): Promise<
 }
 
 async function getFactoryV2Pools(): Promise<{ address: string }[] | undefined> {
-  const {
-    data: {
-      success,
-      data: { poolData },
-    },
-  } = await axios.get("https://api.curve.fi/api/getFactoryV2Pools");
+  const data = await fetch("https://api.curve.fi/api/getFactoryV2Pools");
+  if (!data.ok) {
+    return;
+  }
 
+  const {
+    success,
+    data: { poolData },
+  } = await data.json();
   if (!success) {
     return;
   }
