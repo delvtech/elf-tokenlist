@@ -70,6 +70,7 @@ cp elf.default.env elf.env
 ```bash
 export ALCHEMY_MAINNET_API_KEY=
 export ALCHEMY_GOERLI_API_KEY=
+export ETHERSCAN_API_KEY=
 ```
 
 3. Source the env file
