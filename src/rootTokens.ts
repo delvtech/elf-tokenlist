@@ -62,14 +62,12 @@ export async function getRootTokenInfos(
         rootOfBaseAddress
       );
 
-      // if not a curve token, skip to next item
+      // if not a curve token, skip to next poolAsset
       if (!rootOfBaseTokenInfo.name.startsWith("Curve.fi")) {
-        console.log(`Token \"${rootOfBaseTokenInfo.name}\" is not curve token`);
         rootTokenInfos = [...rootTokenInfos, rootOfBaseTokenInfo];
         continue;
       }
 
-      console.log(`Token \"${rootOfBaseTokenInfo.name}\" is curve token`);
       const curveRootToken = await getCurveTokenInfo<TokenTag.ROOT>({
         chainId,
         address: rootOfBaseAddress,

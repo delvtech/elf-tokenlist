@@ -156,7 +156,6 @@ export async function getTokenList(
       baseTokenInfo.tags.some((tag) => tag === TokenTag.CURVE)
     ) as CurveBaseToken[]
   );
-  console.log(rootTokenInfos);
 
   console.log("principalTokenInfos");
   const principalTokenInfos = await getPrincipalTokenInfos(
