@@ -40,23 +40,14 @@ export async function getBaseTokenInfos(
         if (!isCurveToken || chainId !== 1)
           return { ...shared, tags: [TokenTag.BASE] };
 
-        const {
-          data: {
-            data: { poolData: curveV2PoolData },
-          },
-        } = await axios.get("https://api.curve.fi/api/getFactoryV2Pools");
-
-        return await getCurveTokenInfo<TokenTag.BASE>(
-          {
-            chainId,
-            address: address!,
-            name: name!,
-            decimals: decimals!,
-            symbol: symbol!,
-            tag: TokenTag.BASE,
-          },
-          curveV2PoolData
-        );
+        return await getCurveTokenInfo<TokenTag.BASE>({
+          chainId,
+          address: address!,
+          name: name!,
+          decimals: decimals!,
+          symbol: symbol!,
+          tag: TokenTag.BASE,
+        });
       }
     )
   );
