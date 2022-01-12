@@ -12,28 +12,17 @@ import { getAssetProxyTokenInfos } from "src/assetProxies";
 import { getPrincipalPoolTokenInfos } from "src/ccpools";
 import { ELEMENT_LOGO_URI } from "src/logo";
 import { TokenTag } from "src/tags";
-import { BaseTokenInfo, CurveBaseToken, TagInfo } from "src/types";
+import { TagInfo } from "src/types";
 import { getVaultTokenInfos } from "src/vaults";
 import { getYieldPoolTokenInfos } from "src/weightedPools";
 import { getBaseTokenInfos } from "./baseTokens";
 import { getPrincipalTokenInfos } from "./principalTokens";
-import { getYieldTokenInfos } from "./yieldTokens";
-
-import { ethers } from "ethers";
 import { getRootTokenInfos } from "./rootTokens";
+import { getYieldTokenInfos } from "./yieldTokens";
 
 const provider = hre.ethers.provider;
 
 export const elementTags: Record<TokenTag, TagInfo> = {
-  [TokenTag.BASE]: {
-    name: "Base token",
-    description: "The underlying base asset of a principal or yield token",
-  },
-  [TokenTag.ROOT]: {
-    name: "Root token",
-    description:
-      "This token is a member of a given LP token's pool assets. The LP token for that pool must also be a base token",
-  },
   [TokenTag.CURVE]: {
     name: "Curve LP token",
     description: "A curve LP token",
@@ -150,12 +139,7 @@ export async function getTokenList(
   );
 
   console.log("rootTokenInfos");
-  const rootTokenInfos = await getRootTokenInfos(
-    chainId,
-    baseTokenInfos.filter((baseTokenInfo) =>
-      baseTokenInfo.tags.some((tag) => tag === TokenTag.CURVE)
-    ) as CurveBaseToken[]
-  );
+  const rootTokenInfos = await getRootTokenInfos(chainId, baseTokenInfos);
 
   console.log("principalTokenInfos");
   const principalTokenInfos = await getPrincipalTokenInfos(

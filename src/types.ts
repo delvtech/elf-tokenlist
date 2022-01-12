@@ -1,5 +1,4 @@
 import { TokenInfo, TokenList } from "@uniswap/token-lists/src";
-import { string } from "hardhat/internal/core/params/argumentTypes";
 import { TokenTag } from "./tags";
 
 export declare const mainnetTokenList: TokenList;
@@ -42,9 +41,8 @@ export type SimpleTokenInfo = Pick<
   "chainId" | "address" | "symbol" | "name" | "decimals"
 >;
 
-export interface CurveLpToken<A extends Exclude<TokenTag, TokenTag.CURVE>>
-  extends TokenInfo {
-  tags: [TokenTag.CURVE, A, ...string[]];
+export interface CurveLpToken extends TokenInfo {
+  tags: [TokenTag.CURVE, ...string[]];
   extensions: {
     /** The address the curve LP token corresponds to, may sometimes be the
      * address of the token itself  */
@@ -65,26 +63,6 @@ export interface CurveLpToken<A extends Exclude<TokenTag, TokenTag.CURVE>>
     removeLiquidityFuncSig: string;
   };
 }
-
-interface SimpleBaseToken extends TokenInfo {
-  tags: [TokenTag.BASE, ...string[]];
-}
-
-export interface CurveBaseToken extends CurveLpToken<TokenTag.BASE> {
-  tags: [TokenTag.CURVE, TokenTag.BASE, ...string[]];
-}
-
-export type BaseTokenInfo = SimpleBaseToken | CurveBaseToken;
-
-export interface SimpleRootToken extends TokenInfo {
-  tags: [TokenTag.ROOT, ...string[]];
-}
-
-interface CurveRootToken extends CurveLpToken<TokenTag.ROOT> {
-  tags: [TokenTag.CURVE, TokenTag.ROOT, ...string[]];
-}
-
-export type RootTokenInfo = SimpleRootToken | CurveRootToken;
 
 export interface AssetProxyTokenInfo extends TokenInfo {
   extensions: {

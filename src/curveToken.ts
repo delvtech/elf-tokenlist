@@ -3,6 +3,7 @@ import { TokenTag } from "src/tags";
 import { CurveLpToken } from "./types";
 import { ethers } from "ethers";
 import fetch from "node-fetch";
+import { TokenInfo } from "@uniswap/token-lists/src";
 
 export const provider = hre.ethers.provider;
 const etherscanProvider = new ethers.providers.EtherscanProvider(
@@ -136,23 +137,13 @@ async function getCurvePoolFromTokenAddress(address: string): Promise<string> {
   throw new Error(`curve pool address: ${address} could not be found`);
 }
 
-export async function getCurveTokenInfo<
-  A extends TokenTag.BASE | TokenTag.ROOT
->({
+export async function getCurveTokenInfo({
   chainId,
   address,
   name,
   symbol,
   decimals,
-  tag,
-}: {
-  chainId: 1;
-  address: string;
-  name: string;
-  symbol: string;
-  decimals: number;
-  tag: A;
-}): Promise<CurveLpToken<A>> {
+}: TokenInfo): Promise<CurveLpToken> {
   const pool = await getCurvePoolFromTokenAddress(address);
 
   const curvePoolAbi = await etherscanProvider.fetch("contract", {
@@ -201,7 +192,7 @@ export async function getCurveTokenInfo<
     name,
     decimals,
     symbol,
-    tags: [TokenTag.CURVE, tag],
+    tags: [TokenTag.CURVE],
     extensions: {
       pool: pool!,
       poolAssets: coins,
