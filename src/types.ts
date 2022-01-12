@@ -1,5 +1,4 @@
 import { TokenInfo, TokenList } from "@uniswap/token-lists/src";
-import { TokenTag } from "./tags";
 
 export declare const mainnetTokenList: TokenList;
 export declare const goerliTokenList: TokenList;
@@ -10,10 +9,9 @@ export interface TagInfo {
 }
 
 export interface CurveLpTokenInfo extends TokenInfo {
-  tags: [TokenTag.CURVE, ...string[]];
   extensions: {
-    /** The address the curve LP token corresponds to, may sometimes be the
-     * address of the token itself  */
+    /** The address of the pool the curve LP token corresponds to, may sometimes
+     * be the address of the token itself  */
     pool: string;
 
     /**
