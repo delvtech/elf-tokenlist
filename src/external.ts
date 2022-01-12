@@ -1,17 +1,15 @@
-import { TokenInfo } from "@uniswap/token-lists";
+import { TokenInfo } from "@uniswap/token-lists/src";
 import { ERC20__factory } from "elf-contracts-typechain/dist/types/factories/ERC20__factory";
 import hre from "hardhat";
 import zip from "lodash.zip";
-
 import {
   getTokenDecimalsMulti,
   getTokenNameMulti,
   getTokenSymbolMulti,
 } from "src/erc20";
-import { TokenTag } from "src/tags";
 
 export const provider = hre.ethers.provider;
-export async function getUnderlyingTokenInfos(
+export async function getExternalTokenInfos(
   chainId: number,
   underlyingTokenAddresses: string[]
 ): Promise<TokenInfo[]> {
@@ -35,7 +33,6 @@ export async function getUnderlyingTokenInfos(
       symbol: symbol as string,
       decimals: decimal as number,
       name: name as string,
-      tags: [TokenTag.UNDERLYING],
       // TODO: What logo do we want to show for base assets?
       // logoURI: ""
     };
