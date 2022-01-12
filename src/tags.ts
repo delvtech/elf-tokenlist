@@ -3,7 +3,6 @@ export const TokenTag = {
   ASSET_PROXY: "assetproxy" as "assetproxy",
   CCPOOL: "ccpool" as "ccpool",
   PRINCIPAL: "eP" as "eP",
-  UNDERLYING: "underlying" as "underlying",
   WPOOL: "wpool" as "wpool",
   YIELD: "eY" as "eY",
 };

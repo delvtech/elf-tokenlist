@@ -1,34 +1,27 @@
 import { TokenList } from "@uniswap/token-lists";
-import fs from "fs";
-import hre from "hardhat";
-
-import { TrancheFactory__factory } from "elf-contracts-typechain/dist/types/factories/TrancheFactory__factory";
-
-import { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
-
-import { getYieldTokenInfos } from "./yieldTokens";
-import { getPrincipalTokenInfos } from "./principalTokens";
 import {
   ConvergentPoolFactory__factory,
   Vault__factory,
   WeightedPoolFactory__factory,
 } from "elf-contracts-typechain/dist/types";
+import { TrancheFactory__factory } from "elf-contracts-typechain/dist/types/factories/TrancheFactory__factory";
+import fs from "fs";
+import hre from "hardhat";
+import { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
 import { getAssetProxyTokenInfos } from "src/assetProxies";
 import { getPrincipalPoolTokenInfos } from "src/ccpools";
-import { getUnderlyingTokenInfos } from "src/underlying";
-import { getVaultTokenInfos } from "src/vaults";
-import { getYieldPoolTokenInfos } from "src/weightedPools";
+import { ELEMENT_LOGO_URI } from "src/logo";
 import { TokenTag } from "src/tags";
 import { TagInfo } from "src/types";
-import { ELEMENT_LOGO_URI } from "src/logo";
+import { getVaultTokenInfos } from "src/vaults";
+import { getYieldPoolTokenInfos } from "src/weightedPools";
+import { getExternalTokenInfos } from "./external";
+import { getPrincipalTokenInfos } from "./principalTokens";
+import { getYieldTokenInfos } from "./yieldTokens";
 
 const provider = hre.ethers.provider;
 
 export const elementTags: Record<TokenTag, TagInfo> = {
-  [TokenTag.UNDERLYING]: {
-    name: "Underlying asset",
-    description: "The base asset of a principal or yield token",
-  },
   [TokenTag.PRINCIPAL]: {
     name: "Principal token",
     description:
@@ -135,8 +128,8 @@ export async function getTokenList(
       return true;
     });
 
-  console.log("underlyingTokenInfos");
-  const underlyingTokenInfos = await getUnderlyingTokenInfos(
+  console.log("externalTokenInfos");
+  const externalTokenInfos = await getExternalTokenInfos(
     chainId,
     underlyingTokenAddresses
   );
@@ -176,7 +169,7 @@ export async function getTokenList(
   console.log("yieldPoolTokenInfos");
   const yieldPoolTokenInfos = await getYieldPoolTokenInfos(
     chainId,
-    underlyingTokenInfos,
+    externalTokenInfos,
     yieldTokenInfos,
     balancerVault,
     weightedPoolFactory,
@@ -195,7 +188,7 @@ export async function getTokenList(
       patch: 0,
     },
     tokens: [
-      ...underlyingTokenInfos,
+      ...externalTokenInfos,
       ...assetProxyTokenInfos,
       ...vaultTokenInfos,
       ...principalTokenInfos,
