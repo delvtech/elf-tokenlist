@@ -9,7 +9,7 @@ export interface TagInfo {
   description: string;
 }
 
-export interface CurveLpToken extends TokenInfo {
+export interface CurveLpTokenInfo extends TokenInfo {
   tags: [TokenTag.CURVE, ...string[]];
   extensions: {
     /** The address the curve LP token corresponds to, may sometimes be the
