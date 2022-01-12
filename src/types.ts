@@ -15,8 +15,8 @@ export interface CurveLpTokenInfo extends TokenInfo {
     pool: string;
 
     /**
-     * The underlying base asset for the principal token. If non-lp token,
-     * array should be empty.
+     * The tokens in the pool. Pool assets are assigned an index which can be
+     * used to reference them in the curve contracts.
      */
     poolAssets: [string, string] | [string, string, string];
 
