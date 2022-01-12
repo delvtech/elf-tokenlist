@@ -1,4 +1,5 @@
 import { TokenInfo, TokenList } from "@uniswap/token-lists/src";
+import { TokenTag } from "./tags";
 
 export declare const mainnetTokenList: TokenList;
 export declare const goerliTokenList: TokenList;
@@ -6,6 +7,29 @@ export declare const goerliTokenList: TokenList;
 export interface TagInfo {
   name: string;
   description: string;
+}
+
+export interface CurveLpToken extends TokenInfo {
+  tags: [TokenTag.CURVE, ...string[]];
+  extensions: {
+    /** The address the curve LP token corresponds to, may sometimes be the
+     * address of the token itself  */
+    pool: string;
+
+    /**
+     * The underlying base asset for the principal token. If non-lp token,
+     * array should be empty.
+     */
+    poolAssets: [string, string] | [string, string, string];
+
+    /** Function signature corresponding to the add liquidity function
+     * on the base token pool contract*/
+    addLiquidityFuncSig: string;
+
+    /** Function signature corresponding to the remove liquidity function
+     * on the base token pool contract*/
+    removeLiquidityFuncSig: string;
+  };
 }
 
 export interface PrincipalTokenInfo extends TokenInfo {
