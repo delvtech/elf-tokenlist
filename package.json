@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "description": "",
   "dependencies": {
-    "@uniswap/token-lists": "^1.0.0-beta.25",
+    "@uniswap/token-lists": "git+https://github.com/Uniswap/token-lists.git#add-array-extension-support",
     "tsc": "^2.0.3"
   },
   "main": "dist/index.js",

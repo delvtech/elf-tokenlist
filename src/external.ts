@@ -9,6 +9,7 @@ import {
 } from "src/erc20";
 
 export const provider = hre.ethers.provider;
+
 export async function getExternalTokenInfos(
   chainId: number,
   underlyingTokenAddresses: string[]
@@ -26,7 +27,7 @@ export async function getExternalTokenInfos(
     symbols,
     names,
     decimals
-  ).map(([address, symbol, name, decimal]): TokenInfo => {
+  ).map(([address, symbol, name, decimal]) => {
     return {
       chainId,
       address: address as string,
