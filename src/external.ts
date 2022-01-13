@@ -72,8 +72,8 @@ export async function getExternalTokenInfos(
     }
 
     /** Utility function to avoid duplication of code */
-    const isAddressInCache = (address: string) =>
-      externalTokenInfoCache.some((elem) => elem.address === address);
+    const isAddressNotInCache = (address: string) =>
+      !externalTokenInfoCache.some((elem) => elem.address === address);
 
     const curvePoolTokenInfos = (
       await Promise.all(
@@ -81,7 +81,7 @@ export async function getExternalTokenInfos(
          * addresses which already exist in the externalTokenInfoCache
          * */
         tokenInfo.extensions.poolAssets
-          .filter(isAddressInCache)
+          .filter(isAddressNotInCache)
           .map(async (poolAssetAddress) => {
             /** Get ExternalTokenInfo for the poolAssetAddress */
             const poolAssetTokenInfo = await getExternalTokenInfo(
@@ -101,7 +101,7 @@ export async function getExternalTokenInfos(
              * of writing, they will all just be TokenInfo*/
             const tokenInfoPoolAssetsFromCurveLpPoolAsset = await Promise.all(
               poolAssetTokenInfo.extensions.poolAssets
-                .filter(isAddressInCache)
+                .filter(isAddressNotInCache)
                 .map((address) => getExternalTokenInfo(chainId, address))
             );
 
