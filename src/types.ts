@@ -21,11 +21,11 @@ export interface CurveLpTokenInfo extends TokenInfo {
     poolAssets: [string, string] | [string, string, string];
 
     /** Function signature corresponding to the add liquidity function
-     * on the base token pool contract*/
+     * on the pool contract*/
     addLiquidityFuncSig: string;
 
     /** Function signature corresponding to the remove liquidity function
-     * on the base token pool contract*/
+     * on the pool contract*/
     removeLiquidityFuncSig: string;
   };
 }
