@@ -34,6 +34,12 @@ export async function getExternalTokenInfo(
 
   const basicTokenInfo = { chainId, address, symbol, name, decimals };
 
+  /* In the case we are building the token list for a non-mainnet network we
+   * should default to returning the simple tokens already specified. The reason
+   * for this is that the Curve.fi ecosystem of contracts is not refletive of
+   * the one on mainnet and in their place we stub with mocked versions. In the
+   * future we could support it on other networks if we wish to build a stubbed
+   * LP system of tokens */
   if (!name.startsWith("Curve.fi") || chainId !== 1) return basicTokenInfo;
 
   return await getCurveTokenInfo(basicTokenInfo);
