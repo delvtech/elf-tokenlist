@@ -52,63 +52,77 @@ export async function getExternalTokenInfos(
   return underlyingTokenAddresses.reduce(async (acc, address) => {
     const tokenInfo = await getExternalTokenInfo(chainId, address);
 
-    const cache = await acc;
+    /**
+     * We can use the accumulator in the reduce function as a lookup cache for
+     * tokenInfos that have been constructed previously. This makes it easy to
+     * prevent duplication and unneccessary async calls */
+    const externalTokenInfoCache = await acc;
 
+    /** Where an underlying token is just an ordinary token, e.g, DAI, WBTC or
+     * USDC, we can just simply assign that tokenInfo to the list of external
+     * tokenInfos*/
     if (!isCurveLpTokenInfo(tokenInfo)) {
-      return [...cache, tokenInfo];
+      return [...externalTokenInfoCache, tokenInfo];
     }
 
-    const poolAssetTokenInfos = await tokenInfo.extensions.poolAssets.reduce(
-      async (_acc, poolAssetAddress) => {
-        const prevPoolAssetTokenInfos = await _acc;
+    /** Utility function to avoid duplication of code */
+    const isAddressInCache = (address: string) =>
+      externalTokenInfoCache.some((elem) => elem.address === address);
 
-        if (cache.some((elem) => elem.address === poolAssetAddress)) {
-          return prevPoolAssetTokenInfos;
-        }
+    const curvePoolTokenInfos = (
+      await Promise.all(
+        /** Iterate across poolAssets in current tokenInfo, filtering any
+         * addresses which already exist in the externalTokenInfoCache
+         * */
+        tokenInfo.extensions.poolAssets
+          .filter(isAddressInCache)
+          .map(async (poolAssetAddress) => {
+            /** Get ExternalTokenInfo for the poolAssetAddress */
+            const poolAssetTokenInfo = await getExternalTokenInfo(
+              chainId,
+              poolAssetAddress
+            );
 
-        const poolAssetTokenInfo = await getExternalTokenInfo(
-          chainId,
-          poolAssetAddress
-        );
+            /** If just a normal TokenInfo, return with that, otherwise is a
+             * CurveLpTokenInfo with more poolAssets*/
+            if (!isCurveLpTokenInfo(poolAssetTokenInfo)) {
+              return poolAssetTokenInfo;
+            }
 
-        if (!isCurveLpTokenInfo(poolAssetTokenInfo)) {
-          return [...prevPoolAssetTokenInfos, poolAssetTokenInfo];
-        }
+            /** Iterate across all poolAssets in this "poolAsset" which will be
+             * as far neccessary to go. We don't have to account for having
+             * another CurveLpTokenInfo asset being created as in all cases as
+             * of writing, they will all just be TokenInfo*/
+            const tokenInfoPoolAssetsFromCurveLpPoolAsset = await Promise.all(
+              poolAssetTokenInfo.extensions.poolAssets
+                .filter(isAddressInCache)
+                .map((address) => getExternalTokenInfo(chainId, address))
+            );
 
-        const lpTokenPoolAssetTokenInfos =
-          await poolAssetTokenInfo.extensions.poolAssets.reduce(
-            async (__acc, lpTokenPoolAssetAddress) => {
-              const prevLpTokenPoolAssetTokenInfos = await _acc;
+            return [
+              /* The pool asset which is also an LP token, e.g 3CRV */
+              poolAssetTokenInfo,
+              /* The underlying pool assets for this poolAsset, e.g for 3CRV -
+               * DAI, USDC & USDT */
+              ...tokenInfoPoolAssetsFromCurveLpPoolAsset,
+            ];
+          })
+      )
+    )
+      /**
+       * The return value from inside the Promise.all is
+       * (ExternalTokenInfo | ExternalTokenInfo[])[] which is flattened here to
+       * ExternalTokenInfo[]
+       * */
+      .flat();
 
-              if (
-                prevLpTokenPoolAssetTokenInfos.some(
-                  (elem) => elem.address === lpTokenPoolAssetAddress
-                )
-              ) {
-                return await __acc;
-              }
-
-              const lpTokenPoolAssetTokenInfo = await getExternalTokenInfo(
-                chainId,
-                address
-              );
-              return [
-                ...prevLpTokenPoolAssetTokenInfos,
-                lpTokenPoolAssetTokenInfo,
-              ];
-            },
-            Promise.resolve(<ExternalTokenInfo[]>[])
-          );
-
-        return [
-          ...(await _acc),
-          poolAssetTokenInfo,
-          ...lpTokenPoolAssetTokenInfos,
-        ];
-      },
-      Promise.resolve(<ExternalTokenInfo[]>[])
-    );
-
-    return [...(await acc), tokenInfo, ...poolAssetTokenInfos];
+    return [
+      /** previous ExternalTokenInfos */
+      ...externalTokenInfoCache,
+      /**  CurveLpTokenInfo for address */
+      tokenInfo,
+      /** ExternalTokenInfos constructed from tokenInfo */
+      ...curvePoolTokenInfos,
+    ];
   }, Promise.resolve(<ExternalTokenInfo[]>[]));
 }
