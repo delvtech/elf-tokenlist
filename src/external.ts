@@ -20,7 +20,7 @@ export async function getExternalTokenInfo(
     return {
       chainId,
       address,
-      name: "ETH",
+      name: "Ether",
       decimals: 18,
       symbol: "ETH",
     };
