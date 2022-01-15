@@ -59,14 +59,10 @@ export async function getExternalTokenInfos(
     baseTokenAddresses.map((address) => getExternalTokenInfo(chainId, address))
   );
 
-  /* Separate into two buckets */
-  const [baseSimpleTokenInfos, baseCurveLpTokenInfos] = baseTokenInfos.reduce(
-    (acc, tokenInfo) =>
-      !isCurveLpTokenInfo(tokenInfo)
-        ? [[...acc[0], tokenInfo], acc[1]]
-        : [acc[0], [...acc[1], tokenInfo]],
-    <[TokenInfo[], CurveLpTokenInfo[]]>[[], []]
+  const baseSimpleTokenInfos = baseTokenInfos.filter(
+    (info) => !isCurveLpTokenInfo(info)
   );
+  const baseCurveLpTokenInfos = baseTokenInfos.filter(isCurveLpTokenInfo);
 
   let externalTokenInfos: ExternalTokenInfo[] = [...baseSimpleTokenInfos];
   for (const {
