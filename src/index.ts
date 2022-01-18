@@ -15,7 +15,7 @@
  * 🚨🚨🚨 THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY. 🚨🚨🚨
  */
 
-import { TokenList } from '@uniswap/token-lists';
+import { TokenList } from '@uniswap/token-lists/src';
 
 export * from './tags';
 
@@ -23,9 +23,9 @@ export const mainnetTokenList: TokenList = {
   "name": "Element",
   "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg",
   "tags": {
-    "underlying": {
-      "name": "Underlying asset",
-      "description": "The base asset of a principal or yield token"
+    "curve": {
+      "name": "Curve LP token",
+      "description": "Token that represents a liquidity provider position in a Curve.fi pool"
     },
     "eP": {
       "name": "Principal token",
@@ -52,7 +52,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-12-10T00:20:12.852Z",
+  "timestamp": "2022-01-18T16:38:03.191Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -63,101 +63,240 @@ export const mainnetTokenList: TokenList = {
       "chainId": 1,
       "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
       "symbol": "WBTC",
-      "decimals": 8,
       "name": "Wrapped BTC",
-      "tags": [
-        "underlying"
-      ]
+      "decimals": 8
     },
     {
       "chainId": 1,
       "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "symbol": "USDC",
-      "decimals": 6,
       "name": "USD Coin",
-      "tags": [
-        "underlying"
-      ]
+      "decimals": 6
     },
     {
       "chainId": 1,
       "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
       "symbol": "DAI",
-      "decimals": 18,
       "name": "Dai Stablecoin",
+      "decimals": 18
+    },
+    {
+      "chainId": 1,
+      "address": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+      "symbol": "LUSD",
+      "name": "LUSD Stablecoin",
+      "decimals": 18
+    },
+    {
+      "chainId": 1,
+      "address": "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490",
+      "name": "Curve.fi DAI/USDC/USDT",
+      "decimals": 18,
+      "symbol": "3Crv",
       "tags": [
-        "underlying"
-      ]
+        "curve"
+      ],
+      "extensions": {
+        "pool": "0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
+        "poolAssets": [
+          "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "addLiquidityFuncSig": "add_liquidity(uint256[3],uint256)",
+        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      "symbol": "USDT",
+      "name": "Tether USD",
+      "decimals": 6
+    },
+    {
+      "chainId": 1,
+      "address": "0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9",
+      "symbol": "alUSD",
+      "name": "Alchemix USD",
+      "decimals": 18
+    },
+    {
+      "chainId": 1,
+      "address": "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
+      "symbol": "MIM",
+      "name": "Magic Internet Money",
+      "decimals": 18
+    },
+    {
+      "chainId": 1,
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "symbol": "WETH",
+      "name": "Wrapped Ether",
+      "decimals": 18
+    },
+    {
+      "chainId": 1,
+      "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "name": "Ether",
+      "decimals": 18,
+      "symbol": "ETH"
+    },
+    {
+      "chainId": 1,
+      "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+      "symbol": "stETH",
+      "name": "Liquid staked Ether 2.0",
+      "decimals": 18
+    },
+    {
+      "chainId": 1,
+      "address": "0xdB25f211AB05b1c97D595516F45794528a807ad8",
+      "symbol": "EURS",
+      "name": "STASIS EURS Token",
+      "decimals": 2
+    },
+    {
+      "chainId": 1,
+      "address": "0xD71eCFF9342A5Ced620049e616c5035F1dB98620",
+      "symbol": "sEUR",
+      "name": "Synth sEUR",
+      "decimals": 18
     },
     {
       "chainId": 1,
       "address": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
-      "symbol": "LUSD3CRV-f",
-      "decimals": 18,
       "name": "Curve.fi Factory USD Metapool: Liquity",
+      "decimals": 18,
+      "symbol": "LUSD3CRV-f",
       "tags": [
-        "underlying"
-      ]
+        "curve"
+      ],
+      "extensions": {
+        "pool": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+        "poolAssets": [
+          "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+          "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "addLiquidityFuncSig": "add_liquidity(uint256[2],uint256)",
+        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+      }
     },
     {
       "chainId": 1,
       "address": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
-      "symbol": "alUSD3CRV-f",
-      "decimals": 18,
       "name": "Curve.fi Factory USD Metapool: Alchemix USD",
+      "decimals": 18,
+      "symbol": "alUSD3CRV-f",
       "tags": [
-        "underlying"
-      ]
+        "curve"
+      ],
+      "extensions": {
+        "pool": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+        "poolAssets": [
+          "0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9",
+          "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "addLiquidityFuncSig": "add_liquidity(uint256[2],uint256)",
+        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+      }
     },
     {
       "chainId": 1,
       "address": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
-      "symbol": "MIM-3LP3CRV-f",
-      "decimals": 18,
       "name": "Curve.fi Factory USD Metapool: Magic Internet Money 3Pool",
+      "decimals": 18,
+      "symbol": "MIM-3LP3CRV-f",
       "tags": [
-        "underlying"
-      ]
+        "curve"
+      ],
+      "extensions": {
+        "pool": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+        "poolAssets": [
+          "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
+          "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "addLiquidityFuncSig": "add_liquidity(uint256[2],uint256)",
+        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+      }
     },
     {
       "chainId": 1,
       "address": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
-      "symbol": "crv3crypto",
-      "decimals": 18,
       "name": "Curve.fi USD-BTC-ETH",
+      "decimals": 18,
+      "symbol": "crv3crypto",
       "tags": [
-        "underlying"
-      ]
+        "curve"
+      ],
+      "extensions": {
+        "pool": "0xD51a44d3FaE010294C616388b506AcdA1bfAAE46",
+        "poolAssets": [
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+        ],
+        "addLiquidityFuncSig": "add_liquidity(uint256[3],uint256)",
+        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,uint256,uint256)"
+      }
     },
     {
       "chainId": 1,
       "address": "0xcA3d75aC011BF5aD07a98d02f18225F9bD9A6BDF",
-      "symbol": "crvTricrypto",
-      "decimals": 18,
       "name": "Curve.fi USD-BTC-ETH",
+      "decimals": 18,
+      "symbol": "crvTricrypto",
       "tags": [
-        "underlying"
-      ]
+        "curve"
+      ],
+      "extensions": {
+        "pool": "0x80466c64868E1ab14a1Ddf27A676C3fcBE638Fe5",
+        "poolAssets": [
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+        ],
+        "addLiquidityFuncSig": "add_liquidity(uint256[3],uint256)",
+        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,uint256,uint256)"
+      }
     },
     {
       "chainId": 1,
       "address": "0x06325440D014e39736583c165C2963BA99fAf14E",
-      "symbol": "steCRV",
-      "decimals": 18,
       "name": "Curve.fi ETH/stETH",
+      "decimals": 18,
+      "symbol": "steCRV",
       "tags": [
-        "underlying"
-      ]
+        "curve"
+      ],
+      "extensions": {
+        "pool": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+        "poolAssets": [
+          "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+          "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+        ],
+        "addLiquidityFuncSig": "add_liquidity(uint256[2],uint256)",
+        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+      }
     },
     {
       "chainId": 1,
       "address": "0x194eBd173F6cDacE046C53eACcE9B953F28411d1",
-      "symbol": "eursCRV",
-      "decimals": 18,
       "name": "Curve.fi EURS/sEUR",
+      "decimals": 18,
+      "symbol": "eursCRV",
       "tags": [
-        "underlying"
-      ]
+        "curve"
+      ],
+      "extensions": {
+        "pool": "0x0Ce6a5fF5217e38315f87032CF90686C96627CAA",
+        "poolAssets": [
+          "0xdB25f211AB05b1c97D595516F45794528a807ad8",
+          "0xD71eCFF9342A5Ced620049e616c5035F1dB98620"
+        ],
+        "addLiquidityFuncSig": "add_liquidity(uint256[2],uint256)",
+        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+      }
     },
     {
       "chainId": 1,
@@ -792,6 +931,42 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x0740A6CfB9468B8b53070C0B327099293DCCB82d",
+      "symbol": "ePyvCurveLUSD-29APR22",
+      "decimals": 18,
+      "extensions": {
+        "underlying": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+        "position": "0x53b1aEAa018da00b4F458Cc13d40eB3e8d1B85d6",
+        "interestToken": "0x594B1ABA4ed1ecC32A012F85527415A470a5352A",
+        "unlockTimestamp": 1651264326,
+        "createdAtTimestamp": 1639513942
+      },
+      "name": "LUSD3CRV-f Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0x2c72692E94E757679289aC85d3556b2c0f717E0E",
+      "symbol": "ePyvDAI-29APR22",
+      "decimals": 18,
+      "extensions": {
+        "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "position": "0x21BbC083362022aB8D7e42C18c47D484cc95C193",
+        "interestToken": "0x38c9728E474A73bCcf82705E29DE4cA41852b8C8",
+        "unlockTimestamp": 1651275535,
+        "createdAtTimestamp": 1641339630
+      },
+      "name": "DAI Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
       "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
       "symbol": "eYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -1120,6 +1295,38 @@ export const mainnetTokenList: TokenList = {
         "tranche": "0x49e9e169f0B661Ea0A883f490564F4CC275123Ed",
         "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
         "unlockTimestamp": 1651265241
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0x594B1ABA4ed1ecC32A012F85527415A470a5352A",
+      "symbol": "eYyvCurveLUSD-29APR22",
+      "decimals": 18,
+      "name": "LUSD3CRV-f Yield Token",
+      "extensions": {
+        "tranche": "0x0740A6CfB9468B8b53070C0B327099293DCCB82d",
+        "underlying": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+        "unlockTimestamp": 1651264326
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0x38c9728E474A73bCcf82705E29DE4cA41852b8C8",
+      "symbol": "eYyvDAI-29APR22",
+      "decimals": 18,
+      "name": "DAI Yield Token",
+      "extensions": {
+        "tranche": "0x2c72692E94E757679289aC85d3556b2c0f717E0E",
+        "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "unlockTimestamp": 1651275535
       },
       "tags": [
         "eY"
@@ -1506,6 +1713,42 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x56F30398d13F111401d6e7ffE758254a0946687d",
+      "symbol": "LPePyvCurveLUSD-29APR22",
+      "decimals": 18,
+      "extensions": {
+        "bond": "0x0740A6CfB9468B8b53070C0B327099293DCCB82d",
+        "underlying": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+        "poolId": "0x56f30398d13f111401d6e7ffe758254a0946687d000200000000000000000105",
+        "unitSeconds": 875389848,
+        "expiration": 1651264326,
+        "createdAtTimestamp": 1639517748
+      },
+      "name": "LP Element Principal Token yvCurveLUSD-29APR22",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xEdf085f65b4F6c155e13155502Ef925c9a756003",
+      "symbol": "LPePyvDAI-29APR22",
+      "decimals": 18,
+      "extensions": {
+        "bond": "0x2c72692E94E757679289aC85d3556b2c0f717E0E",
+        "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "poolId": "0xedf085f65b4f6c155e13155502ef925c9a756003000200000000000000000123",
+        "unitSeconds": 1000355378,
+        "expiration": 1651275535,
+        "createdAtTimestamp": 1641340147
+      },
+      "name": "LP Element Principal Token yvDAI-29APR22",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
       "symbol": "LPeYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -1860,6 +2103,40 @@ export const mainnetTokenList: TokenList = {
       "tags": [
         "wpool"
       ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x8E9d636BbE6939BD0F52849afc02C0c66F6A3603",
+      "symbol": "LPeYyvCurveLUSD-29APR22",
+      "decimals": 18,
+      "extensions": {
+        "poolId": "0x8e9d636bbe6939bd0f52849afc02c0c66f6a3603000200000000000000000104",
+        "underlying": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+        "interestToken": "0x594B1ABA4ed1ecC32A012F85527415A470a5352A",
+        "createdAtTimestamp": 1639514987,
+        "expiration": 1651264326
+      },
+      "name": "LP Element Yield Token yvCurveLUSD-29APR22",
+      "tags": [
+        "wpool"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x415747EE98D482e6dD9B431fa76Ad5553744F247",
+      "symbol": "LPeYyvDAI-29APR22",
+      "decimals": 18,
+      "extensions": {
+        "poolId": "0x415747ee98d482e6dd9b431fa76ad5553744f247000200000000000000000122",
+        "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "interestToken": "0x38c9728E474A73bCcf82705E29DE4cA41852b8C8",
+        "createdAtTimestamp": 1641340096,
+        "expiration": 1651275535
+      },
+      "name": "LP Element Yield Token yvDAI-29APR22",
+      "tags": [
+        "wpool"
+      ]
     }
   ]
 };
@@ -1867,9 +2144,9 @@ export const goerliTokenList: TokenList = {
   "name": "Element",
   "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg",
   "tags": {
-    "underlying": {
-      "name": "Underlying asset",
-      "description": "The base asset of a principal or yield token"
+    "curve": {
+      "name": "Curve LP token",
+      "description": "Token that represents a liquidity provider position in a Curve.fi pool"
     },
     "eP": {
       "name": "Principal token",
@@ -1896,7 +2173,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2021-11-23T22:41:22.787Z",
+  "timestamp": "2022-01-18T16:36:38.502Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -1907,31 +2184,22 @@ export const goerliTokenList: TokenList = {
       "chainId": 5,
       "address": "0x9A1000D492d40bfccbc03f413A48F5B6516Ec0Fd",
       "symbol": "WETH",
-      "decimals": 18,
       "name": "Wrapped Ethereum",
-      "tags": [
-        "underlying"
-      ]
+      "decimals": 18
     },
     {
       "chainId": 5,
       "address": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
       "symbol": "USDC",
-      "decimals": 6,
       "name": "USD Coin",
-      "tags": [
-        "underlying"
-      ]
+      "decimals": 6
     },
     {
       "chainId": 5,
       "address": "0x5bD768CCE8C529CDF23B136bB486a81f64985B92",
       "symbol": "DAI",
-      "decimals": 18,
       "name": "DAI Stablecoin",
-      "tags": [
-        "underlying"
-      ]
+      "decimals": 18
     },
     {
       "chainId": 5,
@@ -2130,6 +2398,24 @@ export const goerliTokenList: TokenList = {
     },
     {
       "chainId": 5,
+      "address": "0xd64bCC8f3202aada4db9f0c8F1244a077C7723D1",
+      "symbol": "eP:eyUSDC:08-DEC-21-GMT",
+      "decimals": 6,
+      "extensions": {
+        "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
+        "position": "0x814C447a9F58A2b823504Fe2775bA48c843925B6",
+        "interestToken": "0x2F8E0aDF823F9Fe37617D1F03540e41d63BEa34a",
+        "unlockTimestamp": 1638993592,
+        "createdAtTimestamp": 1638302407
+      },
+      "name": "USDC Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 5,
       "address": "0x91dDF92af38Afac1B59F450dDb94ddab10a11490",
       "symbol": "eYyvCurve-stETH",
       "decimals": 18,
@@ -2234,6 +2520,22 @@ export const goerliTokenList: TokenList = {
         "tranche": "0xDCf80C068B7fFDF7273d8ADAE4B076BF384F711A",
         "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
         "unlockTimestamp": 1660165080
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 5,
+      "address": "0x2F8E0aDF823F9Fe37617D1F03540e41d63BEa34a",
+      "symbol": "eY:eyUSDC:08-DEC-21-GMT",
+      "decimals": 6,
+      "name": "USDC Yield Token",
+      "extensions": {
+        "tranche": "0xd64bCC8f3202aada4db9f0c8F1244a077C7723D1",
+        "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
+        "unlockTimestamp": 1638993592
       },
       "tags": [
         "eY"
@@ -2368,6 +2670,24 @@ export const goerliTokenList: TokenList = {
     },
     {
       "chainId": 5,
+      "address": "0xB59C7597228fEBccEC3dC0571a7Ee39A26E316B9",
+      "symbol": "LPeP:eyUSDC:08-DEC-21-GMT",
+      "decimals": 18,
+      "extensions": {
+        "bond": "0xd64bCC8f3202aada4db9f0c8F1244a077C7723D1",
+        "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
+        "poolId": "0xb59c7597228febccec3dc0571a7ee39a26e316b90002000000000000000000a7",
+        "unitSeconds": 874127570,
+        "expiration": 1638993592,
+        "createdAtTimestamp": 1638303998
+      },
+      "name": "LP Principal Token eyUSDC:08-DEC-21-GMT",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 5,
       "address": "0x252797e51F51631b6956545C45F9d3F9fFCb0940",
       "symbol": "eY_USDC_BPT",
       "decimals": 18,
@@ -2481,6 +2801,23 @@ export const goerliTokenList: TokenList = {
         "expiration": 1660165080
       },
       "name": "LP Element Yield Token eyUSDC:10-AUG-22-GMT",
+      "tags": [
+        "wpool"
+      ]
+    },
+    {
+      "chainId": 5,
+      "address": "0x4b7C8509Ee69D9131c0923E4F00d0D928594FF47",
+      "symbol": "LPeY:eyUSDC:08-DEC-21-GMT",
+      "decimals": 18,
+      "extensions": {
+        "poolId": "0x4b7c8509ee69d9131c0923e4f00d0d928594ff470002000000000000000000a6",
+        "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
+        "interestToken": "0x2F8E0aDF823F9Fe37617D1F03540e41d63BEa34a",
+        "createdAtTimestamp": 1638303082,
+        "expiration": 1638993592
+      },
+      "name": "LP Element Yield Token eyUSDC:08-DEC-21-GMT",
       "tags": [
         "wpool"
       ]
