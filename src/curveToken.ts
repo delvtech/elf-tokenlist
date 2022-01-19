@@ -154,9 +154,13 @@ export async function getCurveTokenInfo({
 
   const curvePoolContract = new ethers.Contract(pool, curvePoolAbi, provider);
 
+  // example: "add_liquidity(uint256[2],uint256)"
+  // where the arity of the first argument is the number of pool assets
   const addLiquidityFuncSig = Object.keys(curvePoolContract.functions).find(
     (k) => k.startsWith("add_liquidity")
   ) as string;
+
+  // example: "remove_liquidity_one_coin(uint256[2],uint256)"
   const removeLiquidityFuncSig = Object.keys(curvePoolContract.functions).find(
     (k) => k.startsWith("remove_liquidity_one_coin")
   ) as string;

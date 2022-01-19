@@ -12,7 +12,7 @@ const ETH_CONSTANT = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 
 type ExternalTokenInfo = TokenInfo | CurveLpTokenInfo;
 
-export async function getExternalTokenInfo(
+async function getExternalTokenInfo(
   chainId: number,
   address: string
 ): Promise<ExternalTokenInfo> {
