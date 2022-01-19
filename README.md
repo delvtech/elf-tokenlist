@@ -18,23 +18,6 @@ npm ci
 
 You'll also need to add api keys listed in elf.default.env to your local elf.env file.
 
-##
-
-### Deploying a new term
-
-When a new term is deployed in the elf-deploy repo, run this command to
-regenerate the tokenlist:
-
-```bash
-# build the new tokenlists, elf-deploy repo must have the updated list
-npm run build
-```
-
-Once complete, commit all file changes and submit a PR to `main`.
-
-Any project that wants the latest tokenlist will now need to update their
-dependency on this repo. See below for handy script that makes upgrading easy
-for consumers.
 
 ## Usage Examples
 
@@ -43,7 +26,7 @@ for consumers.
 This is how to get a list of currently open principal tokens.
 
 ```ts
-import { ElementTokenTag, mainnetTokenList } from "elf-tokenlist";
+import { ElementTokenTag, mainnetTokenList } from "@elementfi/tokenlist";
 
 // Get the list of principal tokens that have not yet reached maturity
 const principalTokens = mainnetTokenList.tokens
@@ -77,3 +60,24 @@ export ALCHEMY_GOERLI_API_KEY=
 ```bash
 source elf.env
 ```
+
+## Publishing tokenlist
+To release and publish the new token list:
+
+First create a new version commit using npm: 
+```bash
+npm version major|minor|patch # this will create a git commit
+```
+Then push up the changes to Github:
+```bash
+git push
+git push --tags
+```
+
+Then in GH:
+
+1. Go to tags
+2. Click the ellipses to the far right of the new tag and click "Create release"
+3. On the new release, click "Auto-generate release notes" (edit the description if needed)
+4. Click "Publish release"
+5. Check the Actions tab to monitor the build and publish progress.
