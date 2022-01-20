@@ -65,12 +65,12 @@ export async function getExternalTokenInfos(
   const baseCurveLpTokenInfos = baseTokenInfos.filter(isCurveLpTokenInfo);
 
   let externalTokenInfos: ExternalTokenInfo[] = [...baseSimpleTokenInfos];
+  const existsInExternalTokenInfos = (address: string) =>
+    externalTokenInfos.some((elem) => elem.address === address);
+
   for (const {
     extensions: { poolAssets },
   } of baseCurveLpTokenInfos) {
-    const existsInExternalTokenInfos = (address: string) =>
-      externalTokenInfos.some((elem) => elem.address === address);
-
     let poolAssetTokenInfos: ExternalTokenInfo[] = [];
     for (const poolAssetAddress of poolAssets) {
       if (existsInExternalTokenInfos(poolAssetAddress)) {
