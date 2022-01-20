@@ -1,4 +1,4 @@
-import { TokenList } from "@uniswap/token-lists";
+import { TokenList } from "@uniswap/token-lists/src";
 import {
   ConvergentPoolFactory__factory,
   Vault__factory,
@@ -15,13 +15,18 @@ import { TokenTag } from "src/tags";
 import { TagInfo } from "src/types";
 import { getVaultTokenInfos } from "src/vaults";
 import { getYieldPoolTokenInfos } from "src/weightedPools";
-import { getExternalTokenInfos } from "./external";
+import { getExternalTokenInfos } from "src/external";
 import { getPrincipalTokenInfos } from "./principalTokens";
 import { getYieldTokenInfos } from "./yieldTokens";
 
 const provider = hre.ethers.provider;
 
 export const elementTags: Record<TokenTag, TagInfo> = {
+  [TokenTag.CURVE]: {
+    name: "Curve LP token",
+    description:
+      "Token that represents a liquidity provider position in a Curve.fi pool",
+  },
   [TokenTag.PRINCIPAL]: {
     name: "Principal token",
     description:

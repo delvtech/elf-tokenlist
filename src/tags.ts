@@ -5,4 +5,5 @@ export enum TokenTag {
   PRINCIPAL = "eP",
   WPOOL = "wpool",
   YIELD = "eY",
+  CURVE = "curve",
 }

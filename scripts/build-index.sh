@@ -18,7 +18,7 @@ echo "
  * 🚨🚨🚨 THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY. 🚨🚨🚨
  */
 
-import { TokenList } from '@uniswap/token-lists';
+import { TokenList } from '@uniswap/token-lists/src';
 
 export * from './tags';
 

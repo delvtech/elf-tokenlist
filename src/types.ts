@@ -8,6 +8,28 @@ export interface TagInfo {
   description: string;
 }
 
+export interface CurveLpTokenInfo extends TokenInfo {
+  extensions: {
+    /** The address of the pool the curve LP token corresponds to, may sometimes
+     * be the address of the token itself  */
+    pool: string;
+
+    /**
+     * The tokens in the pool. Pool assets are assigned an index which can be
+     * used to reference them in the curve contracts.
+     */
+    poolAssets: string[];
+
+    /** Function signature corresponding to the add liquidity function
+     * on the pool contract*/
+    addLiquidityFuncSig: string;
+
+    /** Function signature corresponding to the remove liquidity function
+     * on the pool contract*/
+    removeLiquidityFuncSig: string;
+  };
+}
+
 export interface PrincipalTokenInfo extends TokenInfo {
   extensions: {
     /**
