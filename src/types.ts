@@ -18,7 +18,7 @@ export interface CurveLpTokenInfo extends TokenInfo {
      * The tokens in the pool. Pool assets are assigned an index which can be
      * used to reference them in the curve contracts.
      */
-    poolAssets: [string, string] | [string, string, string];
+    poolAssets: string[];
 
     /** Function signature corresponding to the add liquidity function
      * on the pool contract*/

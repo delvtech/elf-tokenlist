@@ -186,9 +186,11 @@ export async function getCurveTokenInfo({
     provider
   );
 
-  const coins = (await Promise.all(
-    [...Array(numCoins)].map((_, idx) => curvePool.coins(idx))
-  )) as [string, string] | [string, string, string];
+  const poolAssets = await Promise.all(
+    [...Array(numCoins)].map(
+      (_, idx) => curvePool.coins(idx) as Promise<string>
+    )
+  );
 
   return {
     chainId,
@@ -198,10 +200,10 @@ export async function getCurveTokenInfo({
     symbol,
     tags: [TokenTag.CURVE],
     extensions: {
-      pool: pool!,
-      poolAssets: coins,
-      addLiquidityFuncSig: addLiquidityFuncSig,
-      removeLiquidityFuncSig: removeLiquidityFuncSig,
+      pool,
+      poolAssets,
+      addLiquidityFuncSig,
+      removeLiquidityFuncSig,
     },
   };
 }
