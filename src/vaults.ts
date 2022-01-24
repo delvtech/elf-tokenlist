@@ -4,9 +4,7 @@ import { TestYVault__factory } from "elf-contracts-typechain/dist/types/factorie
 import hre from "hardhat";
 import zip from "lodash.zip";
 
-import { AssetProxyTokenInfo, VaultTokenInfo } from "src/types";
-
-import { TokenTag } from "src/tags";
+import { AssetProxyTokenInfo, VaultTokenInfo, TokenTag } from "src/types";
 
 import {
   getTokenDecimalsMulti,

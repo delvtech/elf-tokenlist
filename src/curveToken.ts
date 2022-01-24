@@ -2,8 +2,7 @@ import { TokenInfo } from "@uniswap/token-lists/src";
 import { ethers } from "ethers";
 import hre from "hardhat";
 import fetch from "node-fetch";
-import { TokenTag } from "src/tags";
-import { CurveLpTokenInfo } from "./types";
+import { CurveLpTokenInfo, TokenTag } from "./types";
 
 export const provider = hre.ethers.provider;
 const etherscanProvider = new ethers.providers.EtherscanProvider(

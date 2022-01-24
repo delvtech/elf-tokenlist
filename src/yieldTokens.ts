@@ -5,10 +5,9 @@ import { InterestToken } from "elf-contracts-typechain/dist/types/InterestToken"
 import hre from "hardhat";
 import zip from "lodash.zip";
 
-import { PrincipalTokenInfo, YieldTokenInfo } from "src/types";
+import { PrincipalTokenInfo, YieldTokenInfo, TokenTag } from "src/types";
 
 import { getTokenSymbolMulti } from "src/erc20";
-import { TokenTag } from "src/tags";
 import { ELEMENT_LOGO_URI } from "src/logo";
 import { retryAsync } from "src/util/retry";
 

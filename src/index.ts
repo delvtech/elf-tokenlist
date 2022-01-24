@@ -17,8 +17,6 @@
 
 import { TokenList } from '@uniswap/token-lists/src';
 
-export * from './tags';
-
 export const mainnetTokenList: TokenList = {
   "name": "Element",
   "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg",

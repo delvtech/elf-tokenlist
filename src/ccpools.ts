@@ -5,9 +5,8 @@ import { ConvergentCurvePool__factory } from "elf-contracts-typechain/dist/types
 import hre from "hardhat";
 import zip from "lodash.zip";
 
-import { PrincipalPoolTokenInfo } from "src/types";
+import { PrincipalPoolTokenInfo, TokenTag } from "src/types";
 
-import { TokenTag } from "src/tags";
 import { retry, retryAsync } from "src/util/retry";
 
 export const provider = hre.ethers.provider;

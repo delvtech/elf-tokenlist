@@ -4,8 +4,7 @@ import { WeightedPool__factory } from "elf-contracts-typechain/dist/types/factor
 import { WeightedPool } from "elf-contracts-typechain/dist/types/WeightedPool";
 import hre from "hardhat";
 import zip from "lodash.zip";
-import { TokenTag } from "src/tags";
-import { YieldPoolTokenInfo, YieldTokenInfo } from "src/types";
+import { YieldPoolTokenInfo, YieldTokenInfo, TokenTag } from "src/types";
 import { retry, retryAsync } from "src/util/retry";
 
 export const provider = hre.ethers.provider;

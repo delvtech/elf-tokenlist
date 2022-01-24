@@ -6,10 +6,9 @@ import { Tranche } from "elf-contracts-typechain/dist/types/Tranche";
 import hre from "hardhat";
 import zip from "lodash.zip";
 
-import { PrincipalTokenInfo } from "src/types";
+import { PrincipalTokenInfo, TokenTag } from "src/types";
 
 import { getTokenSymbolMulti } from "src/erc20";
-import { TokenTag } from "src/tags";
 import { ELEMENT_LOGO_URI } from "src/logo";
 import { retry, retryAsync } from "src/util/retry";
 

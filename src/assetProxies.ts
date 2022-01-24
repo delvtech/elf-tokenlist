@@ -6,13 +6,12 @@ import { YVaultAssetProxy__factory } from "elf-contracts-typechain/dist/types/fa
 
 import { Tranche__factory } from "elf-contracts-typechain/dist/types";
 import { ERC20 } from "elf-contracts-typechain/dist/types/ERC20";
-import { AssetProxyTokenInfo, PrincipalTokenInfo } from "./types";
+import { AssetProxyTokenInfo, PrincipalTokenInfo, TokenTag } from "./types";
 import {
   getTokenNameMulti,
   getTokenSymbolMulti,
   getTokenDecimalsMulti,
 } from "./erc20";
-import { TokenTag } from "src/tags";
 import { retryAsync } from "src/util/retry";
 
 export const provider = hre.ethers.provider;
