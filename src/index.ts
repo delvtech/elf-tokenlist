@@ -50,7 +50,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-01-18T16:38:03.191Z",
+  "timestamp": "2022-01-24T16:54:15.124Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -2171,7 +2171,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-01-18T16:36:38.502Z",
+  "timestamp": "2022-01-24T16:53:03.025Z",
   "version": {
     "major": 0,
     "minor": 0,
