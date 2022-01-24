@@ -20,8 +20,6 @@ echo "
 
 import { TokenList } from '@uniswap/token-lists/src';
 
-export * from './tags';
-
 export const mainnetTokenList: TokenList = $MAINNET_TOKENLIST;
 export const goerliTokenList: TokenList = $GOERLI_TOKENLIST;
 " > src/index.ts
