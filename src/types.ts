@@ -1,5 +1,18 @@
 import { TokenInfo, TokenList } from "@uniswap/token-lists/src";
 
+// exporting so we can ensure correct reference of uniswap tokenlist is used
+export { TokenInfo, TokenList } from "@uniswap/token-lists/src";
+
+export enum TokenTag {
+  VAULT = "vault",
+  ASSET_PROXY = "assetproxy",
+  CCPOOL = "ccpool",
+  PRINCIPAL = "eP",
+  WPOOL = "wpool",
+  YIELD = "eY",
+  CURVE = "curve",
+}
+
 export declare const mainnetTokenList: TokenList;
 export declare const goerliTokenList: TokenList;
 
