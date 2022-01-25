@@ -1,5 +1,7 @@
 import { TokenInfo, TokenList } from "@uniswap/token-lists/src";
 
+export { TokenInfo, TokenList } from "@uniswap/token-lists/src";
+
 export declare const mainnetTokenList: TokenList;
 export declare const goerliTokenList: TokenList;
 
