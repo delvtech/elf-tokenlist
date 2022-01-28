@@ -1,19 +1,19 @@
+import {
+  ERC20,
+  Tranche__factory,
+  YVaultAssetProxy__factory,
+} from "@elementfi/core-typechain";
 import hre from "hardhat";
 import uniq from "lodash.uniq";
 import zip from "lodash.zip";
-
-import { YVaultAssetProxy__factory } from "elf-contracts-typechain/dist/types/factories/YVaultAssetProxy__factory";
-
-import { Tranche__factory } from "elf-contracts-typechain/dist/types";
-import { ERC20 } from "elf-contracts-typechain/dist/types/ERC20";
-import { AssetProxyTokenInfo, PrincipalTokenInfo } from "./types";
-import {
-  getTokenNameMulti,
-  getTokenSymbolMulti,
-  getTokenDecimalsMulti,
-} from "./erc20";
 import { TokenTag } from "src/tags";
 import { retryAsync } from "src/util/retry";
+import {
+  getTokenDecimalsMulti,
+  getTokenNameMulti,
+  getTokenSymbolMulti,
+} from "./erc20";
+import { AssetProxyTokenInfo, PrincipalTokenInfo } from "./types";
 
 export const provider = hre.ethers.provider;
 

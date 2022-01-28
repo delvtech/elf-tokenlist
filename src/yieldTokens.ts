@@ -1,15 +1,15 @@
-import { ERC20__factory } from "elf-contracts-typechain/dist/types/factories/ERC20__factory";
-import { InterestToken__factory } from "elf-contracts-typechain/dist/types/factories/InterestToken__factory";
-import { Tranche__factory } from "elf-contracts-typechain/dist/types/factories/Tranche__factory";
-import { InterestToken } from "elf-contracts-typechain/dist/types/InterestToken";
+import {
+  ERC20__factory,
+  InterestToken,
+  InterestToken__factory,
+  Tranche__factory,
+} from "@elementfi/core-typechain";
 import hre from "hardhat";
 import zip from "lodash.zip";
-
-import { PrincipalTokenInfo, YieldTokenInfo } from "src/types";
-
 import { getTokenSymbolMulti } from "src/erc20";
-import { TokenTag } from "src/tags";
 import { ELEMENT_LOGO_URI } from "src/logo";
+import { TokenTag } from "src/tags";
+import { PrincipalTokenInfo, YieldTokenInfo } from "src/types";
 import { retryAsync } from "src/util/retry";
 
 let hardhatSymbolOverrides = {};

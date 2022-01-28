@@ -1,7 +1,10 @@
+import {
+  Vault,
+  WeightedPool,
+  WeightedPoolFactory,
+  WeightedPool__factory,
+} from "@elementfi/core-typechain";
 import { TokenInfo } from "@uniswap/token-lists/src";
-import { Vault, WeightedPoolFactory } from "elf-contracts-typechain/dist/types";
-import { WeightedPool__factory } from "elf-contracts-typechain/dist/types/factories/WeightedPool__factory";
-import { WeightedPool } from "elf-contracts-typechain/dist/types/WeightedPool";
 import hre from "hardhat";
 import zip from "lodash.zip";
 import { TokenTag } from "src/tags";
@@ -56,7 +59,7 @@ export async function getYieldPoolTokenInfos(
 
   const poolUnderlyingAddresses = await Promise.all(
     zip(safePools, poolIds).map(async (zipped) => {
-      const [pool, poolId] = zipped as [WeightedPool, string];
+      const [, poolId] = zipped as [WeightedPool, string];
       const [tokenAddresses] = await retry(() =>
         balancerVault.getPoolTokens(poolId)
       );
@@ -69,7 +72,7 @@ export async function getYieldPoolTokenInfos(
   const yieldTokenAddresses = yieldTokenInfos.map(({ address }) => address);
   const interestTokenAddresses = await Promise.all(
     zip(safePools, poolIds).map(async (zipped) => {
-      const [pool, poolId] = zipped as [WeightedPool, string];
+      const [, poolId] = zipped as [WeightedPool, string];
       const [tokenAddresses] = await retry(() =>
         balancerVault.getPoolTokens(poolId)
       );

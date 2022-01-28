@@ -1,16 +1,16 @@
+import {
+  ERC20__factory,
+  Tranche,
+  TrancheFactory,
+  Tranche__factory,
+} from "@elementfi/core-typechain";
 import { Event } from "@ethersproject/contracts";
-import { TrancheFactory } from "elf-contracts-typechain/dist/types";
-import { ERC20__factory } from "elf-contracts-typechain/dist/types/factories/ERC20__factory";
-import { Tranche__factory } from "elf-contracts-typechain/dist/types/factories/Tranche__factory";
-import { Tranche } from "elf-contracts-typechain/dist/types/Tranche";
 import hre from "hardhat";
 import zip from "lodash.zip";
-
-import { PrincipalTokenInfo } from "src/types";
-
 import { getTokenSymbolMulti } from "src/erc20";
-import { TokenTag } from "src/tags";
 import { ELEMENT_LOGO_URI } from "src/logo";
+import { TokenTag } from "src/tags";
+import { PrincipalTokenInfo } from "src/types";
 import { retry, retryAsync } from "src/util/retry";
 
 let hardhatSymbolOverrides = {};
@@ -52,7 +52,7 @@ export async function getPrincipalTokenInfos(
   safelist: string[]
 ): Promise<PrincipalTokenInfo[]> {
   const filter = trancheFactory.filters.TrancheCreated(null, null, null);
-  const trancheCreatedEvents = await retry(() => 
+  const trancheCreatedEvents = await retry(() =>
     trancheFactory.queryFilter(filter)
   );
   const trancheAddresses = trancheCreatedEvents.map(

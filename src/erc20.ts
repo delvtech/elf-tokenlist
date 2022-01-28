@@ -1,4 +1,4 @@
-import { ERC20 } from "elf-contracts-typechain/dist/types/ERC20";
+import { ERC20 } from "@elementfi/core-typechain";
 import { retryAsync } from "src/util/retry";
 
 export async function getTokenDecimals(token: ERC20): Promise<number> {

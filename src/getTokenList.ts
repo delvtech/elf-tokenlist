@@ -1,21 +1,21 @@
-import { TokenList } from "@uniswap/token-lists/src";
 import {
   ConvergentPoolFactory__factory,
+  TrancheFactory__factory,
   Vault__factory,
   WeightedPoolFactory__factory,
-} from "elf-contracts-typechain/dist/types";
-import { TrancheFactory__factory } from "elf-contracts-typechain/dist/types/factories/TrancheFactory__factory";
+} from "@elementfi/core-typechain";
+import { TokenList } from "@uniswap/token-lists/src";
 import fs from "fs";
 import hre from "hardhat";
 import { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
 import { getAssetProxyTokenInfos } from "src/assetProxies";
 import { getPrincipalPoolTokenInfos } from "src/ccpools";
+import { getExternalTokenInfos } from "src/external";
 import { ELEMENT_LOGO_URI } from "src/logo";
 import { TokenTag } from "src/tags";
 import { TagInfo } from "src/types";
 import { getVaultTokenInfos } from "src/vaults";
 import { getYieldPoolTokenInfos } from "src/weightedPools";
-import { getExternalTokenInfos } from "src/external";
 import { getPrincipalTokenInfos } from "./principalTokens";
 import { getYieldTokenInfos } from "./yieldTokens";
 

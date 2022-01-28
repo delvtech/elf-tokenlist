@@ -1,13 +1,9 @@
+import { ERC20, TestYVault__factory } from "@elementfi/core-typechain";
 import { TokenInfo } from "@uniswap/token-lists/src";
-import { ERC20 } from "elf-contracts-typechain/dist/types/ERC20";
-import { TestYVault__factory } from "elf-contracts-typechain/dist/types/factories/TestYVault__factory";
 import hre from "hardhat";
 import zip from "lodash.zip";
-
-import { AssetProxyTokenInfo, VaultTokenInfo } from "src/types";
-
 import { TokenTag } from "src/tags";
-
+import { AssetProxyTokenInfo, VaultTokenInfo } from "src/types";
 import {
   getTokenDecimalsMulti,
   getTokenNameMulti,
