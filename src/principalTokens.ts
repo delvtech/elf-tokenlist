@@ -7,7 +7,6 @@ import {
 import { Event } from "@ethersproject/contracts";
 import hre from "hardhat";
 import zip from "lodash.zip";
-import { getTokenSymbolMulti } from "src/erc20";
 import { ELEMENT_LOGO_URI } from "src/logo";
 import { TokenTag } from "src/tags";
 import { PrincipalTokenInfo } from "src/types";
@@ -161,7 +160,9 @@ async function getPrincipalTokenUnderlyings(
 }
 async function getPrincipalTokenSymbols(chainId: number, tranches: Tranche[]) {
   const trancheAddresses = tranches.map((tranche) => tranche.address);
-  const trancheSymbols = await getTokenSymbolMulti(tranches);
+  const trancheSymbols = await Promise.all(
+    tranches.map((tranche) => tranche.symbol())
+  );
   const overrides = trancheSymbolOverrides[chainId] || {};
   const symbols = zip(trancheAddresses, trancheSymbols).map((zipped) => {
     const [address, symbol] = zipped as [string, string];

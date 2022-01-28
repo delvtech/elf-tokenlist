@@ -6,7 +6,6 @@ import {
 } from "@elementfi/core-typechain";
 import hre from "hardhat";
 import zip from "lodash.zip";
-import { getTokenSymbolMulti } from "src/erc20";
 import { ELEMENT_LOGO_URI } from "src/logo";
 import { TokenTag } from "src/tags";
 import { PrincipalTokenInfo, YieldTokenInfo } from "src/types";
@@ -111,7 +110,9 @@ async function getYieldTokenSymbols(
   const addresses = interestTokens.map(
     (interestToken) => interestToken.address
   );
-  const interestTokenSymbols = await getTokenSymbolMulti(interestTokens);
+  const interestTokenSymbols = await Promise.all(
+    interestTokens.map((token) => token.symbol())
+  );
   const overrides = symbolOverrides[chainId] || {};
   const symbols = zip(addresses, interestTokenSymbols).map((zipped) => {
     const [address, symbol] = zipped as [string, string];
