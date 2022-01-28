@@ -1,5 +1,10 @@
 import { TokenInfo, TokenList } from "@uniswap/token-lists/src";
 
+/**
+ * Re-exported so that elementfi can own the definitions of these types. This is
+ * useful in development, or while we wait for upstream changes to
+ * uniswap/tokenlist.
+ */
 export { TokenInfo, TokenList } from "@uniswap/token-lists/src";
 
 export declare const mainnetTokenList: TokenList;
