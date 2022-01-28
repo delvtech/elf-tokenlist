@@ -49,6 +49,7 @@
     "_build-tokenlist-mainnet": "npm run _fetch-addresses-json-mainnet && bash scripts/build-tokenlist.sh mainnet",
     "_build-index": "bash scripts/build-index.sh",
     "build": " npm run _build-tokenlist-goerli && npm run _build-tokenlist-mainnet && npm run _build-index && npm run _copy-files",
-    "_copy-files": "bash scripts/copy-dist-files.sh"
+    "_copy-files": "bash scripts/copy-dist-files.sh",
+    "typecheck": "npx tsc --noEmit"
   }
 }
