@@ -1,13 +1,11 @@
-import "@nomiclabs/hardhat-ethers";
-
-import { ConvergentPoolFactory } from "elf-contracts-typechain/dist/types";
-import { ConvergentCurvePool__factory } from "elf-contracts-typechain/dist/types/factories/ConvergentCurvePool__factory";
+import {
+  ConvergentCurvePool__factory,
+  ConvergentPoolFactory,
+} from "@elementfi/core-typechain";
 import hre from "hardhat";
 import zip from "lodash.zip";
-
-import { PrincipalPoolTokenInfo } from "src/types";
-
 import { TokenTag } from "src/tags";
+import { PrincipalPoolTokenInfo } from "src/types";
 import { retry, retryAsync } from "src/util/retry";
 
 export const provider = hre.ethers.provider;

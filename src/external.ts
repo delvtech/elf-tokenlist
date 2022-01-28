@@ -1,5 +1,5 @@
+import { ERC20__factory } from "@elementfi/core-typechain";
 import { TokenInfo } from "@uniswap/token-lists/src";
-import { ERC20__factory } from "elf-contracts-typechain/dist/types/factories/ERC20__factory";
 import hre from "hardhat";
 import { getTokenDecimals, getTokenName, getTokenSymbol } from "src/erc20";
 import { getCurveTokenInfo } from "./curveToken";
