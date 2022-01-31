@@ -1,4 +1,7 @@
-import { TagInfo } from "src/types";
+export interface TagInfo {
+  name: string;
+  description: string;
+}
 
 export enum TokenTag {
   VAULT = "vault",

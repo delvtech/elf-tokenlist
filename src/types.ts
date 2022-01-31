@@ -7,11 +7,6 @@ import { TokenInfo } from "@uniswap/token-lists/src";
  */
 export { TokenInfo, TokenList } from "@uniswap/token-lists/src";
 
-export interface TagInfo {
-  name: string;
-  description: string;
-}
-
 export interface CurveLpTokenInfo extends TokenInfo {
   extensions: {
     /** The address of the pool the curve LP token corresponds to, may sometimes
