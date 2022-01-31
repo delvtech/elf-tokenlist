@@ -21,6 +21,7 @@ echo "
 import { TokenList } from '@uniswap/token-lists/src';
 
 export * from './tags';
+export * from './types';
 
 export const mainnetTokenList: TokenList = $MAINNET_TOKENLIST;
 export const goerliTokenList: TokenList = $GOERLI_TOKENLIST;
