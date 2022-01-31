@@ -18,6 +18,7 @@
 import { TokenList } from '@uniswap/token-lists/src';
 
 export * from './tags';
+export * from './types';
 
 export const mainnetTokenList: TokenList = {
   "name": "Element",

@@ -1,4 +1,4 @@
-import { TokenInfo, TokenList } from "@uniswap/token-lists/src";
+import { TokenInfo } from "@uniswap/token-lists/src";
 
 /**
  * Re-exported so that elementfi can own the definitions of these types. This is
@@ -6,9 +6,6 @@ import { TokenInfo, TokenList } from "@uniswap/token-lists/src";
  * uniswap/tokenlist.
  */
 export { TokenInfo, TokenList } from "@uniswap/token-lists/src";
-
-export declare const mainnetTokenList: TokenList;
-export declare const goerliTokenList: TokenList;
 
 export interface TagInfo {
   name: string;
