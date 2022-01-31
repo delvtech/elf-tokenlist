@@ -12,49 +12,13 @@ import { getAssetProxyTokenInfos } from "src/assetProxies";
 import { getPrincipalPoolTokenInfos } from "src/ccpools";
 import { getExternalTokenInfos } from "src/external";
 import { ELEMENT_LOGO_URI } from "src/logo";
-import { TokenTag } from "src/tags";
-import { TagInfo } from "src/types";
+import { tags } from "src/tags";
 import { getVaultTokenInfos } from "src/vaults";
 import { getYieldPoolTokenInfos } from "src/weightedPools";
 import { getPrincipalTokenInfos } from "./principalTokens";
 import { getYieldTokenInfos } from "./yieldTokens";
 
 const provider = hre.ethers.provider;
-
-export const elementTags: Record<TokenTag, TagInfo> = {
-  [TokenTag.CURVE]: {
-    name: "Curve LP token",
-    description:
-      "Token that represents a liquidity provider position in a Curve.fi pool",
-  },
-  [TokenTag.PRINCIPAL]: {
-    name: "Principal token",
-    description:
-      "Token that represents a deposit of principal into a yield position",
-  },
-  [TokenTag.YIELD]: {
-    name: "Yield token",
-    description:
-      "Token that represents the yield on a deposit into a yield position",
-  },
-  [TokenTag.CCPOOL]: {
-    name: "ConvergentCurve pool",
-    description: "Token that represents the balancer pool for Principal tokens",
-  },
-  [TokenTag.WPOOL]: {
-    name: "Weighted pool",
-    description: "Token that represents the balancer pool for Yield tokens",
-  },
-  [TokenTag.ASSET_PROXY]: {
-    name: "Vault asset proxy",
-    description:
-      "Token that wraps a yield position, ie: Yearn vault asset proxy",
-  },
-  [TokenTag.VAULT]: {
-    name: "Vault",
-    description: "The yield position, ie: Yearn yvcrvLUSD",
-  },
-};
 
 export async function getTokenList(
   addressesJson: AddressesJsonFile,
@@ -184,7 +148,7 @@ export async function getTokenList(
   const tokenList: TokenList = {
     name,
     logoURI: ELEMENT_LOGO_URI,
-    tags: elementTags,
+    tags,
     timestamp: new Date().toISOString(),
     version: {
       // TODO: implement this
