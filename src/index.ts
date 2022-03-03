@@ -53,7 +53,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-01-18T16:38:03.191Z",
+  "timestamp": "2022-03-03T19:46:36.501Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -98,14 +98,13 @@ export const mainnetTokenList: TokenList = {
         "curve"
       ],
       "extensions": {
-        "pool": "0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
+        "pool": "0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7",
         "poolAssets": [
           "0x6B175474E89094C44Da98b954EedeAC495271d0F",
           "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
           "0xdAC17F958D2ee523a2206206994597C13D831ec7"
         ],
-        "addLiquidityFuncSig": "add_liquidity(uint256[3],uint256)",
-        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+        "curveRemoveLiqFnIsUint256": false
       }
     },
     {
@@ -127,13 +126,6 @@ export const mainnetTokenList: TokenList = {
       "address": "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
       "symbol": "MIM",
       "name": "Magic Internet Money",
-      "decimals": 18
-    },
-    {
-      "chainId": 1,
-      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-      "symbol": "WETH",
-      "name": "Wrapped Ether",
       "decimals": 18
     },
     {
@@ -179,8 +171,7 @@ export const mainnetTokenList: TokenList = {
           "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
           "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
         ],
-        "addLiquidityFuncSig": "add_liquidity(uint256[2],uint256)",
-        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+        "curveRemoveLiqFnIsUint256": false
       }
     },
     {
@@ -198,8 +189,7 @@ export const mainnetTokenList: TokenList = {
           "0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9",
           "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
         ],
-        "addLiquidityFuncSig": "add_liquidity(uint256[2],uint256)",
-        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+        "curveRemoveLiqFnIsUint256": false
       }
     },
     {
@@ -217,8 +207,7 @@ export const mainnetTokenList: TokenList = {
           "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
           "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
         ],
-        "addLiquidityFuncSig": "add_liquidity(uint256[2],uint256)",
-        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+        "curveRemoveLiqFnIsUint256": false
       }
     },
     {
@@ -231,14 +220,13 @@ export const mainnetTokenList: TokenList = {
         "curve"
       ],
       "extensions": {
-        "pool": "0xD51a44d3FaE010294C616388b506AcdA1bfAAE46",
+        "pool": "0x3993d34e7e99Abf6B6f367309975d1360222D446",
         "poolAssets": [
           "0xdAC17F958D2ee523a2206206994597C13D831ec7",
           "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+          "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
         ],
-        "addLiquidityFuncSig": "add_liquidity(uint256[3],uint256)",
-        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,uint256,uint256)"
+        "curveRemoveLiqFnIsUint256": true
       }
     },
     {
@@ -251,14 +239,13 @@ export const mainnetTokenList: TokenList = {
         "curve"
       ],
       "extensions": {
-        "pool": "0x80466c64868E1ab14a1Ddf27A676C3fcBE638Fe5",
+        "pool": "0x331aF2E331bd619DefAa5DAc6c038f53FCF9F785",
         "poolAssets": [
           "0xdAC17F958D2ee523a2206206994597C13D831ec7",
           "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+          "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
         ],
-        "addLiquidityFuncSig": "add_liquidity(uint256[3],uint256)",
-        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,uint256,uint256)"
+        "curveRemoveLiqFnIsUint256": true
       }
     },
     {
@@ -276,8 +263,7 @@ export const mainnetTokenList: TokenList = {
           "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
           "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
         ],
-        "addLiquidityFuncSig": "add_liquidity(uint256[2],uint256)",
-        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+        "curveRemoveLiqFnIsUint256": false
       }
     },
     {
@@ -295,8 +281,7 @@ export const mainnetTokenList: TokenList = {
           "0xdB25f211AB05b1c97D595516F45794528a807ad8",
           "0xD71eCFF9342A5Ced620049e616c5035F1dB98620"
         ],
-        "addLiquidityFuncSig": "add_liquidity(uint256[2],uint256)",
-        "removeLiquidityFuncSig": "remove_liquidity_one_coin(uint256,int128,uint256)"
+        "curveRemoveLiqFnIsUint256": false
       }
     },
     {
@@ -2174,7 +2159,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-01-18T16:36:38.502Z",
+  "timestamp": "2022-03-03T19:45:46.235Z",
   "version": {
     "major": 0,
     "minor": 0,

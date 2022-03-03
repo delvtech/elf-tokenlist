@@ -8,7 +8,7 @@ import { CurveLpTokenInfo } from "./types";
 
 export const provider = hre.ethers.provider;
 
-const ETH_CONSTANT = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
+export const ETH_CONSTANT = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 
 type ExternalTokenInfo = TokenInfo | CurveLpTokenInfo;
 
@@ -16,6 +16,7 @@ async function getExternalTokenInfo(
   chainId: number,
   address: string
 ): Promise<ExternalTokenInfo> {
+  await provider.ready;
   if (address === ETH_CONSTANT) {
     return {
       chainId,
