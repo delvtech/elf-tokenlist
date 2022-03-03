@@ -155,26 +155,35 @@ export async function getCurveTokenInfo({
       (_, idx) => curvePool.coins(idx) as Promise<string>
     )
   );
-  const WETH = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
-  const wethIdx = poolAssets.findIndex((address) => address === WETH);
 
+  // The below logic is intended to replace the use of WETH, the wrapped ether
+  // token for the native ETH token. We do this because both of the crvTriCrypto
+  // pools that element supports has a wrapper "deposit" contract provided by curve
+  // to make it more accessible to users. Otherwise, any time a user wants to use
+  // the crvTriCrypto pool with their ETH, the user would have to wrap it first.
+  // The deposit wrapper does this automatically. Element inherits this same
+  // paradigm and so we identify first the crvTriCrypto pools and replace the
+  // pool with the deposit wrapper and the WETH poolAsset with the ETH_CONSTANT
+  const WETH = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
+  const wethIdx = poolAssets.findIndex(
+    (poolAssetAddress) => poolAssetAddress === WETH
+  );
   if (wethIdx !== -1) {
     const CRV_TRI_CRYPTO = "0xcA3d75aC011BF5aD07a98d02f18225F9bD9A6BDF";
     const CRV_TRI_CRYPTO_POOL = "0x80466c64868E1ab14a1Ddf27A676C3fcBE638Fe5";
     const CRV_TRI_CRYPTO_DEPOSIT = "0x331aF2E331bd619DefAa5DAc6c038f53FCF9F785";
     if (address === CRV_TRI_CRYPTO && pool === CRV_TRI_CRYPTO_POOL) {
       pool = CRV_TRI_CRYPTO_DEPOSIT;
+      poolAssets[wethIdx] = ETH_CONSTANT;
     }
 
     const CRV_3_CRYPTO = "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff";
     const CRV_3_CRYPTO_POOL = "0xD51a44d3FaE010294C616388b506AcdA1bfAAE46";
     const CRV_3_CRYPTO_DEPOSIT = "0x3993d34e7e99Abf6B6f367309975d1360222D446";
-
     if (address === CRV_3_CRYPTO && pool === CRV_3_CRYPTO_POOL) {
       pool = CRV_3_CRYPTO_DEPOSIT;
+      poolAssets[wethIdx] = ETH_CONSTANT;
     }
-
-    poolAssets[wethIdx] = ETH_CONSTANT;
   }
 
   return {
