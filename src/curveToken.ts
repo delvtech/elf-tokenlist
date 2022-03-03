@@ -160,7 +160,7 @@ export async function getCurveTokenInfo({
     (k) => k.startsWith("add_liquidity")
   ) as string;
 
-  // example: "remove_liquidity_one_coin(uint256[2],uint256)"
+  // example: "remove_liquidity_one_coin(uint256[2],int128,uint256)"
   const removeLiquidityFuncSig = Object.keys(curvePoolContract.functions).find(
     (k) => k.startsWith("remove_liquidity_one_coin")
   ) as string;
@@ -192,6 +192,14 @@ export async function getCurveTokenInfo({
     )
   );
 
+  const removeLiqFnIsUint256 =
+    removeLiquidityFuncSig
+      .substring(
+        addLiquidityFuncSig.indexOf("(") + 1,
+        addLiquidityFuncSig.indexOf(")")
+      )
+      .split(",")[1] === "uint256";
+
   return {
     chainId,
     address,
@@ -202,8 +210,7 @@ export async function getCurveTokenInfo({
     extensions: {
       pool,
       poolAssets,
-      addLiquidityFuncSig,
-      removeLiquidityFuncSig,
+      removeLiqFnIsUint256,
     },
   };
 }

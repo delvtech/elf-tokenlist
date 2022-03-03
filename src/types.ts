@@ -23,7 +23,7 @@ export interface CurveLpTokenInfo extends TokenInfo {
 
     /**
      * The removeLiquidity function in curve pool contracts has a selector
-     * parameter which arbitrarily is either uint256 or uint128. To select
+     * parameter which arbitrarily is either uint256 or int128. To select
      * between the two options, we must pass the correct case as input
      * */
     removeLiqFnIsUint256: boolean;
