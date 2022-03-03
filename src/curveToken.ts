@@ -192,14 +192,6 @@ export async function getCurveTokenInfo({
     )
   );
 
-  const removeLiqFnIsUint256 =
-    removeLiquidityFuncSig
-      .substring(
-        addLiquidityFuncSig.indexOf("(") + 1,
-        addLiquidityFuncSig.indexOf(")")
-      )
-      .split(",")[1] === "uint256";
-
   return {
     chainId,
     address,
@@ -210,7 +202,9 @@ export async function getCurveTokenInfo({
     extensions: {
       pool,
       poolAssets,
-      removeLiqFnIsUint256,
+      curveRemoveLiqFnIsUint256:
+        removeLiquidityFuncSig ===
+        "remove_liquidity_one_coin(uint256,uint256,uint256)",
     },
   };
 }

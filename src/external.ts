@@ -16,6 +16,7 @@ async function getExternalTokenInfo(
   chainId: number,
   address: string
 ): Promise<ExternalTokenInfo> {
+  await provider.ready;
   if (address === ETH_CONSTANT) {
     return {
       chainId,

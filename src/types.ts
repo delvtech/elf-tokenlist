@@ -26,7 +26,7 @@ export interface CurveLpTokenInfo extends TokenInfo {
      * parameter which arbitrarily is either uint256 or int128. To select
      * between the two options, we must pass the correct case as input
      * */
-    removeLiqFnIsUint256: boolean;
+    curveRemoveLiqFnIsUint256: boolean;
   };
 }
 
