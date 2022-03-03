@@ -9,8 +9,10 @@ export { TokenInfo, TokenList } from "@uniswap/token-lists/src";
 
 export interface CurveLpTokenInfo extends TokenInfo {
   extensions: {
-    /** The address of the pool the curve LP token corresponds to, may sometimes
-     * be the address of the token itself  */
+    /**
+     * The address of the pool the curve LP token corresponds to, may sometimes
+     * be the address of the token itself
+     * */
     pool: string;
 
     /**
@@ -19,13 +21,12 @@ export interface CurveLpTokenInfo extends TokenInfo {
      */
     poolAssets: string[];
 
-    /** Function signature corresponding to the add liquidity function
-     * on the pool contract*/
-    addLiquidityFuncSig: string;
-
-    /** Function signature corresponding to the remove liquidity function
-     * on the pool contract*/
-    removeLiquidityFuncSig: string;
+    /**
+     * The removeLiquidity function in curve pool contracts has a selector
+     * parameter which arbitrarily is either uint256 or uint128. To select
+     * between the two options, we must pass the correct case as input
+     * */
+    removeLiqFnIsUint256: boolean;
   };
 }
 
