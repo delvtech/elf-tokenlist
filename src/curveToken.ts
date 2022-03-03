@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import hre from "hardhat";
 import fetch from "node-fetch";
 import { TokenTag } from "src/tags";
+import { ETH_CONSTANT } from "./external";
 import { CurveLpTokenInfo } from "./types";
 
 export const provider = hre.ethers.provider;
@@ -50,21 +51,13 @@ async function getFactoryV2Pools(): Promise<{ address: string }[] | undefined> {
 
 /*
  * This function is used to find a correspondance between a curve lp token and
- * the pool address it corresponds to. Unfortunately with the curve ecosystem,
- * there is little consistency in defining how pools and tokens are related so
- * a hackish type solution is required. It is somewhat expected that this may
- * break in the future but as of writing it is the only solution.
+ * the pool address it corresponds to. In most cases we can find the this
+ * correspondance by using the curve pool registry but these are not consistent
+ * for all the curve pools and tokens. The older CRV_TRI_CRYPTO pool is not
+ * listed and so we must use the getGauges endpoint to find that one. This is
+ * explained below
  *
- * The rationale for finding this correspondance is that we are required to find
- * the function signature for the add_liquidity and the
- * remove_liquidity_one_coin functions on the pool address contract. Once we
- * know the pool address for the given lp token address we can lookup the abi
- * using etherscan which will have the correct signature
- *
- * The logic here is to use three different solutions to find the
- * correspondance.
- *
- * 1. getGauges api endpoint
+ * getGauges api endpoint
  *
  * The gauge system (see https://dao.curve.fi/gaugeweight) in curve is how curve
  * token inflation rewards are distributed to LP'ers in various pools. We don't
@@ -74,27 +67,22 @@ async function getFactoryV2Pools(): Promise<{ address: string }[] | undefined> {
  * to the pool address. Knowing the lp token address, we can simply iterate
  * across the list of pool information and match it against the `swap_token`
  * value.
- *
- * 2. getFactoryV2Pools api endpoint
- *
- * The getFactoryV2Pools is a list of "metapools" which utilise most often a
- * pairing of some illiquid stablecoin with highly liquid stablecoins like
- * DAI/USDT/USDC through the 3CRV token. In these instances, it appears to be
- * the case that a metapool lp token address is also the pool address so once
- * we validate that the address is in the list of metapool addresses we can
- * assume it is also the pool address
- *
- * 3. minter() contract function
- *
- * In most instances, the contract at the LP token address will have a "minter"
- * contract function which will return the pool address. Using etherscan, we can
- * fetch the abi and do a lookup if that function exists or not and if so use it
- * to get the pool
- *
- * If all three solutions listed here fail to find the correspondance, it will
- * throw an error and a new solution will have to be found in that case
  */
 async function getCurvePoolFromTokenAddress(address: string): Promise<string> {
+  const CURVE_POOL_REGISTRY = "0x90e00ace148ca3b23ac1bc8c240c2a7dd9c2d7f5";
+
+  const poolRegistry = new ethers.Contract(
+    CURVE_POOL_REGISTRY,
+    ["function get_pool_from_lp_token(address) view returns (address)"],
+    provider
+  );
+
+  const pool = (await poolRegistry.get_pool_from_lp_token(address)) as string;
+
+  if (pool !== ethers.constants.AddressZero) {
+    return pool;
+  }
+
   // first try gauge data
   const gaugeData = await getGauges();
   if (gaugeData) {
@@ -107,33 +95,6 @@ async function getCurvePoolFromTokenAddress(address: string): Promise<string> {
     }
   }
 
-  // then factoryV2 pool data for metapools
-  const factoryV2PoolsData = await getFactoryV2Pools();
-  if (factoryV2PoolsData) {
-    const factoryV2PoolInfo = factoryV2PoolsData.find(
-      ({ address: _address }: { address: string }) => _address === address
-    );
-
-    if (factoryV2PoolInfo) return address;
-  }
-
-  const curveTokenAbi = await etherscanProvider.fetch("contract", {
-    action: "getabi",
-    address: address,
-    post: false,
-  });
-
-  const curveLpToken = new ethers.Contract(address, curveTokenAbi, provider);
-
-  if (
-    Object.keys(curveLpToken.functions).some((functionName) =>
-      functionName.startsWith("minter")
-    )
-  ) {
-    // if the token has a minter function, that is the original pool address
-    return await curveLpToken.minter();
-  }
-
   throw new Error(`curve pool address: ${address} could not be found`);
 }
 
@@ -144,7 +105,10 @@ export async function getCurveTokenInfo({
   symbol,
   decimals,
 }: TokenInfo): Promise<CurveLpTokenInfo> {
-  const pool = await getCurvePoolFromTokenAddress(address);
+  if (chainId !== 1)
+    throw new Error("can only retrieve curveToken info for mainnet");
+
+  let pool = await getCurvePoolFromTokenAddress(address);
 
   const curvePoolAbi = await etherscanProvider.fetch("contract", {
     action: "getabi",
@@ -191,6 +155,27 @@ export async function getCurveTokenInfo({
       (_, idx) => curvePool.coins(idx) as Promise<string>
     )
   );
+  const WETH = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
+  const wethIdx = poolAssets.findIndex((address) => address === WETH);
+
+  if (wethIdx !== -1) {
+    const CRV_TRI_CRYPTO = "0xcA3d75aC011BF5aD07a98d02f18225F9bD9A6BDF";
+    const CRV_TRI_CRYPTO_POOL = "0x80466c64868E1ab14a1Ddf27A676C3fcBE638Fe5";
+    const CRV_TRI_CRYPTO_DEPOSIT = "0x331aF2E331bd619DefAa5DAc6c038f53FCF9F785";
+    if (address === CRV_TRI_CRYPTO && pool === CRV_TRI_CRYPTO_POOL) {
+      pool = CRV_TRI_CRYPTO_DEPOSIT;
+    }
+
+    const CRV_3_CRYPTO = "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff";
+    const CRV_3_CRYPTO_POOL = "0xD51a44d3FaE010294C616388b506AcdA1bfAAE46";
+    const CRV_3_CRYPTO_DEPOSIT = "0x3993d34e7e99Abf6B6f367309975d1360222D446";
+
+    if (address === CRV_3_CRYPTO && pool === CRV_3_CRYPTO_POOL) {
+      pool = CRV_3_CRYPTO_DEPOSIT;
+    }
+
+    poolAssets[wethIdx] = ETH_CONSTANT;
+  }
 
   return {
     chainId,
