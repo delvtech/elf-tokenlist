@@ -1,13 +1,15 @@
 {
   "name": "@elementfi/tokenlist",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "",
   "dependencies": {
     "@uniswap/token-lists": "git+https://github.com/Uniswap/token-lists.git#add-array-extension-support",
     "tsc": "^2.0.3"
   },
   "main": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "types": "dist/index.d.ts",
   "devDependencies": {
     "@elementfi/core-typechain": "^1.0.1",
