@@ -53,13 +53,20 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-03-03T19:46:36.501Z",
+  "timestamp": "2022-03-11T02:24:39.467Z",
   "version": {
     "major": 0,
     "minor": 0,
     "patch": 0
   },
   "tokens": [
+    {
+      "chainId": 1,
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "symbol": "WETH",
+      "name": "Wrapped Ether",
+      "decimals": 18
+    },
     {
       "chainId": 1,
       "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
@@ -2159,7 +2166,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-03-03T19:45:46.235Z",
+  "timestamp": "2022-03-11T02:23:34.789Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -2228,6 +2235,19 @@ export const goerliTokenList: TokenList = {
     },
     {
       "chainId": 5,
+      "address": "0xb47E7a1fD90630CfC0868d90Cb8F518578010cFe",
+      "symbol": "yUSDC",
+      "decimals": 6,
+      "name": "element yUSDC",
+      "tags": [
+        "assetproxy"
+      ],
+      "extensions": {
+        "vault": "0x23c3C6C06d7684207fB09076914A15B16aba02c5"
+      }
+    },
+    {
+      "chainId": 5,
       "address": "0xdD82595F5eB0e7477D7432B24E44be7c0252bbf1",
       "symbol": "yvCurve-stETH",
       "decimals": 18,
@@ -2252,6 +2272,16 @@ export const goerliTokenList: TokenList = {
       "symbol": "yvDAI",
       "decimals": 18,
       "name": "Yearn DAI",
+      "tags": [
+        "vault"
+      ]
+    },
+    {
+      "chainId": 5,
+      "address": "0x23c3C6C06d7684207fB09076914A15B16aba02c5",
+      "symbol": "yvUSDC",
+      "decimals": 6,
+      "name": "Yearn USDC",
       "tags": [
         "vault"
       ]
@@ -2402,6 +2432,24 @@ export const goerliTokenList: TokenList = {
     },
     {
       "chainId": 5,
+      "address": "0xbce711DfCD200b659f3f2715970207E719b8B273",
+      "symbol": "eP:yUSDC:07-APR-22-GMT",
+      "decimals": 6,
+      "extensions": {
+        "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
+        "position": "0xb47E7a1fD90630CfC0868d90Cb8F518578010cFe",
+        "interestToken": "0xD261916738845B20E91A6048F28A9d5490964016",
+        "unlockTimestamp": 1649364020,
+        "createdAtTimestamp": 1646772035
+      },
+      "name": "USDC Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 5,
       "address": "0x91dDF92af38Afac1B59F450dDb94ddab10a11490",
       "symbol": "eYyvCurve-stETH",
       "decimals": 18,
@@ -2522,6 +2570,22 @@ export const goerliTokenList: TokenList = {
         "tranche": "0xd64bCC8f3202aada4db9f0c8F1244a077C7723D1",
         "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
         "unlockTimestamp": 1638993592
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 5,
+      "address": "0xD261916738845B20E91A6048F28A9d5490964016",
+      "symbol": "eY:yUSDC:07-APR-22-GMT",
+      "decimals": 6,
+      "name": "USDC Yield Token",
+      "extensions": {
+        "tranche": "0xbce711DfCD200b659f3f2715970207E719b8B273",
+        "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
+        "unlockTimestamp": 1649364020
       },
       "tags": [
         "eY"
