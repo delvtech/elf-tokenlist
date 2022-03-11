@@ -72,10 +72,16 @@ export async function getTokenList(
     trancheFactoryAddress,
     provider
   );
-  const convergentPoolFactory = ConvergentPoolFactory__factory.connect(
-    convergentPoolFactoryAddress,
+
+  const convergentPoolFactoryV1 = ConvergentPoolFactory__factory.connect(
+    convergentPoolFactoryAddress.v1,
     provider
   );
+  const convergentPoolFactoryV1_1 = ConvergentPoolFactory__factory.connect(
+    convergentPoolFactoryAddress.v1_1,
+    provider
+  );
+
   const balancerVault = Vault__factory.connect(balancerVaultAddress, provider);
   const weightedPoolFactory = WeightedPoolFactory__factory.connect(
     weightedPoolFactoryAddress,
@@ -131,7 +137,8 @@ export async function getTokenList(
   console.log("principalPoolTokenInfos");
   const principalPoolTokenInfos = await getPrincipalPoolTokenInfos(
     chainId,
-    convergentPoolFactory,
+    convergentPoolFactoryV1,
+    convergentPoolFactoryV1_1,
     safelist
   );
 
