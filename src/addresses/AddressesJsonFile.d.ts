@@ -5,7 +5,11 @@ export interface AddressesJsonFile {
     trancheFactoryAddress: string;
     wbtcAddress: string;
     weightedPoolFactoryAddress: string;
-    convergentPoolFactoryAddress: string;
+    convergentPoolFactoryAddress: {
+      latestVersion: string;
+      v1: string;
+      v1_1: string;
+    };
     userProxyContractAddress: string;
     wethAddress: string;
     daiAddress: string;
