@@ -53,7 +53,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-03-11T02:34:45.416Z",
+  "timestamp": "2022-03-11T02:42:28.125Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -2189,7 +2189,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-03-11T02:33:43.635Z",
+  "timestamp": "2022-03-11T02:41:27.530Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -2763,6 +2763,25 @@ export const goerliTokenList: TokenList = {
         "createdAtTimestamp": 1638303998
       },
       "name": "LP Principal Token eyUSDC:08-DEC-21-GMT",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 5,
+      "address": "0xEA4058419730bc53Cce50950D458E41c22F94452",
+      "symbol": "LPeP:yUSDC:07-APR-22-GMT",
+      "decimals": 18,
+      "extensions": {
+        "convergentPoolFactory": "0x662a5e11D5769A02E1b444F1952AC575fB8cBB87",
+        "bond": "0xbce711DfCD200b659f3f2715970207E719b8B273",
+        "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
+        "poolId": "0xea4058419730bc53cce50950d458e41c22f944520002000000000000000000b3",
+        "unitSeconds": 820480752,
+        "expiration": 1649364020,
+        "createdAtTimestamp": 1646772620
+      },
+      "name": "LP Principal Token yUSDC:07-APR-22-GMT",
       "tags": [
         "ccpool"
       ]

@@ -15,12 +15,11 @@ import { retry, retryAsync } from "src/util/retry";
 export const provider = hre.ethers.provider;
 export async function getPrincipalPoolTokenInfos(
   chainId: number,
-  ccPoolFactoryV1: ConvergentPoolFactoryV1,
-  ccPoolFactoryV1_1: ConvergentPoolFactoryV1,
+  ccPoolFactory: ConvergentPoolFactoryV1 | ConvergentPoolFactoryV1_1,
   safelist: string[]
 ): Promise<PrincipalPoolTokenInfo[]> {
-  const filter = ccPoolFactoryV1.filters.CCPoolCreated(null, null);
-  const events = await retry(() => ccPoolFactoryV1.queryFilter(filter));
+  const filter = ccPoolFactory.filters.CCPoolCreated(null, null);
+  const events = await retry(() => ccPoolFactory.queryFilter(filter));
   const poolCreatedEvents = events.map((event) => {
     const [poolAddress, bondTokenAddress] = event.args || [];
     const { blockNumber } = event;
@@ -100,7 +99,7 @@ export async function getPrincipalPoolTokenInfos(
         symbol: symbol as string,
         decimals: decimal as number,
         extensions: {
-          convergentPoolFactory: ccPoolFactoryV1.address,
+          convergentPoolFactory: ccPoolFactory.address,
           bond: bondAddress as string,
           underlying: underlyingAddress as string,
           poolId: poolId as string,

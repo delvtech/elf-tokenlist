@@ -135,12 +135,20 @@ export async function getTokenList(
   );
 
   console.log("principalPoolTokenInfos");
-  const principalPoolTokenInfos = await getPrincipalPoolTokenInfos(
+  const principalPoolV1TokenInfos = await getPrincipalPoolTokenInfos(
     chainId,
     convergentPoolFactoryV1,
+    safelist
+  );
+  const principalPoolV1_1TokenInfos = await getPrincipalPoolTokenInfos(
+    chainId,
     convergentPoolFactoryV1_1,
     safelist
   );
+  const principalPoolTokenInfos = [
+    ...principalPoolV1TokenInfos,
+    ...principalPoolV1_1TokenInfos,
+  ];
 
   console.log("yieldPoolTokenInfos");
   const yieldPoolTokenInfos = await getYieldPoolTokenInfos(
