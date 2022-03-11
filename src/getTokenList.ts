@@ -3,7 +3,7 @@ import {
   TrancheFactory__factory,
   Vault__factory,
   WeightedPoolFactory__factory,
-} from "@elementfi/core-typechain";
+} from "@elementfi/core-typechain/dist/v1";
 import { TokenList } from "@uniswap/token-lists/src";
 import fs from "fs";
 import hre from "hardhat";

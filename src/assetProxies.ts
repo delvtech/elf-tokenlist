@@ -1,8 +1,8 @@
+import { ERC20 } from "@elementfi/core-typechain/dist/libraries";
 import {
-  ERC20,
   Tranche__factory,
   YVaultAssetProxy__factory,
-} from "@elementfi/core-typechain";
+} from "@elementfi/core-typechain/dist/v1";
 import hre from "hardhat";
 import uniq from "lodash.uniq";
 import zip from "lodash.zip";

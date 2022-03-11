@@ -1,7 +1,7 @@
 import {
   ConvergentCurvePool__factory,
   ConvergentPoolFactory,
-} from "@elementfi/core-typechain";
+} from "@elementfi/core-typechain/dist/v1";
 import hre from "hardhat";
 import zip from "lodash.zip";
 import { TokenTag } from "src/tags";
