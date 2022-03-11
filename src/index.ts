@@ -53,7 +53,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-03-11T02:24:39.467Z",
+  "timestamp": "2022-03-11T02:34:45.416Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -1332,6 +1332,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvCurveLUSD-28SEP21",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x9b44Ed798a10Df31dee52C5256Dcb4754BCf097E",
         "underlying": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
         "poolId": "0xa8d4433badaa1a35506804b43657b0694dea928d00020000000000000000005e",
@@ -1350,6 +1351,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvCurveLUSD-27DEC21",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0xa2b3d083AA1eaa8453BfB477f062A208Ed85cBBF",
         "underlying": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
         "poolId": "0x893b30574bf183d69413717f30b17062ec9dfd8b000200000000000000000061",
@@ -1368,6 +1370,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvCrvTriCrypto-15AUG21",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x237535Da7e2f0aBa1b68262ABCf7C4e60B42600C",
         "underlying": "0xcA3d75aC011BF5aD07a98d02f18225F9bD9A6BDF",
         "poolId": "0x3a693eb97b500008d4bb6258906f7bbca1d09cc5000200000000000000000065",
@@ -1386,6 +1389,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvcrvSTETH-15OCT21",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x26941C63F4587796aBE199348ecd3d7C44F9aE0C",
         "underlying": "0x06325440D014e39736583c165C2963BA99fAf14E",
         "poolId": "0xce16e7ed7654a3453e8faf748f2c82e57069278f00020000000000000000006d",
@@ -1404,6 +1408,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvDAI-16OCT21",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0xb1cc77e701de60FE246607565CF7eDC9D9b6b963",
         "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
         "poolId": "0x71628c66c502f988fbb9e17081f2bd14e361faf4000200000000000000000078",
@@ -1422,6 +1427,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvUSDC-29OCT21",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0xf38c3E836Be9cD35072055Ff6a9Ba570e0B70797",
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
         "poolId": "0x787546bf2c05e3e19e2b6bde57a203da7f682eff00020000000000000000007c",
@@ -1440,6 +1446,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvcrv3crypto-12NOV21",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x9CF2AB51aC93711Ec2fa32Ec861349568A16c729",
         "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
         "poolId": "0xf6dc4640d2783654bef88e0df3fb0f051f0dfc1a00020000000000000000007e",
@@ -1458,6 +1465,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvWBTC-26NOV21",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x6BF924137E769C0A5c443dcE6eC885552d31D579",
         "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
         "poolId": "0x4db9024fc9f477134e00da0da3c77de98d9836ac000200000000000000000086",
@@ -1476,6 +1484,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvUSDC-28JAN22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x8a2228705ec979961F0e16df311dEbcf097A2766",
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
         "poolId": "0x10a2f8bd81ee2898d7ed18fb8f114034a549fa59000200000000000000000090",
@@ -1494,6 +1503,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvcrvSTETH-28JAN22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x720465A4AE6547348056885060EEB51F9CAdb571",
         "underlying": "0x06325440D014e39736583c165C2963BA99fAf14E",
         "poolId": "0x544c823194218f0640dae8291c1f59752d25fae3000200000000000000000093",
@@ -1512,6 +1522,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvDAI-28JAN22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x449D7C2e096E9f867339078535b15440d42F78E8",
         "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
         "poolId": "0xa47d1251cf21ad42685cc6b8b3a186a73dbd06cf000200000000000000000097",
@@ -1530,6 +1541,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvCurve-alUSD-28JAN22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x55096A35Bf827919B3Bb0A5e6b5E2af8095F3D4d",
         "underlying": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
         "poolId": "0xc9ad279994980f8df348b526901006972509677f00020000000000000000009e",
@@ -1548,6 +1560,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvCurve-MIM-11FEB22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x418De6227499181B045CAdf554030722E460881a",
         "underlying": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
         "poolId": "0x09b1b33bad0e87454ff05696b1151bfbd208a43f0002000000000000000000a6",
@@ -1566,6 +1579,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvCurve-EURS-11FEB22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x2A8f5649DE50462fF9699Ccc75A2Fb0b53447503",
         "underlying": "0x194eBd173F6cDacE046C53eACcE9B953F28411d1",
         "poolId": "0x6ac02ecd0c2a23b11f9afb3b3aaf237169475cac0002000000000000000000a8",
@@ -1584,6 +1598,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvcrvSTETH-15APR22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x2361102893CCabFb543bc55AC4cC8d6d0824A67E",
         "underlying": "0x06325440D014e39736583c165C2963BA99fAf14E",
         "poolId": "0xb03c6b351a283bc1cd26b9cf6d7b0c4556013bdb0002000000000000000000ab",
@@ -1602,6 +1617,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvUSDC-17DEC21",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x76a34D72b9CF97d972fB0e390eB053A37F211c74",
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
         "poolId": "0x90ca5cef5b29342b229fb8ae2db5d8f4f894d6520002000000000000000000b5",
@@ -1620,6 +1636,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvcrv3crypto-29APR22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x285328906D0D33cb757c1E471F5e2176683247c2",
         "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
         "poolId": "0x6dd0f7c8f4793ed2531c0df4fea8633a21fdcff40002000000000000000000b7",
@@ -1638,6 +1655,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvCurve-MIM-29APR22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0xC63958D9D01eFA6B8266b1df3862c6323CbDb52B",
         "underlying": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
         "poolId": "0x14792d3f6fcf2661795d1e08ef818bf612708bbf0002000000000000000000be",
@@ -1656,6 +1674,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvUSDC-29APR22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x52C9886d5D87B0f06EbACBEff750B5Ffad5d17d9",
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
         "poolId": "0x7edde0cb05ed19e03a9a47cd5e53fc57fde1c80c0002000000000000000000c8",
@@ -1674,6 +1693,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvCurve-alUSD-29APR22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0xEaa1cBA8CC3CF01a92E9E853E90277B5B8A23e07",
         "underlying": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
         "poolId": "0x63e9b50dd3eb63bfbf93b26f57b9efb574e595760002000000000000000000cf",
@@ -1692,6 +1712,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvWBTC-29APR22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x49e9e169f0B661Ea0A883f490564F4CC275123Ed",
         "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
         "poolId": "0x4bd6d86debdb9f5413e631ad386c4427dc9d01b20002000000000000000000ec",
@@ -1710,6 +1731,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvCurveLUSD-29APR22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x0740A6CfB9468B8b53070C0B327099293DCCB82d",
         "underlying": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
         "poolId": "0x56f30398d13f111401d6e7ffe758254a0946687d000200000000000000000105",
@@ -1728,6 +1750,7 @@ export const mainnetTokenList: TokenList = {
       "symbol": "LPePyvDAI-29APR22",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD",
         "bond": "0x2c72692E94E757679289aC85d3556b2c0f717E0E",
         "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
         "poolId": "0xedf085f65b4f6c155e13155502ef925c9a756003000200000000000000000123",
@@ -2166,7 +2189,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-03-11T02:23:34.789Z",
+  "timestamp": "2022-03-11T02:33:43.635Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -2598,6 +2621,7 @@ export const goerliTokenList: TokenList = {
       "symbol": "USDC-fyUSDC",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0x0766B218517d9dC198155f0dC3485270cF788aF7",
         "bond": "0x80272c960b862B4d6542CDB7338Ad1f727E0D18d",
         "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
         "poolId": "0x40bf8a2ecb62c6b880302b55a5552a4e315b5827000200000000000000000062",
@@ -2616,6 +2640,7 @@ export const goerliTokenList: TokenList = {
       "symbol": "WETH-fyWETH",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0x0766B218517d9dC198155f0dC3485270cF788aF7",
         "bond": "0x44eecA004b2612d131EDA7dA2b9d986E7fED562e",
         "underlying": "0x9A1000D492d40bfccbc03f413A48F5B6516Ec0Fd",
         "poolId": "0x5941db4d6c500c4ffa57c359ee0c55c6b41d0b61000200000000000000000064",
@@ -2634,6 +2659,7 @@ export const goerliTokenList: TokenList = {
       "symbol": "WETH-fyWETH",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0x0766B218517d9dC198155f0dC3485270cF788aF7",
         "bond": "0x89d66Ad25F3A723D606B78170366d8da9870A879",
         "underlying": "0x9A1000D492d40bfccbc03f413A48F5B6516Ec0Fd",
         "poolId": "0x9eb7f54c0ecc4d0d2dff28a1276e36d598f2b0d1000200000000000000000066",
@@ -2652,6 +2678,7 @@ export const goerliTokenList: TokenList = {
       "symbol": "LP:eP:eyUSDC:02-JUN-21-GMT",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0x0766B218517d9dC198155f0dC3485270cF788aF7",
         "bond": "0x7D64aD2b83a62C0d02514a43E5B4582C671E5F72",
         "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
         "poolId": "0x5e5d0f28d52ebc7dfe101542e3bfd32f09065f15000200000000000000000072",
@@ -2670,6 +2697,7 @@ export const goerliTokenList: TokenList = {
       "symbol": "LP:eP:eyUSDC:09-JUN-21-GMT",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0x0766B218517d9dC198155f0dC3485270cF788aF7",
         "bond": "0x8Bd721BB84a30c0078aF4a5a732c7169C5BE6eDB",
         "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
         "poolId": "0x680c7914e2cae78a2ac94dabf6277692ef652353000200000000000000000074",
@@ -2688,6 +2716,7 @@ export const goerliTokenList: TokenList = {
       "symbol": "LP:eP:eyDAI:28-JUN-21-GMT",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0x0766B218517d9dC198155f0dC3485270cF788aF7",
         "bond": "0x6866dFc9A60e9dba922668b9b27931DCaCDF645A",
         "underlying": "0x5bD768CCE8C529CDF23B136bB486a81f64985B92",
         "poolId": "0x00655f8f287848f35538648a012e2cbd13016138000200000000000000000079",
@@ -2706,6 +2735,7 @@ export const goerliTokenList: TokenList = {
       "symbol": "LPeP:eyUSDC:10-AUG-22-GMT",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0x0766B218517d9dC198155f0dC3485270cF788aF7",
         "bond": "0xDCf80C068B7fFDF7273d8ADAE4B076BF384F711A",
         "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
         "poolId": "0x4294005520c453eb8fa66f53042cfc79707855c400020000000000000000009a",
@@ -2724,6 +2754,7 @@ export const goerliTokenList: TokenList = {
       "symbol": "LPeP:eyUSDC:08-DEC-21-GMT",
       "decimals": 18,
       "extensions": {
+        "convergentPoolFactory": "0x0766B218517d9dC198155f0dC3485270cF788aF7",
         "bond": "0xd64bCC8f3202aada4db9f0c8F1244a077C7723D1",
         "underlying": "0x78dEca24CBa286C0f8d56370f5406B48cFCE2f86",
         "poolId": "0xb59c7597228febccec3dc0571a7ee39a26e316b90002000000000000000000a7",

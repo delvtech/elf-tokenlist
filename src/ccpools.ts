@@ -100,6 +100,7 @@ export async function getPrincipalPoolTokenInfos(
         symbol: symbol as string,
         decimals: decimal as number,
         extensions: {
+          convergentPoolFactory: ccPoolFactoryV1.address,
           bond: bondAddress as string,
           underlying: underlyingAddress as string,
           poolId: poolId as string,
