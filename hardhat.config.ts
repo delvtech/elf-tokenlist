@@ -4,6 +4,7 @@ import "@nomiclabs/hardhat-ethers";
 
 // This adds support for typescript paths mappings
 import "tsconfig-paths/register";
+import "dotenv/config";
 
 const config: HardhatUserConfig = {
   paths: {

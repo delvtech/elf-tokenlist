@@ -1,9 +1,9 @@
+import { ERC20__factory } from "@elementfi/core-typechain/dist/libraries";
 import {
-  ERC20__factory,
   InterestToken,
   InterestToken__factory,
   Tranche__factory,
-} from "@elementfi/core-typechain";
+} from "@elementfi/core-typechain/dist/v1";
 import hre from "hardhat";
 import zip from "lodash.zip";
 import { ELEMENT_LOGO_URI } from "src/logo";

@@ -1,4 +1,4 @@
-import { ERC20__factory } from "@elementfi/core-typechain";
+import { ERC20__factory } from "@elementfi/core-typechain/dist/libraries";
 import { TokenInfo } from "@uniswap/token-lists/src";
 import hre from "hardhat";
 import { getTokenDecimals, getTokenName, getTokenSymbol } from "src/erc20";

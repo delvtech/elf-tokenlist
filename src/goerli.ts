@@ -9,7 +9,6 @@ if (!fs.existsSync("dist")) {
 }
 
 const network = hre.network.name == "hardhat" ? "mainnet" : hre.network.name;
-const addressesJsonFilePath = '';
 console.log('network', network);
 
 getTokenList(

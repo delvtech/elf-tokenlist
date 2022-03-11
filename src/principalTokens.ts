@@ -1,9 +1,9 @@
+import { ERC20__factory } from "@elementfi/core-typechain/dist/libraries";
 import {
-  ERC20__factory,
   Tranche,
   TrancheFactory,
   Tranche__factory,
-} from "@elementfi/core-typechain";
+} from "@elementfi/core-typechain/dist/v1";
 import { Event } from "@ethersproject/contracts";
 import hre from "hardhat";
 import zip from "lodash.zip";

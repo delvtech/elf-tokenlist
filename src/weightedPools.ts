@@ -3,7 +3,7 @@ import {
   WeightedPool,
   WeightedPoolFactory,
   WeightedPool__factory,
-} from "@elementfi/core-typechain";
+} from "@elementfi/core-typechain/dist/v1";
 import { TokenInfo } from "@uniswap/token-lists/src";
 import hre from "hardhat";
 import zip from "lodash.zip";

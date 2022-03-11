@@ -120,6 +120,12 @@ export interface PrincipalPoolTokenInfo extends TokenInfo {
      * The number of seconds in the pools timescale.
      */
     unitSeconds: number;
+
+    /**
+     * The address of the ConvergentPoolFactory contract this pool was created
+     * from. This is useful for determining pool contract versions.
+     */
+    convergentPoolFactory: string;
   };
 }
 

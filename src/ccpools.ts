@@ -1,7 +1,11 @@
 import {
-  ConvergentCurvePool__factory,
-  ConvergentPoolFactory,
-} from "@elementfi/core-typechain";
+  ConvergentCurvePool__factory as ConvergentCurvePool__factoryV1_1,
+  ConvergentPoolFactory as ConvergentPoolFactoryV1_1,
+} from "@elementfi/core-typechain/dist/v1.1";
+import {
+  ConvergentCurvePool__factory as ConvergentCurvePool__factoryV1,
+  ConvergentPoolFactory as ConvergentPoolFactoryV1,
+} from "@elementfi/core-typechain/dist/v1";
 import hre from "hardhat";
 import zip from "lodash.zip";
 import { TokenTag } from "src/tags";
@@ -11,7 +15,7 @@ import { retry, retryAsync } from "src/util/retry";
 export const provider = hre.ethers.provider;
 export async function getPrincipalPoolTokenInfos(
   chainId: number,
-  ccPoolFactory: ConvergentPoolFactory,
+  ccPoolFactory: ConvergentPoolFactoryV1 | ConvergentPoolFactoryV1_1,
   safelist: string[]
 ): Promise<PrincipalPoolTokenInfo[]> {
   const filter = ccPoolFactory.filters.CCPoolCreated(null, null);
@@ -29,7 +33,7 @@ export async function getPrincipalPoolTokenInfos(
     ({ poolAddress }) => poolAddress
   );
   const safePools = safePoolAddresses.map((poolAddress) =>
-    ConvergentCurvePool__factory.connect(poolAddress, provider)
+    ConvergentCurvePool__factoryV1.connect(poolAddress, provider)
   );
 
   const poolBondAddresses = safePoolEvents.map(
@@ -95,6 +99,7 @@ export async function getPrincipalPoolTokenInfos(
         symbol: symbol as string,
         decimals: decimal as number,
         extensions: {
+          convergentPoolFactory: ccPoolFactory.address,
           bond: bondAddress as string,
           underlying: underlyingAddress as string,
           poolId: poolId as string,

@@ -1,4 +1,5 @@
-import { ERC20, TestYVault__factory } from "@elementfi/core-typechain";
+import { ERC20 } from "@elementfi/core-typechain/dist/libraries";
+import { TestYVault__factory } from "@elementfi/core-typechain/dist/v1";
 import { TokenInfo } from "@uniswap/token-lists/src";
 import hre from "hardhat";
 import zip from "lodash.zip";

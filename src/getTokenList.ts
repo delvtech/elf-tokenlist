@@ -3,7 +3,7 @@ import {
   TrancheFactory__factory,
   Vault__factory,
   WeightedPoolFactory__factory,
-} from "@elementfi/core-typechain";
+} from "@elementfi/core-typechain/dist/v1";
 import { TokenList } from "@uniswap/token-lists/src";
 import fs from "fs";
 import hre from "hardhat";
@@ -72,10 +72,16 @@ export async function getTokenList(
     trancheFactoryAddress,
     provider
   );
-  const convergentPoolFactory = ConvergentPoolFactory__factory.connect(
-    convergentPoolFactoryAddress,
+
+  const convergentPoolFactoryV1 = ConvergentPoolFactory__factory.connect(
+    convergentPoolFactoryAddress.v1,
     provider
   );
+  const convergentPoolFactoryV1_1 = ConvergentPoolFactory__factory.connect(
+    convergentPoolFactoryAddress.v1_1,
+    provider
+  );
+
   const balancerVault = Vault__factory.connect(balancerVaultAddress, provider);
   const weightedPoolFactory = WeightedPoolFactory__factory.connect(
     weightedPoolFactoryAddress,
@@ -129,11 +135,20 @@ export async function getTokenList(
   );
 
   console.log("principalPoolTokenInfos");
-  const principalPoolTokenInfos = await getPrincipalPoolTokenInfos(
+  const principalPoolV1TokenInfos = await getPrincipalPoolTokenInfos(
     chainId,
-    convergentPoolFactory,
+    convergentPoolFactoryV1,
     safelist
   );
+  const principalPoolV1_1TokenInfos = await getPrincipalPoolTokenInfos(
+    chainId,
+    convergentPoolFactoryV1_1,
+    safelist
+  );
+  const principalPoolTokenInfos = [
+    ...principalPoolV1TokenInfos,
+    ...principalPoolV1_1TokenInfos,
+  ];
 
   console.log("yieldPoolTokenInfos");
   const yieldPoolTokenInfos = await getYieldPoolTokenInfos(
