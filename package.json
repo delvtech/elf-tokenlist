@@ -45,12 +45,11 @@
     "typescript": "^4.3.5"
   },
   "scripts": {
-    "_fetch-addresses-json-goerli": "curl https://raw.githubusercontent.com/element-fi/elf-deploy/main/addresses/frontend-goerli.addresses.json > src/addresses/goerli.addresses.json",
-    "_fetch-addresses-json-mainnet": "curl https://raw.githubusercontent.com/element-fi/elf-deploy/main/addresses/frontend-mainnet.addresses.json > src/addresses/mainnet.addresses.json",
-    "_build-tokenlist-goerli": "npm run _fetch-addresses-json-goerli && bash scripts/build-tokenlist.sh goerli",
-    "_build-tokenlist-mainnet": "npm run _fetch-addresses-json-mainnet && bash scripts/build-tokenlist.sh mainnet",
+    "fetch-addresses-json": "bash scripts/fetch-addresses.sh",
+    "build-tokenlist-goerli": "npm run fetch-addresses-json goerli && bash scripts/build-tokenlist.sh goerli",
+    "build-tokenlist-mainnet": "npm run fetch-addresses-json mainnet && bash scripts/build-tokenlist.sh mainnet",
     "_build-index": "bash scripts/build-index.sh",
-    "build": " npm run _build-tokenlist-goerli && npm run _build-tokenlist-mainnet && npm run _build-index && npm run _copy-files",
+    "build": " npm run build-tokenlist-goerli && npm run build-tokenlist-mainnet && npm run _build-index && npm run _copy-files",
     "_copy-files": "bash scripts/copy-dist-files.sh",
     "typecheck": "npx tsc --noEmit"
   }
