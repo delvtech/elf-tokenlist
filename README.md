@@ -18,7 +18,6 @@ npm ci
 
 You'll also need to add api keys listed in elf.default.env to your local elf.env file.
 
-
 ## Usage Examples
 
 ### List the open principal tokens
@@ -61,14 +60,28 @@ export ALCHEMY_GOERLI_API_KEY=
 source elf.env
 ```
 
+## Building the tokenlist
+
+To build a new version of the token list, run:
+
+```bash
+npm run build
+```
+
+This will build for both mainnet & goerli, create the tokenlist, and copy the files to dist/
+
 ## Publishing tokenlist
+
 To release and publish the new token list:
 
-First create a new version commit using npm: 
+First create a new version commit using npm:
+
 ```bash
 npm version major|minor|patch # this will create a git commit
 ```
+
 Then push up the changes to Github:
+
 ```bash
 git push
 git push --tags
