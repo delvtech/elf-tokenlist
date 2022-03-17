@@ -53,7 +53,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-03-11T02:42:28.125Z",
+  "timestamp": "2022-03-17T16:11:03.952Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -436,6 +436,19 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x57A170cEC0c9Daa701d918d60809080C4Ba3C570",
+      "symbol": "yvUSDC",
+      "decimals": 6,
+      "name": "element yvUSDC",
+      "tags": [
+        "assetproxy"
+      ],
+      "extensions": {
+        "vault": "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6",
       "symbol": "yvCurve-LUSD",
       "decimals": 18,
@@ -530,6 +543,16 @@ export const mainnetTokenList: TokenList = {
       "symbol": "yvCurve-EURS",
       "decimals": 18,
       "name": "Curve EURS Pool yVault",
+      "tags": [
+        "vault"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE",
+      "symbol": "yvUSDC",
+      "decimals": 6,
+      "name": "USDC yVault",
       "tags": [
         "vault"
       ]
@@ -960,6 +983,24 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0xCFe60a1535ecc5B0bc628dC97111C8bb01637911",
+      "symbol": "ePyvUSDC-16SEP22",
+      "decimals": 6,
+      "extensions": {
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "position": "0x57A170cEC0c9Daa701d918d60809080C4Ba3C570",
+        "interestToken": "0xFf47C79A1e0b5E1Ed235dDB92A9B557C9509a9FA",
+        "unlockTimestamp": 1663355860,
+        "createdAtTimestamp": 1647458268
+      },
+      "name": "USDC Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
       "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
       "symbol": "eYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -1320,6 +1361,22 @@ export const mainnetTokenList: TokenList = {
         "tranche": "0x2c72692E94E757679289aC85d3556b2c0f717E0E",
         "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
         "unlockTimestamp": 1651275535
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0xFf47C79A1e0b5E1Ed235dDB92A9B557C9509a9FA",
+      "symbol": "eYyvUSDC-16SEP22",
+      "decimals": 6,
+      "name": "USDC Yield Token",
+      "extensions": {
+        "tranche": "0xCFe60a1535ecc5B0bc628dC97111C8bb01637911",
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "unlockTimestamp": 1663355860
       },
       "tags": [
         "eY"
@@ -1765,6 +1822,25 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x56df5ef1A0A86c2A5Dd9cC001Aa8152545BDbdeC",
+      "symbol": "LPePyvUSDC-16SEP22",
+      "decimals": 18,
+      "extensions": {
+        "convergentPoolFactory": "0xE88628700eaE9213169D715148ac5A5F47B5dCd9",
+        "bond": "0xCFe60a1535ecc5B0bc628dC97111C8bb01637911",
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "poolId": "0x56df5ef1a0a86c2a5dd9cc001aa8152545bdbdec000200000000000000000168",
+        "unitSeconds": 2800679490,
+        "expiration": 1663355860,
+        "createdAtTimestamp": 1647458944
+      },
+      "name": "LP Element Principal Token yvUSDC-16SEP22",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
       "symbol": "LPeYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -2189,7 +2265,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-03-11T02:41:27.530Z",
+  "timestamp": "2022-03-17T16:09:48.794Z",
   "version": {
     "major": 0,
     "minor": 0,

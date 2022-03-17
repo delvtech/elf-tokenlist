@@ -3,4 +3,5 @@
 compiled
 *.addresses.json
 .env
+elf.env
 dist
