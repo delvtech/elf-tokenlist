@@ -33,7 +33,7 @@
     "hardhat": "^2.5.0",
     "lodash.uniq": "^4.5.0",
     "lodash.zip": "^4.2.0",
-    "node-fetch": "^2.6.6",
+    "node-fetch": "^2.6.7",
     "prettier": "^2.3.2",
     "prettier-plugin-solidity": "^1.0.0-alpha.58",
     "solhint-plugin-prettier": "^0.0.5",
