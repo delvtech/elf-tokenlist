@@ -53,7 +53,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-03-17T16:11:03.952Z",
+  "timestamp": "2022-04-13T17:16:32.249Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -449,6 +449,32 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0xcD62f09681dCBB9fbc5bA8054B52F414Cb28960A",
+      "symbol": "yvCurve-stETH",
+      "decimals": 18,
+      "name": "element yvCurve-stETH",
+      "tags": [
+        "assetproxy"
+      ],
+      "extensions": {
+        "vault": "0xdCD90C7f6324cfa40d7169ef80b12031770B4325"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x3A285cbE492cB172b78E76Cf4f15cb6Fe9f162E4",
+      "symbol": "yvDAI",
+      "decimals": 18,
+      "name": "element yvDAI",
+      "tags": [
+        "assetproxy"
+      ],
+      "extensions": {
+        "vault": "0xdA816459F1AB5631232FE5e97a05BBBb94970c95"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6",
       "symbol": "yvCurve-LUSD",
       "decimals": 18,
@@ -563,6 +589,26 @@ export const mainnetTokenList: TokenList = {
       "symbol": "yvUSDC",
       "decimals": 6,
       "name": "USDC yVault",
+      "tags": [
+        "vault"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xdCD90C7f6324cfa40d7169ef80b12031770B4325",
+      "symbol": "yvCurve-stETH",
+      "decimals": 18,
+      "name": "Curve stETH Pool yVault",
+      "tags": [
+        "vault"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xdA816459F1AB5631232FE5e97a05BBBb94970c95",
+      "symbol": "yvDAI",
+      "decimals": 18,
+      "name": "DAI yVault",
       "tags": [
         "vault"
       ]
@@ -1001,6 +1047,42 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x21Fb757C2d3a5C574e8721027C3d7a506d77b6b3",
+      "symbol": "ePyvCurve-stETH-16SEP22",
+      "decimals": 18,
+      "extensions": {
+        "underlying": "0x06325440D014e39736583c165C2963BA99fAf14E",
+        "position": "0xcD62f09681dCBB9fbc5bA8054B52F414Cb28960A",
+        "interestToken": "0x0Dc9a5208EE0746Cb2F0C21467C4AD92dcd04DFd",
+        "unlockTimestamp": 1663341022,
+        "createdAtTimestamp": 1648481776
+      },
+      "name": "steCRV Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0xCCE00da653eB50133455D4075fE8BcA36750492c",
+      "symbol": "ePyvDAI-16SEP22",
+      "decimals": 18,
+      "extensions": {
+        "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "position": "0x3A285cbE492cB172b78E76Cf4f15cb6Fe9f162E4",
+        "interestToken": "0x7CAdf04684803FD22780302a0C7e2C92a1cd08B4",
+        "unlockTimestamp": 1663361092,
+        "createdAtTimestamp": 1649796306
+      },
+      "name": "DAI Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
       "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
       "symbol": "eYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -1377,6 +1459,38 @@ export const mainnetTokenList: TokenList = {
         "tranche": "0xCFe60a1535ecc5B0bc628dC97111C8bb01637911",
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
         "unlockTimestamp": 1663355860
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0x0Dc9a5208EE0746Cb2F0C21467C4AD92dcd04DFd",
+      "symbol": "eYyvCurve-stETH-16SEP22",
+      "decimals": 18,
+      "name": "steCRV Yield Token",
+      "extensions": {
+        "tranche": "0x21Fb757C2d3a5C574e8721027C3d7a506d77b6b3",
+        "underlying": "0x06325440D014e39736583c165C2963BA99fAf14E",
+        "unlockTimestamp": 1663341022
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0x7CAdf04684803FD22780302a0C7e2C92a1cd08B4",
+      "symbol": "eYyvDAI-16SEP22",
+      "decimals": 18,
+      "name": "DAI Yield Token",
+      "extensions": {
+        "tranche": "0xCCE00da653eB50133455D4075fE8BcA36750492c",
+        "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "unlockTimestamp": 1663361092
       },
       "tags": [
         "eY"
@@ -1841,6 +1955,44 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0xABb93e3787b984cb62dCD962af8732f52Ff57586",
+      "symbol": "LPePyvCurve-stETH-16SEP22",
+      "decimals": 18,
+      "extensions": {
+        "convergentPoolFactory": "0xE88628700eaE9213169D715148ac5A5F47B5dCd9",
+        "bond": "0x21Fb757C2d3a5C574e8721027C3d7a506d77b6b3",
+        "underlying": "0x06325440D014e39736583c165C2963BA99fAf14E",
+        "poolId": "0xabb93e3787b984cb62dcd962af8732f52ff57586000200000000000000000183",
+        "unitSeconds": 777878867,
+        "expiration": 1663341022,
+        "createdAtTimestamp": 1648482248
+      },
+      "name": "LP Element Principal Token yvCurve-stETH-16SEP22",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0x8fFD1dc7C3eF65f833CF84dbCd15b6Ad7f9C54EC",
+      "symbol": "LPePyvDAI-16SEP22",
+      "decimals": 18,
+      "extensions": {
+        "convergentPoolFactory": "0xE88628700eaE9213169D715148ac5A5F47B5dCd9",
+        "bond": "0xCCE00da653eB50133455D4075fE8BcA36750492c",
+        "underlying": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "poolId": "0x8ffd1dc7c3ef65f833cf84dbcd15b6ad7f9c54ec000200000000000000000199",
+        "unitSeconds": 1750464127,
+        "expiration": 1663361092,
+        "createdAtTimestamp": 1649796663
+      },
+      "name": "LP Element Principal Token yvDAI-16SEP22",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
       "symbol": "LPeYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -2265,7 +2417,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-03-17T16:09:48.794Z",
+  "timestamp": "2022-04-13T17:15:20.715Z",
   "version": {
     "major": 0,
     "minor": 0,
