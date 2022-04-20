@@ -53,7 +53,7 @@ export const mainnetTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-04-19T19:36:41.717Z",
+  "timestamp": "2022-04-20T23:01:01.823Z",
   "version": {
     "major": 0,
     "minor": 0,
@@ -488,6 +488,19 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0xA6b9c8947c4BBc355b01b73b7a90c910a8e7B7C8",
+      "symbol": "yvCurve-3Crypto",
+      "decimals": 18,
+      "name": "element yvCurve-3Crypto",
+      "tags": [
+        "assetproxy"
+      ],
+      "extensions": {
+        "vault": "0xE537B5cc158EB71037D4125BDD7538421981E6AA"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6",
       "symbol": "yvCurve-LUSD",
       "decimals": 18,
@@ -632,6 +645,16 @@ export const mainnetTokenList: TokenList = {
       "symbol": "yvCurve-LUSD",
       "decimals": 18,
       "name": "Curve LUSD Pool yVault",
+      "tags": [
+        "vault"
+      ]
+    },
+    {
+      "chainId": 1,
+      "address": "0xE537B5cc158EB71037D4125BDD7538421981E6AA",
+      "symbol": "yvCurve-3Crypto",
+      "decimals": 18,
+      "name": "Curve 3Crypto Pool yVault",
       "tags": [
         "vault"
       ]
@@ -1124,6 +1147,24 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0x097F9f108ee0Db2Cb266AA16Ccfb4831Ec4D770b",
+      "symbol": "ePyvCurve-3Crypto-16SEP22",
+      "decimals": 18,
+      "extensions": {
+        "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+        "position": "0xA6b9c8947c4BBc355b01b73b7a90c910a8e7B7C8",
+        "interestToken": "0xF84c824f565E10470788D65FcE225b13b5328D81",
+        "unlockTimestamp": 1663354791,
+        "createdAtTimestamp": 1650481210
+      },
+      "name": "crv3crypto Principal Token",
+      "tags": [
+        "eP"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
       "address": "0xBabD64a87881d8df7680907fcde176FF11Fa0292",
       "symbol": "eYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -1548,6 +1589,22 @@ export const mainnetTokenList: TokenList = {
         "tranche": "0x83d392a7be901892a8c861c96Ea430B8d9c2BD51",
         "underlying": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
         "unlockTimestamp": 1663348630
+      },
+      "tags": [
+        "eY"
+      ],
+      "logoURI": "https://elementfi.s3.us-east-2.amazonaws.com/logo.svg"
+    },
+    {
+      "chainId": 1,
+      "address": "0xF84c824f565E10470788D65FcE225b13b5328D81",
+      "symbol": "eYyvCurve-3Crypto-16SEP22",
+      "decimals": 18,
+      "name": "crv3crypto Yield Token",
+      "extensions": {
+        "tranche": "0x097F9f108ee0Db2Cb266AA16Ccfb4831Ec4D770b",
+        "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+        "unlockTimestamp": 1663354791
       },
       "tags": [
         "eY"
@@ -2069,6 +2126,25 @@ export const mainnetTokenList: TokenList = {
     },
     {
       "chainId": 1,
+      "address": "0xC80Fef22fCcc277aC0fFEA84D111888A767f717e",
+      "symbol": "LPePyvCurve-3Crypto-16SEP22",
+      "decimals": 18,
+      "extensions": {
+        "convergentPoolFactory": "0xE88628700eaE9213169D715148ac5A5F47B5dCd9",
+        "bond": "0x097F9f108ee0Db2Cb266AA16Ccfb4831Ec4D770b",
+        "underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+        "poolId": "0xc80fef22fccc277ac0ffea84d111888a767f717e0002000000000000000001b1",
+        "unitSeconds": 717367023,
+        "expiration": 1663354791,
+        "createdAtTimestamp": 1650481728
+      },
+      "name": "LP Element Principal Token yvCurve-3Crypto-16SEP22",
+      "tags": [
+        "ccpool"
+      ]
+    },
+    {
+      "chainId": 1,
       "address": "0xDe620bb8BE43ee54d7aa73f8E99A7409Fe511084",
       "symbol": "LPeYyvCurveLUSD-28SEP21",
       "decimals": 18,
@@ -2493,7 +2569,7 @@ export const goerliTokenList: TokenList = {
       "description": "The yield position, ie: Yearn yvcrvLUSD"
     }
   },
-  "timestamp": "2022-04-19T19:34:49.507Z",
+  "timestamp": "2022-04-20T22:59:21.699Z",
   "version": {
     "major": 0,
     "minor": 0,
